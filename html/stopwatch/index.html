@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/watch.css">
     <title>stopWatch</title>
 </head>
+
 <body>
-    <div id="container" class="container">
-        <div id="timeBox" class="time-box"></div>
-        <div id="time" class="time">00:00:00</div>
+    <div class="container">
+        <div id="box" class="box">
+            <div id="timeBox" class="time-box"></div>
+            <div id="time" class="time">00:00:00</div>
+            <div class="qq">
+                <ul>
+                    <li>qweqwr</li>
+                    <li>가나다<sapn class="red">라마바</sapn>사</li>
+                </ul>
+            </div>
+        </div>
+        <div class="btn-box">
+            <p id="startBtn" class="fa fa-play" aria-hidden="true"></p>
+            <p id="pauseBtn" class="fa fa-pause" aria-hidden="true"></p>
+            <p id="stopBtn" class="fa fa-stop" aria-hidden="true"></p>
+        </div>
     </div>
-    <div class="btn-box">
-        <p id="startBtn" class="fa fa-play" aria-hidden="true"></p>
-        <p id="pauseBtn" class="fa fa-pause" aria-hidden="true"></p>
-        <p id="stopbtn" class="fa fa-stop" aria-hidden="true"></p>
-    </div>
+
+    <script src="./js/app.js"></script>
 </body>
+
 </html>

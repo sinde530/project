@@ -1,0 +1,46 @@
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.box{
+    width: 200px;
+    height: 100px;
+}
+
+.time-box{
+    width: 200px;
+    /* outline: 2px solid #000; */
+}
+
+.time{
+    font-size: 24px;
+    color: #4c4c4c;
+    text-align: center;
+    font-family: sans-serif;
+    border: 2px solid #000;
+    padding: 16px 16px;
+}
+
+.btn-box{
+    /* margin: 0 auto; */
+    text-align: center;
+}
+
+.btn-box p{
+    margin: 0 5px;
+    font-size: 24px;
+    color: #FAED7D;
+    cursor: pointer;
+}
+
+.qq{
+    display: flex;
+}
+
+.red{
+    color: red;
+}
