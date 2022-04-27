@@ -3,7 +3,7 @@ import Habit from "./Habit";
 
 export default class ListItem extends Component {
     state = {
-        lists: [
+        listItem: [
             { id: 1, name: 'Reading', count: 0 },
             { id: 2, name: 'Running', count: 0 },
             { id: 3, name: 'Coding', count: 0 },
@@ -11,14 +11,24 @@ export default class ListItem extends Component {
     }
 
     handleIncrement = (list) => {
-        console.log(`handleIncrement ${list.name}`);
+        // ...this = 새로운 배열을 만듬
+        const listItem = [...this.state.listItem];
+        const index = listItem.indexOf(list);
+        listItem[index].count++;
+        this.setState({ listItem });
     }
+
     handleDecrement = (list) => {
-        console.log(`handleDecrement ${list.name}`);
+        const listItem = [...this.state.listItem];
+        const index = listItem.indexOf(list);
+        const count = listItem[index].count - 1;
+        listItem[index].count = count < 0 ? 0 : count;
+        this.setState({ listItem });
     }
 
     handleDelete = (list) => {
-        console.log(`handleDelete ${list.name}`);
+        const listItem = this.state.listItem.filter(item => item.id !== list.id);
+        this.setState({ listItem })
     }
 
     render() {
@@ -26,11 +36,11 @@ export default class ListItem extends Component {
         return (
             <div>
                 <ul>
-                    {this.state.lists.map(list => (
+                    {this.state.listItem.map(list => (
                         // list 데이터 key값 전달
                         <Habit
                             key={list.id}
-                            list={list}
+                            item={list}
                             onIncrement={this.handleIncrement}
                             onDecrement={this.handleDecrement}
                             onDelete={this.handleDelete}

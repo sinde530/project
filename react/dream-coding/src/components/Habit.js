@@ -7,20 +7,20 @@ export default class Habit extends Component {
     // };
 
     handleIncrement = () => {
-        this.props.onIncrement(this.props.list)
+        this.props.onIncrement(this.props.item)
     }
     handleDecrement = () => {
-        this.props.onDecrement(this.props.list)
+        this.props.onDecrement(this.props.item)
     }
 
     handleDelete = () => {
-        this.props.onDelete(this.props.list)
+        this.props.onDelete(this.props.item)
     }
 
     render() {
         // console.log(this.props);
-        // const habitName = this.props.list.name;
-        const { name, count } = this.props.list;
+        // const habitName = this.props.item.name;
+        const { name, count } = this.props.item;
         return (
             <div className="habit-container">
                 <span className="habit-name">{name}</span>
