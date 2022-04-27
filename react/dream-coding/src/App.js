@@ -37,6 +37,13 @@ export default class App extends Component {
     const listItem = [...this.state.listItem, { id: Date.now(), name, count: 0 }]
     this.setState({ listItem })
   }
+  handleReset = () => {
+    const listItem = this.state.listItem.map(list => {
+      list.count = 0;
+      return list;
+    });
+    this.setState({ listItem });
+  }
 
   render() {
     return (
@@ -50,6 +57,7 @@ export default class App extends Component {
           onDecrement={this.handleDecrement}
           onDelete={this.handleDelete}
           onAdd={this.handleAdd}
+          onReset={this.handleReset}
         />
       </div>
     )
