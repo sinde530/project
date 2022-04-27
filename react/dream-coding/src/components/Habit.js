@@ -16,10 +16,13 @@ export default class Habit extends Component {
     }
 
     render() {
+        console.log(this.props);
+        // const habitName = this.props.list.name;
+        const { name, count } = this.props.list;
         return (
             <div className="habit-container">
-                <span className="habit-name">Reading</span>
-                <span className="habit-count">{this.state.count}</span>
+                <span className="habit-name">{name}</span>
+                <span className="habit-count">{count}</span>
                 <button
                     className="habit-button habit-increase"
                     onClick={this.handleIncrement}

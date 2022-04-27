@@ -1,12 +1,12 @@
 import './App.css';
-import Habit from './components/Habit';
+import ListItem from './components/ListItem';
 
 function App() {
 
   // 비지니스 로직
   return (
     <div className="App">
-      <Habit />
+      <ListItem />
     </div>
   );
 }
