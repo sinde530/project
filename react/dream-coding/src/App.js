@@ -1,5 +1,6 @@
 import './App.css';
 import ListItem from './components/ListItem';
+import Map from './components/Map';
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
   return (
     <div className="App">
       <ListItem />
+      <Map />
     </div>
   );
 }
