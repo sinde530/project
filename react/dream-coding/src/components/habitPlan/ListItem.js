@@ -37,7 +37,7 @@ export default class ListItem extends Component {
                         />
                     ))}
                 </ul>
-                <button className="reset-bton" onClick={this.props.onReset}>Reset All</button>
+                <button className="reset-btn" onClick={this.props.onReset}>Reset All</button>
             </>
         )
     }
