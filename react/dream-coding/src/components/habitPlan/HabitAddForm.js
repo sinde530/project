@@ -7,6 +7,7 @@ export default class HabitAddForm extends Component {
         e.preventDefault()
         const name = this.inputRef.current.value;
         name && this.props.onAdd(name);
+        this.inputRef.current.value = '';
     };
 
     render() {
