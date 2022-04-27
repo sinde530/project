@@ -2,21 +2,23 @@ import React, { Component } from "react";
 
 export default class Habit extends Component {
     // components 안에서 정의한 컴포넌트 오브젝트
-    state = {
-        count: 0,
-    };
+    // state = {
+    //     count: 0,
+    // };
 
     handleIncrement = () => {
-        this.setState({ count: this.state.count + 1 })
+        this.props.onIncrement(this.props.list)
     }
     handleDecrement = () => {
-        const count = this.state.count - 1;
-        // 0보다 작으면 count를 출력
-        this.setState({ count: count < 0 ? 0 : count })
+        this.props.onDecrement(this.props.list)
+    }
+
+    handleDelete = () => {
+        this.props.onDelete(this.props.list)
     }
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         // const habitName = this.props.list.name;
         const { name, count } = this.props.list;
         return (
@@ -37,6 +39,7 @@ export default class Habit extends Component {
                 </button>
                 <button
                     className="habit-button habit-delete"
+                    onClick={this.handleDelete}
                 >
                     <i className="fas fa-trash"></i>
                 </button>

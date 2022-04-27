@@ -3,12 +3,22 @@ import Habit from "./Habit";
 
 export default class ListItem extends Component {
     state = {
-        // 배열 데이터
         lists: [
             { id: 1, name: 'Reading', count: 0 },
             { id: 2, name: 'Running', count: 0 },
             { id: 3, name: 'Coding', count: 0 },
         ]
+    }
+
+    handleIncrement = (list) => {
+        console.log(`handleIncrement ${list.name}`);
+    }
+    handleDecrement = (list) => {
+        console.log(`handleDecrement ${list.name}`);
+    }
+
+    handleDelete = (list) => {
+        console.log(`handleDelete ${list.name}`);
     }
 
     render() {
@@ -21,6 +31,9 @@ export default class ListItem extends Component {
                         <Habit
                             key={list.id}
                             list={list}
+                            onIncrement={this.handleIncrement}
+                            onDecrement={this.handleDecrement}
+                            onDelete={this.handleDelete}
                         />
                     ))}
                 </ul>
