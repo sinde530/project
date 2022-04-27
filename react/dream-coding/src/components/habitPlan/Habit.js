@@ -13,7 +13,10 @@ export default class Habit extends Component {
     }
 
     render() {
-        const { name, count } = this.props.listItem;
+        const { name, count } = this.props.item;
+        // console.log(this.props.handleIncrement)
+        // undifined
+        // console.log(this.props.item)
         return (
             <div className="habit-container">
                 <span className="habit-name">{name}</span>

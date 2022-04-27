@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Habit from "./Habit";
+import ListItem from "./ListItem";
 
 export default class index extends Component {
     state = {
@@ -32,12 +32,13 @@ export default class index extends Component {
     }
 
     render() {
+        // console.log(this.handleIncrement)
         return (
             <div>
-                <Habit
-                    habit={this.state.list}
-                    onCremenet={this.handleIncrement}
-                    onDeemenet={this.handleDecrement}
+                <ListItem
+                    habit={this.state.listItem}
+                    onIncrement={this.handleIncrement}
+                    onDecrement={this.handleDecrement}
                     onDelete={this.handleDelete}
                 />
             </div>)

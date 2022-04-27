@@ -15,10 +15,12 @@ export default class ListItem extends Component {
     }
 
     render() {
+        // console.log(this.handleIncrement)
+        // check
         return (
             <div>
                 <ul>
-                    {this.props.list.map(list => (
+                    {this.props.habit.map(list => (
                         // list 데이터 key값 전달
                         <Habit
                             key={list.id}
