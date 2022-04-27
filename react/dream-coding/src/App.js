@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import './App.css';
-import Index from './components/habitPlan';
 import ListItem from './components/habitPlan/ListItem';
 import Navbar from './components/Navbar';
 
@@ -37,7 +36,9 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Navbar totalCount={this.props.item.filter(item => item.count > 0)} /> */}
+        <Navbar
+          totalCount={this.state.listItem.filter(item => item.count > 0).length}
+        />
         <ListItem
           habit={this.state.listItem}
           onIncrement={this.handleIncrement}
