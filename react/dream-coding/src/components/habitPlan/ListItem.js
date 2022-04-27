@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Habit from "./Habit";
+import HabitAddForm from "./HabitAddForm";
 
 export default class ListItem extends Component {
     handleIncrement = list => {
@@ -14,11 +15,16 @@ export default class ListItem extends Component {
         this.props.onDelete(list)
     }
 
+    handleAdd = name => {
+        this.props.onAdd(name);
+    }
+
     render() {
         // console.log(this.handleIncrement)
         // check
         return (
-            <div>
+            <>
+                <HabitAddForm onAdd={this.handleAdd} />
                 <ul>
                     {this.props.habit.map(list => (
                         // list 데이터 key값 전달
@@ -32,7 +38,7 @@ export default class ListItem extends Component {
                     ))}
                 </ul>
 
-            </div>
+            </>
         )
     }
 }

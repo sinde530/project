@@ -33,6 +33,11 @@ export default class App extends Component {
     this.setState({ listItem })
   }
 
+  handleAdd = name => {
+    const listItem = [...this.state.listItem, { id: Date.now(), name, count: 0 }]
+    this.setState({ listItem })
+  }
+
   render() {
     return (
       <div className="App">
@@ -44,6 +49,7 @@ export default class App extends Component {
           onIncrement={this.handleIncrement}
           onDecrement={this.handleDecrement}
           onDelete={this.handleDelete}
+          onAdd={this.handleAdd}
         />
       </div>
     )
