@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 
 export default class Habit extends Component {
-    // components 안에서 정의한 컴포넌트 오브젝트
-    // state = {
-    //     count: 0,
-    // };
-
     handleIncrement = () => {
         this.props.onIncrement(this.props.item)
     }
@@ -18,9 +13,7 @@ export default class Habit extends Component {
     }
 
     render() {
-        // console.log(this.props);
-        // const habitName = this.props.item.name;
-        const { name, count } = this.props.item;
+        const { name, count } = this.props.listItem;
         return (
             <div className="habit-container">
                 <span className="habit-name">{name}</span>

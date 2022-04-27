@@ -1,14 +1,12 @@
 import './App.css';
-import ListItem from './components/ListItem';
-import Map from './components/Map';
+import Index from './components/habitPlan';
 
 function App() {
 
   // 비지니스 로직
   return (
     <div className="App">
-      <ListItem />
-      <Map />
+      <Index />
     </div>
   );
 }

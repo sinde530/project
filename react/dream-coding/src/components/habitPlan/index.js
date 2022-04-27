@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Habit from "./Habit";
 
-export default class ListItem extends Component {
+export default class index extends Component {
     state = {
         listItem: [
             { id: 1, name: 'Reading', count: 0 },
@@ -10,7 +10,7 @@ export default class ListItem extends Component {
         ]
     }
 
-    handleIncrement = (list) => {
+    handleIncrement = list => {
         // ...this = 새로운 배열을 만듬
         const listItem = [...this.state.listItem];
         const index = listItem.indexOf(list);
@@ -18,7 +18,7 @@ export default class ListItem extends Component {
         this.setState({ listItem });
     }
 
-    handleDecrement = (list) => {
+    handleDecrement = list => {
         const listItem = [...this.state.listItem];
         const index = listItem.indexOf(list);
         const count = listItem[index].count - 1;
@@ -26,29 +26,20 @@ export default class ListItem extends Component {
         this.setState({ listItem });
     }
 
-    handleDelete = (list) => {
+    handleDelete = list => {
         const listItem = this.state.listItem.filter(item => item.id !== list.id);
         this.setState({ listItem })
     }
 
     render() {
-
         return (
             <div>
-                <ul>
-                    {this.state.listItem.map(list => (
-                        // list 데이터 key값 전달
-                        <Habit
-                            key={list.id}
-                            item={list}
-                            onIncrement={this.handleIncrement}
-                            onDecrement={this.handleDecrement}
-                            onDelete={this.handleDelete}
-                        />
-                    ))}
-                </ul>
-
-            </div>
-        )
+                <Habit
+                    habit={this.state.list}
+                    onCremenet={this.handleIncrement}
+                    onDeemenet={this.handleDecrement}
+                    onDelete={this.handleDelete}
+                />
+            </div>)
     }
 }
