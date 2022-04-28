@@ -13,18 +13,23 @@ export default class App extends Component {
   }
 
   handleIncrement = list => {
-    // ...this = 새로운 배열을 만듬
-    const listItem = [...this.state.listItem];
-    const index = listItem.indexOf(list);
-    listItem[index].count++;
+    const listItem = this.state.listItem.map(item => {
+      if (item.id === list.id) {
+        return { ...list, count: list.count + 1 }
+      }
+      return item;
+    });
     this.setState({ listItem });
   }
 
   handleDecrement = list => {
-    const listItem = [...this.state.listItem];
-    const index = listItem.indexOf(list);
-    const count = listItem[index].count - 1;
-    listItem[index].count = count < 0 ? 0 : count;
+    const listItem = this.state.listItem.map(item => {
+      if (item.id === list.id) {
+        const count = list.count - 1;
+        return { ...list, count: count < 0 ? 0 : count };
+      }
+      return item;
+    });
     this.setState({ listItem });
   }
 
@@ -37,10 +42,12 @@ export default class App extends Component {
     const listItem = [...this.state.listItem, { id: Date.now(), name, count: 0 }]
     this.setState({ listItem })
   }
-  handleReset = () => {
-    const listItem = this.state.listItem.map(list => {
-      list.count = 0;
-      return list;
+  handleReset = list => {
+    const listItem = this.state.listItem.map(item => {
+      if (list.count !== 0) {
+        return { ...item, count: 0 };
+      }
+      return item;
     });
     this.setState({ listItem });
   }
