@@ -12,3 +12,7 @@
 - Spread Operator // 참조값에 대해
 - memo // prop가 변경되지 않으면 함수가 호출되지 않음
 - React Hook (useState, useEffect)
+
+# 추후..
+
+react-hooks를 사용하여 변경해보자.
