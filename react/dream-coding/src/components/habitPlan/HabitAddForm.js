@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-export default class HabitAddForm extends Component {
+export default class HabitAddForm extends PureComponent {
+    // PureComponent props,state안에 들어있는 최상위에 있는 데이터가 변하지 않으면 render 호출X
     inputRef = React.createRef();
     formRef = React.createRef();
 

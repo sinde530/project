@@ -6,15 +6,12 @@ export default class ListItem extends Component {
     handleIncrement = list => {
         this.props.onIncrement(list)
     }
-
     handleDecrement = list => {
         this.props.onDecrement(list)
     }
-
     handleDelete = list => {
         this.props.onDelete(list)
     }
-
     handleAdd = name => {
         this.props.onAdd(name);
     }
