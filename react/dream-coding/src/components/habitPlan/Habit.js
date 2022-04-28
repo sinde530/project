@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 
 export default class Habit extends Component {
+    componentDidMount() {
+        console.log(`item: $(this.props.item.name) mounted `)
+    }
+    componentWillUnmount() {
+        console.log(`item: $(this.props.item.name) will mounted `)
+    }
+
     handleIncrement = () => {
         this.props.onIncrement(this.props.item)
     }

@@ -9,4 +9,5 @@
 ## 2022/04/28(목)
 
 - PureComponent
--
+- Spread Operator // 참조값에 대해
+- Lifecycle
