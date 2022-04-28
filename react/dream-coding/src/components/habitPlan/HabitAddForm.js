@@ -1,6 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 
-function habitAddForm(props) {
+const habitAddForm = memo(props => {
+
     // PureComponent props,state안에 들어있는 최상위에 있는 데이터가 변하지 않으면 render 호출X
     const inputRef = React.createRef();
     const formRef = React.createRef();
@@ -23,6 +24,6 @@ function habitAddForm(props) {
             <button className="add-button">Add</button>
         </form>
     );
-}
+});
 
 export default habitAddForm;
