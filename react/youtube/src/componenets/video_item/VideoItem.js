@@ -1,12 +1,18 @@
 import styled from "@emotion/styled";
 import React from "react";
 
+const Container = styled.div`
+    width: 50%;
+    padding: 0.2rem;
+`
+
 const Video = styled.li`
+    width: 50%;
     display: flex;
     align-items: center;
     border: 1px solid lightgray;
-    margin-bottom: 1rem;
     transition: transform 250ms ease-in;
+    box-shadow: 3px 3px 5px 0px rgba(191,191,191,0.53);
     cursor: pointer;
     &:hover{
         transform: scale(1.02);
@@ -14,30 +20,36 @@ const Video = styled.li`
 `
 const Thumbnails = styled.img`
     width: 40%;
+    height: 100%
+`
+const MetaData = styled.div`
+    margin-left: 0.4rem;
 `
 const Title = styled.p`
     margin: 0;
+    font-size: 0.8rem;
 `
 const Channel = styled.p`
     margin: 0;
     font-size: 0.9rem;
+    font-size: 0.6rem;
 `
 
 
 function VideoItem(props) {
     return (
-        <div>
+        <Container>
             <Video>
                 <Thumbnails
                     src={props.video.snippet.thumbnails.medium.url}
                     alt="video thumbnail"
                 />
-                <div>
+                <MetaData>
                     <Title>{props.video.snippet.title}</Title>
                     <Channel>{props.video.snippet.channelTitle}</Channel>
-                </div>
+                </MetaData>
             </Video>
-        </div>
+        </Container>
     )
 }
 // function VideoItem({ video: { snippet } }) {
