@@ -1,7 +1,13 @@
+import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './componenets/header/Header';
 import VideoList from './componenets/video_list/VideoList';
+
+const Container = styled.div`
+  max-width: 1280px;
+}
+`
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -23,10 +29,10 @@ function App() {
 
 
   return (
-    <>
+    <Container>
       <Header />
       <VideoList videos={videos} />
-    </>
+    </Container>
   )
 
 }
