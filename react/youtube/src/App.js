@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Header from './componenets/header/Header';
 import VideoList from './componenets/video_list/VideoList';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <VideoList videos={videos} />
     </>
   )
