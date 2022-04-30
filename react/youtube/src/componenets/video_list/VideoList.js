@@ -9,11 +9,16 @@ const Videos = styled.ul`
     padding-left: 0;
 `
 
-function VideoList(props) {
+function VideoList({ videos, onVideoClick, display }) {
     return (
         <Videos>
-            {props.videos.map(video => (
-                <VideoItem key={video.id} video={video} />
+            {videos.map(video => (
+                <VideoItem
+                    key={video.id}
+                    video={video}
+                    onVideoClick={onVideoClick}
+                    display={display}
+                />
             ))}
         </Videos>
     )

@@ -1,0 +1,11 @@
+.container {
+    padding: 0.2em;
+}
+
+.container.grid {
+    width: 50%;
+}
+
+.container.list {
+    width: 100%;
+}

@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
 import React from "react";
+import styles from './item.module.css';
 
 const Container = styled.div`
-    width: 50%;
     padding: 0.2rem;
 `
 
 const Video = styled.li`
-    width: 50%;
+    width: 100%;
+    height:100%;
     display: flex;
     align-items: center;
     border: 1px solid lightgray;
@@ -36,17 +37,21 @@ const Channel = styled.p`
 `
 
 
-function VideoItem(props) {
+function VideoItem({ video, video: { snippet }, onVideoClick, display }) {
+    const displayType = display === 'list' ? styles.list : styles.grid;
     return (
-        <Container>
+        <Container
+            className={`${styles.container} ${displayType}`}
+            onClick={() => onVideoClick(video)}
+        >
             <Video>
                 <Thumbnails
-                    src={props.video.snippet.thumbnails.medium.url}
+                    src={snippet.thumbnails.medium.url}
                     alt="video thumbnail"
                 />
                 <MetaData>
-                    <Title>{props.video.snippet.title}</Title>
-                    <Channel>{props.video.snippet.channelTitle}</Channel>
+                    <Title>{snippet.title}</Title>
+                    <Channel>{snippet.channelTitle}</Channel>
                 </MetaData>
             </Video>
         </Container>
