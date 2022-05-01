@@ -15,7 +15,9 @@ function CreateUser({ username, email, onChange, onCreate }) {
                 onChange={onChange}
                 value={email}
             />
-            <button onClick={onCreate} >
+            <button
+                onClick={onCreate}
+            >
                 Submit
             </button>
         </div>

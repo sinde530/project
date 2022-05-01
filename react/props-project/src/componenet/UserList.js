@@ -3,7 +3,7 @@ import React from "react";
 function User({ user, onRemove }) {
     return (
         <>
-            <p><b>{user.username}</b> {user.email}</p>
+            <p><b>{user.username}</b>{user.email}</p>
             <button
                 onClick={() => {
                     onRemove(user.id)

@@ -7,9 +7,10 @@ function RegisterForm() {
     const idRef = useRef(4);
     const [inputs, setInputs] = useState({
         username: '',
-        email: ''
+        email: '',
     });
     const { username, email } = inputs;
+
     const onChange = e => {
         const { name, value } = e.target;
         setInputs({
@@ -17,24 +18,6 @@ function RegisterForm() {
             [name]: value
         });
     }
-    const [users, setUsers] = useState([
-        {
-            id: 1,
-            username: 'Crong',
-            email: 'rlatjddms338@gmail.com'
-        },
-        {
-            id: 2,
-            username: 'SungEun',
-            email: 'mirxx@gmail.com'
-        },
-        {
-            id: 3,
-            username: 'Sinde',
-            email: 'sinde530@gmail.com'
-        }
-    ]);
-
     const onCreate = () => {
         const user = {
             id: idRef.current,
@@ -53,6 +36,24 @@ function RegisterForm() {
         setUsers(users.filter(user => user.id !== id))
     };
 
+    const [users, setUsers] = useState([
+        {
+            id: 1,
+            username: 'Crong',
+            email: 'rlatjddms338@gmail.com',
+        },
+        {
+            id: 2,
+            username: 'SungEun',
+            email: 'mirxx@gmail.com',
+        },
+        {
+            id: 3,
+            username: 'Sinde',
+            email: 'sinde530@gmail.com',
+        }
+    ]);
+
     return (
         <>
             <CreateUser
@@ -61,11 +62,12 @@ function RegisterForm() {
                 onChange={onChange}
                 onCreate={onCreate}
             />
-            <UserList users={users} onRemove={onRemove} />
+            <UserList
+                users={users}
+                onRemove={onRemove}
+            />
         </>
     )
 }
-
-
 
 export default RegisterForm;
