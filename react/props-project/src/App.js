@@ -1,14 +1,10 @@
 import './App.css';
-import Hello from './componenet/Hello';
+import RegisterForm from './componenet/RegisterForm';
 
 function App() {
   return (
     <div className="App">
-      {/* <Hello firstName="Kim" /> */}
-      {/* <Hello endName="Sung Eun" /> */}
-      {/* <Hello firstName="kim" />
-      <Hello endName="sung eun" /> */}
-      <Hello />
+      <RegisterForm />
     </div>
   );
 }
