@@ -6,7 +6,14 @@ import GuestGreeting from "./GuestGreeting";
 function Hello({ name, isLoggedIn }) {
     return (
         <div>
-            {isLoggedIn ? <UserGreeting name={name} /> : <GuestGreeting />}
+            {
+                isLoggedIn
+                    ?
+                    <UserGreeting
+                        name={name}
+                    />
+                    :
+                    <GuestGreeting />}
         </div>
     )
 }
