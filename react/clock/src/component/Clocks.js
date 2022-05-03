@@ -20,8 +20,7 @@ class Clocks extends Component {
   render() {
     return (
       <div>
-        <h2>현재 시간</h2>
-        <div>{this.state.date.toLocaleTimeString()}</div>
+        <div className="clock">{this.state.date.toLocaleTimeString()}</div>
       </div>
     );
   }
