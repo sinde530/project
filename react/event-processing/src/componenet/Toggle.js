@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class Toggle extends Component {
   constructor(props) {
@@ -12,13 +12,14 @@ export default class Toggle extends Component {
     this.setState((prevState) => ({
       isToggleOn: !prevState.isToggleOn,
     }));
+    console.log(this.state.isToggleOn);
   }
 
   render() {
     return (
       <div>
         <button type="button" onClick={this.handleClick}>
-          {this.state.isToggleOn ? "On" : "Off"}
+          {this.state.isToggleOn ? 'On' : 'Off'}
         </button>
       </div>
     );
