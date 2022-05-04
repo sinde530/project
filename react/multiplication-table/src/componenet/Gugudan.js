@@ -13,6 +13,7 @@ export default class Gugudan extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (Number(this.state.value) === this.state.first * this.state.second) {
+      // state를 변경시에는 setState 메소드를 사용해야 한다.
       this.setState({
         result: 'good',
         first: Math.ceil(Math.random() * 9),
@@ -28,11 +29,12 @@ export default class Gugudan extends Component {
   };
 
   onChange = (e) => {
+    // state를 변경해준다. (value 변경)
     this.setState({ value: e.target.value });
   };
   render() {
-    console.log(this.state.first, this.state.second);
-    console.log(this.state.handleSubmit);
+    // console.log(this.state.first, this.state.second);
+    // console.log(this.state.handleSubmit);
 
     return (
       <div>
