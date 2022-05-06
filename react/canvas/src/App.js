@@ -1,8 +1,10 @@
 import './App.css';
+import Scene from './component/Scene';
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <Scene />
       <p>Main Pages</p>
     </div>
   );
