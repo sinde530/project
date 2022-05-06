@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 function Event() {
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Click me");
+    console.log('Click me');
   }
   return (
     <div>

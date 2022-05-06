@@ -1,6 +1,6 @@
-import "./App.css";
-import Event from "./componenet/Event";
-import Toggle from "./componenet/Toggle";
+import './App.css';
+import Event from './componenet/Event';
+import Toggle from './componenet/Toggle';
 
 function App() {
   return (
