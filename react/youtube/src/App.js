@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import styled from '@emotion/styled';
-import './App.css';
-
 import Header from './componenets/header/Header';
 import VideoDetail from './componenets/video_detail/VideoDetail';
 import VideoList from './componenets/video_list/VideoList';
+
+import styled from '@emotion/styled';
+import './App.css';
 
 const Container = styled.div`
   max-width: 1280px;

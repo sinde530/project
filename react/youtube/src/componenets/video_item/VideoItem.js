@@ -1,5 +1,6 @@
-import styled from '@emotion/styled';
 import React from 'react';
+
+import styled from '@emotion/styled';
 import styles from './item.module.css';
 
 const Container = styled.div`
@@ -37,6 +38,7 @@ const Channel = styled.p`
 
 function VideoItem({ video, video: { snippet }, onVideoClick, display }) {
   const displayType = display === 'list' ? styles.list : styles.grid;
+
   return (
     <Container className={`${styles.container} ${displayType}`} onClick={() => onVideoClick(video)}>
       <Video>

@@ -13,6 +13,9 @@ const Video = styled.iframe`
   padding-left: 0;
   margin: 0;
 `;
+const Description = styled.pre`
+  write-space: pre-wrap;
+`;
 
 function VideoDetail({ video: { snippet }, video }) {
   return (
@@ -28,7 +31,7 @@ function VideoDetail({ video: { snippet }, video }) {
       ></Video>
       <h2>{snippet.title}</h2>
       <h3>{snippet.channelTitle}</h3>
-      <pre>{snippet.description}</pre>
+      <Description>{snippet.description}</Description>
     </Container>
   );
 }
