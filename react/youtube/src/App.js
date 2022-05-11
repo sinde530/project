@@ -1,6 +1,8 @@
-import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
+
+import styled from '@emotion/styled';
 import './App.css';
+
 import Header from './componenets/header/Header';
 import VideoDetail from './componenets/video_detail/VideoDetail';
 import VideoList from './componenets/video_list/VideoList';
