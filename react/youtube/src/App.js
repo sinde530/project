@@ -40,7 +40,8 @@ function App({ youtube }) {
 
   useEffect(() => {
     youtube.mostPopular().then((videos) => setVideos(videos));
-  }, []);
+    // 새로운 데이터를 갱신시키려고 할때
+  }, [youtube]);
 
   return (
     <Container>
