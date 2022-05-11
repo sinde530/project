@@ -9,6 +9,11 @@ const Container = styled.div`
   background: #000;
   color: #fff;
 `;
+const A = styled.a`
+  line-height: 0.6;
+  text-decoration: none;
+  color: #fff;
+`;
 const Logo = styled.div`
   display: flex;
   align-items: center;
@@ -50,10 +55,12 @@ function Header({ onSearch }) {
 
   return (
     <Container>
-      <Logo>
-        <LogoImage src="/images/logo.png" alt="logo" />
-        <Title>Youtube</Title>
-      </Logo>
+      <A href="/">
+        <Logo>
+          <LogoImage src="/images/logo.png" alt="logo" />
+          <Title>Youtube</Title>
+        </Logo>
+      </A>
       <Input type="search" placeholder="Search.." onKeyPress={onKeyPress} ref={inputRef} />
       <Button type="submit" onClick={onClick}>
         <SearchImage src="/images/search.png" alt="search" />

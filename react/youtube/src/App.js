@@ -33,6 +33,8 @@ function App({ youtube }) {
   };
 
   const search = (query) => {
+    // 초기화 시킨후 검색하면 검색한 타이틀이 보임
+    setSelectedVideo(null);
     youtube.search(query).then((videos) => setVideos(videos));
   };
 
