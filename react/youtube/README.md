@@ -41,3 +41,9 @@ const search = (query) => {
   youtube.search(query).then((videos) => setVideos(videos));
 };
 ```
+
+axios 설치
+
+```javascript
+yarn add axios
+```
