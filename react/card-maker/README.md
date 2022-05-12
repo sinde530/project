@@ -101,7 +101,7 @@ const navigate = useNavigate()
 
 ```
 
-const navigate = useNavigate() / 혼내고 싶었다.
+`const navigate = useNavigate()` / 혼내고 싶었다.
 
 ```toc
 
