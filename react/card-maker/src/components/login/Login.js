@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../footer/Footer';
 import Header from '../header/Header';
 
 function Login({ authService }) {
@@ -21,6 +22,7 @@ function Login({ authService }) {
           </li>
         </ul>
       </div>
+      <Footer />
     </div>
   );
 }
