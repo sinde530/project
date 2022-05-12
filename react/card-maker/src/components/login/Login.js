@@ -7,9 +7,12 @@ import styles from './login.module.css';
 
 function Login({ authService }) {
   function onLogin(e) {
+    console.log(onLogin);
     authService //
       .login(e.currentTarget.textContent)
       .then(console.log);
+    // const loginRoute = e.currentTarget.innerHTML;
+    // authService.login(loginRoute).then(console.log);
   }
 
   return (
