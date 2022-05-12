@@ -1,18 +1,26 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import styles from './login.module.css';
 
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
 
-import styles from './login.module.css';
-
 function Login({ authService }) {
+  const navigate = useNavigate;
+
   function onLogin(e) {
-    console.log(onLogin);
     authService //
       .login(e.currentTarget.textContent)
-      .then(console.log);
-    // const loginRoute = e.currentTarget.innerHTML;
-    // authService.login(loginRoute).then(console.log);
+      .then((data) => goToMaker(data.user.uid));
+  }
+
+  function goToMaker(userId) {
+    navigate('/maker', { id: userId });
+    // navigate({
+    //   pathname: '/maker',
+    //   state: { id: userId },
+    // });
   }
 
   return (
