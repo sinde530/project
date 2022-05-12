@@ -76,3 +76,9 @@ apiKey: process.env.REACT_APP_FIREBASE_API_KEY
 ```
 
 `REACT_APP_FIREBASE_API_KEY` / Key라 대소문자 구별이 안되어있었음.
+
+```javascript
+function Something()은 외부에서 가져다 쓸수가 없어요 같은 문서에서만 쓸수있어요 export default function Something() 은 export를 했으니까 외부에서 import해서 쓸수 있고
+default가 있으니까 이 파일에서 이 function을 디폴트값으로 import한다는 뜻이에요 default로 export를 하면 불러올때 import Something from '파일명'이렇게 되고
+default로 export하지 않았으면 import {Something} from '파일명' 이렇게 가져와야 되요
+```

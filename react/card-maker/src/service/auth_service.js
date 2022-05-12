@@ -2,7 +2,7 @@
 // import firebase from 'firebase';
 import { GoogleAuthProvider, GithubAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
-class AuthService {
+export default class AuthService {
   constructor() {
     this.firebaseAuth = getAuth();
     this.googleProvider = new GoogleAuthProvider();
@@ -34,5 +34,3 @@ class AuthService {
     }
   }
 }
-
-export default AuthService;

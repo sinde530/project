@@ -11,6 +11,7 @@ function Login({ authService }) {
       .login(e.currentTarget.textContent)
       .then(console.log);
   }
+
   return (
     <div className={styles.login}>
       <Header />
