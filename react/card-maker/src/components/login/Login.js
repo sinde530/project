@@ -2,6 +2,11 @@ import React from 'react';
 import Header from '../header/Header';
 
 function Login({ authService }) {
+  function onLogin(e) {
+    authService //
+      .login(e.currentTarget.textContent)
+      .then(console.log);
+  }
   return (
     <div>
       <Header />
@@ -9,10 +14,10 @@ function Login({ authService }) {
         <h1>Login</h1>
         <ul>
           <li>
-            <button>Google</button>
+            <button onClick={onLogin}>Google</button>
           </li>
           <li>
-            <button>Github</button>
+            <button onClick={onLogin}>Github</button>
           </li>
         </ul>
       </div>

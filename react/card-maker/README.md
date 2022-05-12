@@ -66,3 +66,13 @@ firebase 연동시 에러나는 부분 (2)
 
 Uncaught FirebaseError: Firebase: Error (auth/invalid-api-key).
 ```
+
+## 해결 방안(2)
+
+```javascript
+folder name / firebase.js
+
+apiKey: process.env.REACT_APP_FIREBASE_API_KEY
+```
+
+`REACT_APP_FIREBASE_API_KEY` / Key라 대소문자 구별이 안되어있었음.
