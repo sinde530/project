@@ -43,3 +43,26 @@ forlder name / .gitignore
 # API Keys
 .env
 ```
+
+```javascript
+firebase 연동시 에러나는 부분 (1)
+
+Uncaught FirebaseError: Firebase: No Firebase App '[DEFAULT]' has been created - call Firebase App.initializeApp() (app/no-app).
+
+```
+
+## 해결 방안(1)
+
+```javascript
+import { firebaseApp } from './service/firebase';
+
+const authService = new AuthService(firebaseApp);
+```
+
+`firebaseApp` 연동시켜주니 에러가 사라짐
+
+```javascript
+firebase 연동시 에러나는 부분 (2)
+
+Uncaught FirebaseError: Firebase: Error (auth/invalid-api-key).
+```

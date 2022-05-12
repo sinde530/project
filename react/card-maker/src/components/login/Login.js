@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../header/Header';
 
-function Login() {
+function Login({ authService }) {
   return (
     <div>
       <Header />
