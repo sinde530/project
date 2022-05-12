@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../header/Header';
 
-export default function Maker() {
+export default function Maker({ onLogout }) {
   return (
     <div>
-      <h1>Maker</h1>
+      <Header onClick={onLogout} />
     </div>
   );
 }

@@ -7,20 +7,17 @@ import Footer from '../footer/Footer';
 import Header from '../header/Header';
 
 function Login({ authService }) {
-  const navigate = useNavigate;
+  // navigate를 사용할때 꼭 변수선언
+  const navigate = useNavigate();
 
   function onLogin(e) {
     authService //
       .login(e.currentTarget.textContent)
-      .then((data) => goToMaker(data.user.uid));
+      .then((data) => GoToMaker(data.user.uid));
   }
 
-  function goToMaker(userId) {
+  function GoToMaker(userId) {
     navigate('/maker', { id: userId });
-    // navigate({
-    //   pathname: '/maker',
-    //   state: { id: userId },
-    // });
   }
 
   return (

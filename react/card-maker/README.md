@@ -83,6 +83,24 @@ default가 있으니까 이 파일에서 이 function을 디폴트값으로 impo
 default로 export하지 않았으면 import {Something} from '파일명' 이렇게 가져와야 되요
 ```
 
+```javascript
+react hook 사용 로그인 후 로그인이되면 넘어가는 페이지 오류 (3)
+
+Uncaught (in promise) Error: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons: 1. You might have mismatching versions of React and the renderer (such as React DOM) 2. You might be breaking the Rules of Hooks 3. You might have more than one copy of React in the same app See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+```
+
+## 해결방안(3)
+
+```javascript
+folder name / Login.js
+
+const navigate = useNavigate
+
+꼴에 함수라고 변수 지정해줘야했었음.
+const navigate = useNavigate()
+
+```
+
 ```toc
 
 ```
