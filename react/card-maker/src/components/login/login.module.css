@@ -1,0 +1,39 @@
+@value makerGreen,makerWhite,makerBlack,makerBlue,makerDarkGreen from '../../common/color.css';
+
+.login{
+    width: 100%;
+    text-align: center;
+}
+
+.list{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+}
+
+.item{
+    padding: 1rem;
+    margin: 0;
+}
+
+button{
+    width: 50%;
+    height: 2.5em;
+    font-size: 18px;
+    border-radius: 2rem;
+    background-color: makerGreen;
+    background: makerWhite;
+    cursor: pointer;
+}
+
+.google_button:hover{
+    background-color: makerBlue;
+    border: 2px solid #000;
+}
+
+.github_button:hover{
+    background-color: makerDarkGreen;
+    border: 2px solid #000;
+}
