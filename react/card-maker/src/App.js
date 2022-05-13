@@ -8,14 +8,12 @@ import styles from './app.module.css';
 export default function App({ authService }) {
   return (
     <div className={styles.app}>
-      <div className={styles.container}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login authService={authService} />}></Route>
-            <Route path="/maker" element={<Maker authService={authService} />}></Route>
-          </Routes>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login authService={authService} />}></Route>
+          <Route path="/maker" element={<Maker authService={authService} />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
