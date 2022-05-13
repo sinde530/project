@@ -26,6 +26,7 @@ export default function Maker({ authService }) {
   return (
     <div className={styles.maker}>
       <Header onLogout={onLogout} />
+      <div className={styles.container}></div>
       <Footer />
     </div>
   );
