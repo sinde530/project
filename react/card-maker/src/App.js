@@ -1,7 +1,9 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import styles from './app.module.css';
 import Login from './components/login/Login';
 import Maker from './components/maker/Maker';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import styles from './app.module.css';
 
 export default function App({ authService }) {
   return (
@@ -9,7 +11,7 @@ export default function App({ authService }) {
       <div className={styles.container}>
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<Login authService={authService} />}></Route>
+            <Route path="/" element={<Login authService={authService} />}></Route>
             <Route path="/maker" element={<Maker authService={authService} />}></Route>
           </Routes>
         </BrowserRouter>
