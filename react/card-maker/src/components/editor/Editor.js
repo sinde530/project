@@ -5,7 +5,7 @@ import styles from './editor.module.css';
 function Editor() {
   return (
     <div className={styles.editor}>
-      <h1>Editor</h1>
+      <h1 className={styles.title}>Card Maker</h1>
     </div>
   );
 }
