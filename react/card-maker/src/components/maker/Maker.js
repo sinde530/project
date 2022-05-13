@@ -60,11 +60,15 @@ export default function Maker({ authService }) {
       });
   });
 
+  function addCard(card) {
+    console.log(card);
+  }
+
   return (
     <div className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor cards={cards} />
+        <Editor cards={cards} addCard={addCard} />
         <Preview cards={cards} />
       </div>
       <Footer />
