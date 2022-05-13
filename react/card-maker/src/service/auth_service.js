@@ -13,6 +13,7 @@ export default class AuthService {
     return signInWithPopup(this.firebaseAuth, authProvider);
   }
 
+  // logout
   logout() {
     this.firebaseAuth.signOut();
   }
