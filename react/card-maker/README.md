@@ -107,3 +107,14 @@ const navigate = useNavigate()
 
 > target,currentTarget 의 차이점 알아보기
 > textContent, value 의 차이점 알아보기
+
+```javascript
+useEffect(() => {
+  authService //
+    .onAuthChange((user) => {
+      // 사용자가 로그인을 했다면 GoToMaker로 이동한다 (id)
+      // 로그인을 했다면 해당 페이지로 넘어간다
+      user && GoToMaker(user.id);
+    });
+});
+```

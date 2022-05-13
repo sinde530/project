@@ -1,10 +1,19 @@
 import React from 'react';
-import Header from '../header/Header';
 
-export default function Maker({ onLogout }) {
+import styles from './maker.module.css';
+
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
+
+export default function Maker({ authService }) {
+  function onLogout() {
+    authService.logout();
+  }
+
   return (
-    <div>
-      <Header onClick={onLogout} />
+    <div className={styles.maker}>
+      <Header onLogout={onLogout} />
+      <Footer />
     </div>
   );
 }
