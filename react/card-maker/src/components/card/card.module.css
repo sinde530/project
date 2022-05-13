@@ -1,6 +1,7 @@
 @value makerShadow, makerColorful, makerBlack, makerPink, makerWhite,makerWheat from '../../common/color.css';
 
 .card{
+    width: 100%;
     display: flex;
     align-items: center;
     background-color: yellow;
