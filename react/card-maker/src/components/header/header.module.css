@@ -21,6 +21,12 @@
     cursor: pointer;
 }
 
+.logout:hover{
+    transition: 0.4s;
+    background-color: makerGreen;
+    color: makerBlack;
+}
+
 .logo{
     width: 3em;
 }
