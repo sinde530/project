@@ -103,6 +103,7 @@ const navigate = useNavigate()
 
 `const navigate = useNavigate()` / 혼내고 싶었다.
 
-```toc
+### 2022/05/13(금)
 
-```
+> target,currentTarget 의 차이점 알아보기
+> textContent, value 의 차이점 알아보기
