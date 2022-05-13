@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from 'card.module.css';
+// import styles from 'card.module.css';
 
 const Card = ({ card }) => <h1>{card.id}</h1>;
 

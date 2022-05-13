@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../card/Card';
+import CardEditForm from '../card_edit_form/CardEditForm';
 
 import styles from './editor.module.css';
 
@@ -10,7 +10,7 @@ function Editor({ cards }) {
 
       {/* Card 컴포넌트에서 id를 가져온다 */}
       {cards.map((card) => (
-        <Card card={card} />
+        <CardEditForm card={card} />
       ))}
     </div>
   );
