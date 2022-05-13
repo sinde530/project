@@ -3,6 +3,7 @@
 .editor {
     flex-basis: 50%;
     background-color: pink;
+    padding: 0.5rem 2rem;
 }
 
 .title {
