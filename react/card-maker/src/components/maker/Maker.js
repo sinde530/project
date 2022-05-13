@@ -1,14 +1,49 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './maker.module.css';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-import { useNavigate } from 'react-router-dom';
 import Editor from '../editor/Editor';
 import Preview from '../preview/Preview';
 
 export default function Maker({ authService }) {
+  const [cards, setCards] = useState([
+    {
+      id: '1',
+      name: 'Crong',
+      company: 'Belivvr',
+      theme: 'light',
+      title: 'FrontEnd',
+      email: 'sinde530@gmail.com',
+      message: 'go for it',
+      fileName: 'Crong',
+      fileURL: '',
+    },
+    {
+      id: '2',
+      name: 'Crong2',
+      company: 'Belivvr',
+      theme: 'light',
+      title: 'FrontEnd',
+      email: 'sinde530@gmail.com',
+      message: 'go for it',
+      fileName: 'Crong',
+      fileURL: '',
+    },
+    {
+      id: '3',
+      name: 'Crong3',
+      company: 'Belivvr',
+      theme: 'light',
+      title: 'FrontEnd',
+      email: 'sinde530@gmail.com',
+      message: 'go for it',
+      fileName: 'Crong',
+      fileURL: '',
+    },
+  ]);
   const navigate = useNavigate();
 
   function onLogout() {
@@ -29,8 +64,8 @@ export default function Maker({ authService }) {
     <div className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor />
-        <Preview />
+        <Editor cards={cards} />
+        <Preview cards={cards} />
       </div>
       <Footer />
     </div>
