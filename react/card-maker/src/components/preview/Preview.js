@@ -9,9 +9,11 @@ function Preview({ cards }) {
       <h1 className={styles.title}>Card Preview</h1>
 
       {/* Card 컴포넌트에서 id를 가져온다 */}
-      {cards.map((card) => (
-        <Card card={card} />
-      ))}
+      <ul>
+        {cards.map((card) => (
+          <Card card={card} />
+        ))}
+      </ul>
     </div>
   );
 }

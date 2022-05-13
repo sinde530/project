@@ -19,7 +19,7 @@ export default function Maker({ authService }) {
       email: 'sinde530@gmail.com',
       message: 'go for it',
       fileName: 'Crong',
-      fileURL: '',
+      fileURL: null,
     },
     {
       id: '2',
@@ -30,7 +30,7 @@ export default function Maker({ authService }) {
       email: 'sinde530@gmail.com',
       message: 'go for it',
       fileName: 'Crong',
-      fileURL: '',
+      fileURL: null,
     },
     {
       id: '3',
@@ -41,7 +41,7 @@ export default function Maker({ authService }) {
       email: 'sinde530@gmail.com',
       message: 'go for it',
       fileName: 'Crong',
-      fileURL: '',
+      fileURL: null,
     },
   ]);
   const navigate = useNavigate();
