@@ -27,7 +27,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div>
       <h1>To do list</h1>
       <h2>{count}</h2>
       <Input onClick={onClick} />
