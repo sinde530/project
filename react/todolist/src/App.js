@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-import Input from './components/Input';
-import List from './components/List';
+import Page from './components/Page';
 
 import './App.css';
 
@@ -22,16 +21,13 @@ function App() {
     },
   ];
 
-  function onClick() {
+  function handleClick() {
     // 할일 추가
   }
 
   return (
     <div>
-      <h1>To do list</h1>
-      <h2>{count}</h2>
-      <Input onClick={onClick} />
-      <List tasks={tasks} />
+      <Page tasks={tasks} onClick={handleClick} />
     </div>
   );
 }
