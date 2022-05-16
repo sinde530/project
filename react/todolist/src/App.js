@@ -35,7 +35,9 @@ function App() {
     setState({
       ...state,
       newId: newId + 1,
-      tasks: [...tasks, { id: newId, title: 'new taks' }],
+      // 입력후 클릭시 taskTitle 초기화시키기
+      taskTitle: '',
+      tasks: [...tasks, { id: newId, title: taskTitle }],
     });
   }
 
