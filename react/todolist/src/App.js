@@ -30,6 +30,10 @@ function App() {
     console.log(e.target.value);
   }
 
+  function handleClickDelete(id) {
+    console.log(id);
+  }
+
   function handleClickAdd() {
     // 할일 추가
     setState({
@@ -48,6 +52,7 @@ function App() {
         taskTitle={taskTitle}
         onChangeTitle={handleChangeTitle}
         onClick={handleClickAdd}
+        onClickDelete={handleClickDelete}
       />
     </div>
   );

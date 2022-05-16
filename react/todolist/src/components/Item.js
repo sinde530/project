@@ -1,9 +1,12 @@
 import React from 'react';
 
-function Item({ task: { id, title } }) {
+function Item({ task: { id, title }, onClickDelete }) {
   return (
     <li>
-      {id}-{title}
+      {title}
+      <button type="button" onClick={() => onClickDelete(id)}>
+        Remove
+      </button>
     </li>
   );
 }
