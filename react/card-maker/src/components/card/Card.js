@@ -9,7 +9,7 @@ const Card = ({ card }) => {
   //   url이 없다면 DEFAULT_IMAGE 이미지로 반영한다
   const url = fileURL || DEFAULT_IMAGE;
   return (
-    <li className={`${styles.card} ${getStyles(theme)} `}>
+    <li className={`${styles.card} ${getStyles(theme)}`}>
       {/* 변수에 접근해야 하기때문에 {}사용 */}
       <img className={styles.avatar} src={url} alt="profile" />
       <div className={styles.info}>

@@ -6,9 +6,7 @@ import styles from './cardeditform.module.css';
 
 const CardEditForm = ({ card }) => {
   const { name, company, title, email, message, theme, fireName, fileURL } = card;
-  function onSubmit(e) {
-    e.preventDefault();
-  }
+  const onSubmit = () => {};
 
   return (
     <form className={styles.form}>
@@ -21,11 +19,11 @@ const CardEditForm = ({ card }) => {
       </select>
       <input className={styles.input} type="text" name="title" value={title} />
       <input className={styles.input} type="text" name="email" value={email} />
-      <textarea className={styles.textarea} name="message" value={message}></textarea>
+      <textarea className={styles.textarea} name="message" value={message} />
       <div className={styles.fileInput}>
         <ImageFileInput />
       </div>
-      <Button name="Delete" onClick={onSubmit}></Button>
+      <Button name="Delete" onClick={onSubmit} />
     </form>
   );
 };

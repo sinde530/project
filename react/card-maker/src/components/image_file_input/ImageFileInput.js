@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from './imagefileinput.module.css';
+// import styles from './imagefileinput.module.css';
 
-function ImageFileInput() {
+function ImageFileInput(props) {
   return <button>Image</button>;
 }
 

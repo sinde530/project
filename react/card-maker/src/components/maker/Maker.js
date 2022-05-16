@@ -60,8 +60,14 @@ export default function Maker({ authService }) {
       });
   });
 
+  // const addCard = (card) => {
+  //   const updated = [...cards, card];
+  //   setCards(updated);
+  // };
+
   function addCard(card) {
-    console.log(card);
+    const updated = [...cards, card];
+    setCards(updated);
   }
 
   return (

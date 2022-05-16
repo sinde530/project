@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Card from '../card/Card';
 
 import styles from './preview.module.css';
