@@ -5,12 +5,7 @@ import Page from './components/Page';
 import './App.css';
 
 function App() {
-  const [state, setState] = useState({
-    count: 0,
-  });
-  const { count } = state;
-
-  const tasks = [
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       title: '아무것도 하지 않기 #1',
@@ -19,7 +14,7 @@ function App() {
       id: 2,
       title: '아무것도 하지 않기 #2',
     },
-  ];
+  ]);
 
   function handleClick() {
     // 할일 추가
