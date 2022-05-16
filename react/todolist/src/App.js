@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Input from './components/Input';
+import List from './components/List';
 
 import './App.css';
 
@@ -8,6 +9,7 @@ function App() {
   const [state, setState] = useState({
     count: 0,
   });
+  const { count } = state;
 
   const tasks = [
     {
@@ -18,10 +20,6 @@ function App() {
   function onClick() {
     // 할일 추가
   }
-
-  function List() {}
-
-  const { count } = state;
 
   return (
     <div className="App">
