@@ -1,7 +1,12 @@
 import React from 'react';
 
-function Item({ title }) {
-  return <li>{title}</li>;
+function Item({ task }) {
+  return (
+    <li>
+      {task.id}
+      {task.title}
+    </li>
+  );
 }
 
 export default Item;
