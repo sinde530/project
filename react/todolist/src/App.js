@@ -31,7 +31,10 @@ function App() {
   }
 
   function handleClickDelete(id) {
-    console.log(id);
+    setState({
+      ...state,
+      tasks: tasks.filter((task) => task.id !== id),
+    });
   }
 
   function handleClickAdd() {
