@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   const [state, setState] = useState({
     newId: 100,
+    taskTitle: '',
     tasks: [
       {
         id: 1,
@@ -19,11 +20,20 @@ function App() {
     ],
   });
 
-  const { newId, tasks } = state;
+  const { newId, taskTitle, tasks } = state;
 
-  function handleClick() {
+  function handleChangeTitle(e) {
+    setState({
+      ...state,
+      taskTitle: e.target.value,
+    });
+    console.log(e.target.value);
+  }
+
+  function handleClickAdd() {
     // 할일 추가
     setState({
+      ...state,
       newId: newId + 1,
       tasks: [...tasks, { id: newId, title: 'new taks' }],
     });
@@ -31,7 +41,12 @@ function App() {
 
   return (
     <div>
-      <Page tasks={tasks} onClick={handleClick} />
+      <Page
+        tasks={tasks}
+        taskTitle={taskTitle}
+        onChangeTitle={handleChangeTitle}
+        onClick={handleClickAdd}
+      />
     </div>
   );
 }
