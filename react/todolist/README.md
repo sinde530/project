@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+## keys
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+map()을 사용해서 중복되는 컴포넌트들을 출력해줬는데
+콘솔에 `key` 값이 없다는 오류 메시지가 뜨는데 동작은 잘되서 `key`값을 왜 넣어야 하는지.
 
-## Available Scripts
+`key`는 React가 어떤 항목을 변경, 추가 또는 삭제할지 식별하는 것을 돕는다. `key`는 `element`에 안정적인 고유성을 부여하기 위해 배열 내부의 엘리먼트에 지정해야한다.
 
-In the project directory, you can run:
+```javascript
+const Comments = [
+  {
+    id: 0,
+    name: 'Crong',
+    text: 'Work To Do #1',
+  },
+  {
+    id: 1,
+    name: 'sinde',
+    text: 'Work To Do #2',
+  },
+];
+```
 
-### `yarn start`
+`key`는 다른 항목들 사이에서 고유하게 식별할 수 있는 것을 사용한다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+렌더링 한 항목에 부여할 id값이 마땅히 없다면 `index`를`key`로 사용할수 있다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```javascript
+{
+  Comments.map((item, index) => (
+    <li key={index}>
+      {item.name}
+      {item.text}
+    </li>
+  ));
+}
+```
 
-### `yarn test`
+순서가 바뀔 수 있는 경우에는 `key`에 인덱스를 사용하는 것을 권장하지 않는다. 이로인해 성능이 저하되거나 state와 관련된 문제가 발생할 수 있다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+만약 리스트에 `key`를 지정하지 않으면 React는 기본적으로 `index`를`key`로 사용한다.

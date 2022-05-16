@@ -13,7 +13,12 @@ function App() {
 
   const tasks = [
     {
-      title: '아무것도 하지 않기',
+      id: 1,
+      title: '아무것도 하지 않기 #1',
+    },
+    {
+      id: 2,
+      title: '아무것도 하지 않기 #2',
     },
   ];
 
