@@ -1,11 +1,7 @@
 import React from 'react';
 
 function Item({ title }) {
-  return (
-    <div>
-      <p>{title}</p>
-    </div>
-  );
+  return <li>{title}</li>;
 }
 
 export default Item;
