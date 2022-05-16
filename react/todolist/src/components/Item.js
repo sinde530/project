@@ -1,10 +1,9 @@
 import React from 'react';
 
-function Item({ task }) {
+function Item({ task: { id, title } }) {
   return (
     <li>
-      {task.id}
-      {task.title}
+      {id}-{title}
     </li>
   );
 }
