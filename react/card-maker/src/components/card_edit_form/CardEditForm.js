@@ -5,7 +5,7 @@ import ImageFileInput from '../image_file_input/ImageFileInput';
 import styles from './cardeditform.module.css';
 
 const CardEditForm = ({ card }) => {
-  const { name, company, title, email, message, theme, fireName, fileURL } = card;
+  const { name, company, title, email, message, theme } = card;
   const onSubmit = () => {};
 
   return (

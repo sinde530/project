@@ -139,3 +139,29 @@ color.css
 @value makerWheat: wheat;
 @value makerBlue: rgba(26, 115, 232);
 ```
+
+### 2022/05/17(화)
+
+```javascript
+react CardEditForm.js value값을 defaultValue로 변경시켜야하는 오류 (4)
+
+Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
+
+```
+
+## 해결방안(4)
+
+```javascript
+folder name / CardEditForm.js
+
+value 수정할수 있는 값들을 전부 `defaultValue`로 변경시켜주니 에러가 사라짐.
+
+```
+
+```javascript
+react Preview.js 유니크한 키값이 없어 오류 (5)
+
+
+react-jsx-dev-runtime.development.js:97 Warning: Each child in a list should have a unique "key" prop.
+Check the render method of `Preview`.
+```
