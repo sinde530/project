@@ -60,21 +60,22 @@ export default function Maker({ authService }) {
       });
   });
 
-  // const addCard = (card) => {
-  //   const updated = [...cards, card];
-  //   setCards(updated);
-  // };
-
   function addCard(card) {
     const updated = [...cards, card];
     setCards(updated);
+  }
+  function updateCard(card) {
+    console.log(card);
+  }
+  function deleteCard(card) {
+    console.log(card);
   }
 
   return (
     <div className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor cards={cards} addCard={addCard} />
+        <Editor cards={cards} addCard={addCard} updateCard={updateCard} deleteCard={deleteCard} />
         <Preview cards={cards} />
       </div>
       <Footer />
