@@ -38,15 +38,15 @@ const CardAddForm = ({ onAdd }) => {
       <input ref={nameRef} className={styles.input} type="text" name="name" placeholder="Name" />
       <input
         ref={companyRef}
-        className={styles.inout}
+        className={styles.input}
         type="text"
         name="company"
         placeholder="Company"
       />
       <select ref={themeRef} className={styles.select} name="theme" placeholder="Theme">
-        <option placeholder="light">Light</option>
-        <option placeholder="dard">Dark</option>
-        <option placeholder="colorful">colorFul</option>
+        <option placeholder="light">light</option>
+        <option placeholder="dark">dark</option>
+        <option placeholder="colorful">colorful</option>
       </select>
       <input ref={titleRef} className={styles.input} type="text" name="title" placeholder="Title" />
       <input ref={emailRef} className={styles.input} type="text" name="email" placeholder="Email" />
