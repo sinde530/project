@@ -9,8 +9,8 @@ import Editor from '../editor/Editor';
 import Preview from '../preview/Preview';
 
 export default function Maker({ authService }) {
-  const [cards, setCards] = useState([
-    {
+  const [cards, setCards] = useState({
+    1: {
       id: '1',
       name: 'Crong',
       company: 'Belivvr',
@@ -21,7 +21,7 @@ export default function Maker({ authService }) {
       fileName: 'Crong',
       fileURL: null,
     },
-    {
+    2: {
       id: '2',
       name: 'Crong2',
       company: 'Belivvr',
@@ -32,7 +32,7 @@ export default function Maker({ authService }) {
       fileName: 'Crong',
       fileURL: null,
     },
-    {
+    3: {
       id: '3',
       name: 'Crong3',
       company: 'Belivvr',
@@ -43,7 +43,7 @@ export default function Maker({ authService }) {
       fileName: 'Crong',
       fileURL: null,
     },
-  ]);
+  });
   const navigate = useNavigate();
 
   function onLogout() {
@@ -65,7 +65,11 @@ export default function Maker({ authService }) {
     setCards(updated);
   }
   function updateCard(card) {
-    console.log(card);
+    // state 업데이트 하기위해 cards 전부를 가져온다.
+    const update = { ...cards };
+    // card.id 로 오브젝트 전체를 변경시켜준다.
+    update[card.id] = card;
+    setCards(update);
   }
   function deleteCard(card) {
     console.log(card);
