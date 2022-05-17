@@ -30,6 +30,12 @@ describe('Calculator', () => {
     expect(cal.value).toBe(0);
   });
 
+  it('add', () => {
+    cal.set(9);
+    cal.add(9);
+    expect(cal.value).toBe(18);
+  });
+
   it('subtrack "9 - 10이라면"', () => {
     cal.set(9);
     cal.subtrack(10);
