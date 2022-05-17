@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func main() {
-	fmt.Printf("hello,wold")
+	a := 1
+
+	if true {
+		fmt.Println(reflect.TypeOf(a))
+	}
 }
