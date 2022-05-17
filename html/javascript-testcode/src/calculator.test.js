@@ -53,6 +53,18 @@ describe('Calculator', () => {
     cal.divide(10);
     expect(cal.value).toBe(0.2);
   });
+
+  describe('divides', () => {
+    it('0/0 === NaN', () => {
+      cal.divide(0);
+      expect(cal.value).toBe(NaN);
+    });
+    it('1/0 === Infinity', () => {
+      cal.set(1);
+      cal.divide(0);
+      expect(cal.value).toBe(Infinity);
+    });
+  });
 });
 
 // beforeEach = 각각 테스트코드들이 실행하기 전에 실행됨
