@@ -18,7 +18,9 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
       [e.currentTarget.name]: e.currentTarget.value,
     });
   };
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    deleteCard(card);
+  };
 
   return (
     <form className={styles.form}>

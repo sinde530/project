@@ -60,11 +60,7 @@ export default function Maker({ authService }) {
       });
   });
 
-  function addCard(card) {
-    const updated = [...cards, card];
-    setCards(updated);
-  }
-  function updateCard(card) {
+  function CreateOrUpdateCard(card) {
     // state 업데이트 하기위해 cards 전부를 가져온다.
     const update = { ...cards };
     // card.id 로 오브젝트 전체를 변경시켜준다.
@@ -72,14 +68,24 @@ export default function Maker({ authService }) {
     setCards(update);
   }
   function deleteCard(card) {
-    console.log(card);
+    // state 업데이트 하기위해 cards 전부를 가져온다.
+    const update = { ...cards };
+    // card.id 로 오브젝트 전체를 변경시켜준다.
+    delete update[card.id];
+    setCards(update);
   }
 
   return (
     <div className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor cards={cards} addCard={addCard} updateCard={updateCard} deleteCard={deleteCard} />
+        <Editor
+          cards={cards}
+          // addCard={addCard}
+          addCard={CreateOrUpdateCard}
+          updateCard={CreateOrUpdateCard}
+          deleteCard={deleteCard}
+        />
         <Preview cards={cards} />
       </div>
       <Footer />
