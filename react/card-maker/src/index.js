@@ -11,7 +11,7 @@ import ImageFileInput from './components/image_file_input/ImageFileInput';
 
 const authService = new AuthService(firebaseApp);
 const ImageUploader = new ImageUpload();
-const FileInput = (props) => <ImageFileInput {...props} ImageUploader={ImageUploader} />;
+const FileInput = (props) => <ImageFileInput {...props} ImageUpload={ImageUploader} />;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
