@@ -1,4 +1,3 @@
-@value makerGreen, makerWhite, makerBlack from '../../common/color.css';
 @value mediaQuery from '../../common/size.css';
 
 .maker {

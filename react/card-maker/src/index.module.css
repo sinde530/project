@@ -1,4 +1,4 @@
-@value makerBlack,makerWhite,makerShadow from './common/color.css';
+@value makerShadow from './common/color.css';
 
 body {
   margin: 0;

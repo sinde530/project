@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
-import Button from '../button/Button';
 
 import styles from './cardeditform.module.css';
+
+import Button from '../button/Button';
 
 const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
   const { name, company, title, email, message, theme, fileName, fileURL } = card;

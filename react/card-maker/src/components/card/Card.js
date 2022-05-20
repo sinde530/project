@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './card.module.css';
 
 const Card = ({ card }) => {
-  const { name, company, title, email, message, theme, fireName, fileURL } = card;
+  const { name, company, title, email, message, theme, fileURL } = card;
   const DEFAULT_IMAGE = '/images/default_logo.png';
 
   //   url이 없다면 DEFAULT_IMAGE 이미지로 반영한다

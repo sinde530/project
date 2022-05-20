@@ -1,4 +1,4 @@
-@value makerGreen, makerWhite, makerBlack from '../../common/color.css';
+@value makerGreen from '../../common/color.css';
 
 .preview {
     flex-basis: 50%;

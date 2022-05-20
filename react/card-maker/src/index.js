@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.module.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import App from './App';
+
+import './index.module.css';
 
 import { firebaseApp } from './service/firebase';
 import AuthService from './service/auth_service';

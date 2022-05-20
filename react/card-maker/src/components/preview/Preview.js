@@ -4,7 +4,7 @@ import Card from '../card/Card';
 
 import styles from './preview.module.css';
 
-function Preview({ cards }) {
+export default function Preview({ cards }) {
   return (
     <div className={styles.preview}>
       <h1 className={styles.title}>Card Preview</h1>
@@ -17,5 +17,3 @@ function Preview({ cards }) {
     </div>
   );
 }
-
-export default Preview;

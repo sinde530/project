@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import styles from './login.module.css';
+
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
 
-import styles from './login.module.css';
-
-function Login({ authService }) {
+export default function Login({ authService }) {
   // navigate를 사용할때 꼭 변수선언
   const navigate = useNavigate();
 
@@ -51,5 +51,3 @@ function Login({ authService }) {
     </div>
   );
 }
-
-export default Login;

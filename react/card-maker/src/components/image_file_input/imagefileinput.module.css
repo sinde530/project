@@ -1,4 +1,4 @@
-@value makerPink, makerGreen, makerWhite, makerBlack, makerBlue, makerDarkGreen, makerLightGray from '../../common/color.css';
+@value makerPink, makerBlack, makerLightGray from '../../common/color.css';
 
 .container{
     width: 100%;
@@ -25,6 +25,7 @@
 .button.gray{
     background-color: makerLightGray;
 }
+
 .button.pink{
     background-color: makerPink;
 }

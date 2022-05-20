@@ -1,5 +1,3 @@
-// import firebaseApp from './firebase';
-// import firebase from 'firebase';
 import { GoogleAuthProvider, GithubAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
 export default class AuthService {

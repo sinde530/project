@@ -1,4 +1,4 @@
-class ImageUpload {
+export default class ImageUpload {
   async upload(file) {
     const data = new FormData();
     data.append('file', file);
@@ -10,5 +10,3 @@ class ImageUpload {
     return await result.json();
   }
 }
-
-export default ImageUpload;
