@@ -6,6 +6,14 @@ import styles from './cardeditform.module.css';
 const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
   const { name, company, title, email, message, theme } = card;
 
+  const onFileChange = (file) => {
+    updateCard({
+      ...card,
+      fileNmae: file.name,
+      fileURL: file.url,
+    });
+  };
+
   const onChange = (e) => {
     // currentTarget이 null이면 return해줌
     if (e.currentTarget == null) {
@@ -63,7 +71,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
         onChange={onChange}
       />
       <div className={styles.fileInput}>
-        <FileInput />
+        <FileInput name={name} onFileChange={onFileChange} />
       </div>
       <Button name="Delete" onClick={onSubmit} />
     </form>
