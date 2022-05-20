@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Button from '../button/Button';
 
 import styles from './cardeditform.module.css';
 
 const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
   const { name, company, title, email, message, theme, fileName, fileURL } = card;
+  const nameRef = useRef();
+  const companyRef = useRef();
+  const themeRef = useRef();
+  const titleRef = useRef();
+  const messageRef = useRef();
 
   const onFileChange = (file) => {
     updateCard({
@@ -32,6 +37,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
   return (
     <form className={styles.form}>
       <input
+        ref={nameRef}
         className={styles.input}
         type="text"
         name="name"
@@ -39,18 +45,26 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
         onChange={onChange}
       />
       <input
+        ref={companyRef}
         className={styles.inout}
         type="text"
         name="company"
         defaultValue={company}
         onChange={onChange}
       />
-      <select className={styles.select} name="theme" defaultValue={theme} onChange={onChange}>
+      <select
+        ref={themeRef}
+        className={styles.select}
+        name="theme"
+        defaultValue={theme}
+        onChange={onChange}
+      >
         <option value="light">Light</option>
         <option value="dard">Dark</option>
         <option value="colorful">colorFul</option>
       </select>
       <input
+        ref={titleRef}
         className={styles.input}
         type="text"
         name="title"
@@ -65,6 +79,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
         onChange={onChange}
       />
       <textarea
+        ref={messageRef}
         className={styles.textarea}
         name="message"
         defaultValue={message}

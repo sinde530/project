@@ -4,19 +4,19 @@ import styles from './imagefileinput.module.css';
 
 function ImageFileInput({ ImageUpload, name, onFileChange }) {
   const inputRef = useRef();
-  const onButtonClick = (e) => {
-    e.preventDefault();
+  const onButtonClick = (event) => {
+    event.preventDefault();
     inputRef.current.click();
   };
 
-  const onChange = async (e) => {
-    // console.log(e.target.files[0]);
-    const uploaded = await ImageUpload.upload(e.target.files[0]);
+  const onChange = async (event) => {
+    console.log(event.target.files[0]);
+    const uploaded = await ImageUpload.upload(event.target.files[0]);
     console.log(uploaded);
-    // onFileChange({
-    //   name: 'FileName',
-    //   url: 'url',
-    // });
+    onFileChange({
+      name: uploaded.original_filename,
+      url: uploaded.url,
+    });
   };
 
   return (
