@@ -1,0 +1,25 @@
+@value makerGreen, makerWhite, makerBlack, makerBlue, makerDarkGreen, makerLightGray from '../../common/color.css';
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.input{
+    display: none;
+}
+
+.button{
+    width: 100%;
+    background-color: makerLightGray;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8rem;
+    outline: 0;
+}
+
+.button:hover{
+    opacity: 0.5;
+}
