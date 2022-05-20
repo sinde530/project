@@ -9,8 +9,14 @@ function ImageFileInput({ ImageUpload, name, onFileChange }) {
     inputRef.current.click();
   };
 
-  const onChange = (e) => {
-    console.log(e.target.vaule[0]);
+  const onChange = async (e) => {
+    // console.log(e.target.files[0]);
+    const uploaded = await ImageUpload.upload(e.target.files[0]);
+    console.log(uploaded);
+    // onFileChange({
+    //   name: 'FileName',
+    //   url: 'url',
+    // });
   };
 
   return (

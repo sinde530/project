@@ -62,17 +62,21 @@ export default function Maker({ FileInput, authService }) {
 
   function CreateOrUpdateCard(card) {
     // state 업데이트 하기위해 cards 전부를 가져온다.
-    const update = { ...cards };
-    // card.id 로 오브젝트 전체를 변경시켜준다.
-    update[card.id] = card;
-    setCards(update);
+    setCards((cards) => {
+      const updated = { ...cards };
+      // card.id 로 오브젝트 전체를 변경시켜준다.
+      updated[card.id] = card;
+      return updated;
+    });
   }
+
   function deleteCard(card) {
-    // state 업데이트 하기위해 cards 전부를 가져온다.
-    const update = { ...cards };
-    // card.id 로 오브젝트 전체를 변경시켜준다.
-    delete update[card.id];
-    setCards(update);
+    setCards((cards) => {
+      const updated = { ...cards };
+      // card.id 로 오브젝트 전체를 변경시켜준다.
+      delete updated[card.id];
+      return updated;
+    });
   }
 
   return (
