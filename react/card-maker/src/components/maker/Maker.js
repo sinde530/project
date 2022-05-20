@@ -86,7 +86,6 @@ export default function Maker({ FileInput, authService }) {
         <Editor
           FileInput={FileInput}
           cards={cards}
-          // addCard={addCard}
           addCard={CreateOrUpdateCard}
           updateCard={CreateOrUpdateCard}
           deleteCard={deleteCard}
