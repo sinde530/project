@@ -165,3 +165,8 @@ react Preview.js 유니크한 키값이 없어 오류 (5)
 react-jsx-dev-runtime.development.js:97 Warning: Each child in a list should have a unique "key" prop.
 Check the render method of `Preview`.
 ```
+
+2022/05/20(금)
+
+- 이미지 업로드
+- 이미지 스피너 생성
