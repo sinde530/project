@@ -1,14 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"reflect"
+	"net/http"
 )
 
-func main() {
-	a := 1
+func todo(w http.ResponseWriter, r *http.Request)
 
-	if true {
-		fmt.Println(reflect.TypeOf(a))
-	}
+func main() {
+	mux := http.NewServeMux()
+
+	mux.HandleFunc("/todo", todo)
 }
