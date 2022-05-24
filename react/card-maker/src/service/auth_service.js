@@ -1,4 +1,9 @@
-import { GoogleAuthProvider, GithubAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import {
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  getAuth,
+  signInWithPopup,
+} from 'firebase/auth';
 
 export default class AuthService {
   constructor() {
@@ -6,6 +11,7 @@ export default class AuthService {
     this.googleProvider = new GoogleAuthProvider();
     this.githubProvider = new GithubAuthProvider();
   }
+
   login(providerName) {
     const authProvider = this.getProvider(providerName);
     return signInWithPopup(this.firebaseAuth, authProvider);
@@ -24,12 +30,12 @@ export default class AuthService {
 
   getProvider(providerName) {
     switch (providerName) {
-      case 'Google':
-        return this.googleProvider;
-      case 'Github':
-        return this.githubProvider;
-      default:
-        throw new Error(`Not supported provider :${providerName}`);
+    case 'Google':
+      return this.googleProvider;
+    case 'Github':
+      return this.githubProvider;
+    default:
+      throw new Error(`Not supported provider :${providerName}`);
     }
   }
 }

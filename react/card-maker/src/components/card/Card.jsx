@@ -2,8 +2,24 @@ import React from 'react';
 
 import styles from './card.module.css';
 
-const Card = ({ card }) => {
-  const { name, company, title, email, message, theme, fileURL } = card;
+function getStyles(theme) {
+  switch (theme) {
+  case 'dark':
+    return styles.dark;
+  case 'light':
+    return styles.light;
+  case 'colorful':
+    return styles.colorful;
+  default:
+    // 잘못된 데이터를 받거나 제대로 핸들링을 안해줬을때 나오는 에러
+    throw new Error(`unknow theme: ${theme}`);
+  }
+}
+
+function Card({ card }) {
+  const {
+    name, company, title, email, message, theme, fileURL,
+  } = card;
   const DEFAULT_IMAGE = '/images/default_logo.png';
 
   //   url이 없다면 DEFAULT_IMAGE 이미지로 반영한다
@@ -21,20 +37,6 @@ const Card = ({ card }) => {
       </div>
     </li>
   );
-};
-
-function getStyles(theme) {
-  switch (theme) {
-    case 'dark':
-      return styles.dark;
-    case 'light':
-      return styles.light;
-    case 'colorful':
-      return styles.colorful;
-    default:
-      // 잘못된 데이터를 받거나 제대로 핸들링을 안해줬을때 나오는 에러
-      throw new Error(`unknow theme: ${theme}`);
-  }
 }
 
 export default Card;

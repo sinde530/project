@@ -5,7 +5,9 @@ import styles from './editor.module.css';
 import CardAddForm from '../card_add_form/CardAddForm';
 import CardEditForm from '../card_edit_form/CardEditForm';
 
-export default function Editor({ FileInput, cards, addCard, updateCard, deleteCard }) {
+export default function Editor({
+  FileInput, cards, addCard, updateCard, deleteCard,
+}) {
   return (
     <div className={styles.editor}>
       <h1 className={styles.title}>Card Maker</h1>

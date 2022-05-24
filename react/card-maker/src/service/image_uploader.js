@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-return-await */
 export default class ImageUpload {
   async upload(file) {
     const data = new FormData();

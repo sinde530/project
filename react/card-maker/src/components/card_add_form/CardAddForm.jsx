@@ -1,10 +1,12 @@
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable no-shadow */
 import React, { useRef, useState } from 'react';
 
 import Button from '../button/Button';
 
 import styles from './cardaddform.module.css';
 
-const CardAddForm = ({ FileInput, onAdd }) => {
+function CardAddForm({ FileInput, onAdd }) {
   const formRef = useRef();
   const nameRef = useRef();
   const companyRef = useRef();
@@ -18,7 +20,7 @@ const CardAddForm = ({ FileInput, onAdd }) => {
     e.preventDefault();
 
     const card = {
-      id: Date.now(), //uuid
+      id: Date.now(), // uuid
       // value가있으면 이걸쓰고 없으면 ''으로 출력
       name: nameRef.current.value || '',
       company: companyRef.current.value || '',
@@ -35,7 +37,6 @@ const CardAddForm = ({ FileInput, onAdd }) => {
   }
 
   const onFileChange = (file) => {
-    console.log(file);
     setFile({
       fileName: file.name,
       fileURL: file.url,
@@ -66,6 +67,6 @@ const CardAddForm = ({ FileInput, onAdd }) => {
       <Button name="Add" onClick={onSubmit} />
     </form>
   );
-};
+}
 
 export default CardAddForm;

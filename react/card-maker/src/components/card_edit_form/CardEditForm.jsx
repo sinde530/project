@@ -4,8 +4,12 @@ import styles from './cardeditform.module.css';
 
 import Button from '../button/Button';
 
-const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
-  const { name, company, title, email, message, theme, fileName, fileURL } = card;
+function CardEditForm({
+  FileInput, card, updateCard, deleteCard,
+}) {
+  const {
+    name, company, title, email, message, theme,
+  } = card;
   const nameRef = useRef();
   const companyRef = useRef();
   const themeRef = useRef();
@@ -92,6 +96,6 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
       <Button name="Delete" onClick={onSubmit} />
     </form>
   );
-};
+}
 
 export default CardEditForm;

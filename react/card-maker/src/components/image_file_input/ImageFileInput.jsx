@@ -13,10 +13,10 @@ function ImageFileInput({ ImageUpload, name, onFileChange }) {
 
   const onChange = async (event) => {
     setLodaing(true);
-    console.log(event.target.files[0]);
+    // console.log(event.target.files[0]);
     const uploaded = await ImageUpload.upload(event.target.files[0]);
     setLodaing(false);
-    console.log(uploaded);
+    // console.log(uploaded);
     onFileChange({
       name: uploaded.original_filename,
       url: uploaded.url,
@@ -42,7 +42,7 @@ function ImageFileInput({ ImageUpload, name, onFileChange }) {
           {name || 'no File'}
         </button>
       )}
-      {loading && <div className={styles.loading}></div>}
+      {loading && <div className={styles.loading} />}
     </div>
   );
 }

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable react/button-has-type */
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,14 +12,14 @@ export default function Login({ authService }) {
   // navigate를 사용할때 꼭 변수선언
   const navigate = useNavigate();
 
+  function GoToMaker(userId) {
+    navigate('/maker', { id: userId });
+  }
+
   function onLogin(e) {
     authService //
       .login(e.currentTarget.textContent)
       .then((data) => GoToMaker(data.user.uid));
-  }
-
-  function GoToMaker(userId) {
-    navigate('/maker', { id: userId });
   }
 
   useEffect(() => {
