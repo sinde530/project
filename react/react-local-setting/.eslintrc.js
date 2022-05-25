@@ -10,8 +10,10 @@ module.exports = {
       version: 'detect',
     },
   },
-  extends: ['airbnb', 'airbnb/hooks', 'eslint:recommended'],
+  extends: ['airbnb', 'airbnb/hooks', 'eslint:recommended', 'prettier'],
+  plugins: ['prettier'],
   rules: {
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
+    'prettier/prettier': ['error'],
   },
 };

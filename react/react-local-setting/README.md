@@ -46,9 +46,41 @@ module.exports = {
       version: 'detect',
     },
   },
-  extends: ['airbnb', 'airbnb/hooks', 'eslint:recommended'],
+  extends: ['airbnb', 'airbnb/hooks', 'eslint:recommended', 'prettier'],
+  plugins: ['prettier'],
   rules: {
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
+    'prettier/prettier': ['error'],
   },
+};
+```
+
+# Prettier
+
+코드를 세부적인 설정에 따라 자동으로 정리하는 역할을 한다.
+
+> yarn add -D prettier eslint-config-prettier eslint-plugin-prettier
+
+- eslint-config-prettier : ESLint의 포맷팅을 비활성화 시킨다.
+- eslint-plugin-prettier : 포맷팅 규칙을 Prettier를 사용해서 추가시킨다.
+
+```javascript
+// .prettierrc.js
+
+module.exports = {
+  // 문자열은 홀따옴표(')
+  singleQuote: true,
+  //코드 마지막에 세미콜른
+  semi: true,
+  //탭의 사용을 금하고 스페이스바 사용으로 대체
+  useTabs: false,
+  // 들여쓰기 너비는 2칸
+  tabWidth: 2,
+  // 객체나 배열을 작성 할 때, 원소 혹은 key-value의 맨 뒤에 있는 것에 쉼표
+  trailingComma: 'all',
+  // 코드 한줄이 maximum 80칸
+  printWidth: 80,
+  // 화살표 함수가 하나의 매개변수를 받을 때 괄호를 생략
+  arrowParens: 'avoid',
 };
 ```
