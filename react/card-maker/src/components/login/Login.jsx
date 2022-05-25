@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable react/button-has-type */
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './login.module.css';

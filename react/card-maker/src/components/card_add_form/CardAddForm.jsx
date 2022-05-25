@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable no-shadow */
 import React, { useRef, useState } from 'react';
 
 import Button from '../button/Button';
@@ -14,7 +12,9 @@ function CardAddForm({ FileInput, onAdd }) {
   const titleRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
-  const [file, setFile] = useState({ fileName: null, fileURL: null });
+  const [file, setFile] = useState({
+    fileName: null, fileURL: null,
+  });
 
   function onSubmit(e) {
     e.preventDefault();
