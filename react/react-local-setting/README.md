@@ -22,3 +22,33 @@
     ]
 }
 ```
+
+# eslint
+
+코드에서 발견된 문제 패턴을 식별하고 개발자에게 알려주는 역활을 한다. 코딩 스타일 가이드에 벗어나 개발을 하면 오류로 감지하고 알려준다.
+
+## eslint install
+
+> yarn add -D babel-eslint
+
+```javascript
+// .eslintrc.js
+
+module.exports = {
+  parser: 'babel-eslint',
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  extends: ['airbnb', 'airbnb/hooks', 'eslint:recommended'],
+  rules: {
+    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
+  },
+};
+```
