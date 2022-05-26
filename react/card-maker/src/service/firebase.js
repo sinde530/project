@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
@@ -9,3 +8,4 @@ const firebaseConfig = {
 };
 
 export const firebaseApp = initializeApp(firebaseConfig);
+export default {};
