@@ -5,4 +5,6 @@
 사용한 라이브러리
 - eslint
 - prettier
-- 
+- @types/styled-components
+- styled-components
+- react-query
