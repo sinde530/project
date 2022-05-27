@@ -9,13 +9,13 @@ const Rootdiv = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  flex-decoration: column;
+  flex-direction: column;
 `;
 
 const GlobalStyle = createGlobalStyle`
   body{
-    padding: 0;
-    margin: 0;
+    padding : 0;
+    margin : 0;
   }
 `;
 
