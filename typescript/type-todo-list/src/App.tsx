@@ -1,5 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 
+import TodoForm from "./components/TodoForm";
+
 const Rootdiv = styled.div`
   display: flex;
   width: 100%;
@@ -21,7 +23,7 @@ export default function App() {
     <>
       <GlobalStyle />
       <Rootdiv>
-        <p>App.page</p>
+        <TodoForm />
       </Rootdiv>
     </>
   );
