@@ -19,6 +19,7 @@ const ItemIndex = styled.div`
   height: 100%;
   align-items: center;
 `;
+
 const ItemContent = styled.div`
   display: flex;
   width: 85%;

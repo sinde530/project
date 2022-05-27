@@ -19,6 +19,7 @@ const Input = styled.input`
   font-family: "Noto Sans KR", sans-serif;
   font-weight: bold;
 `;
+
 const ButtonSave = styled.button`
   display: flex;
   width: 10%;
