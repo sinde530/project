@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 
 const Rootdiv = styled.div`
   display: flex;
@@ -24,6 +25,7 @@ export default function App() {
       <GlobalStyle />
       <Rootdiv>
         <TodoForm />
+        <TodoList />
       </Rootdiv>
     </>
   );
