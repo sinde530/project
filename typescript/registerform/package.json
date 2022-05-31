@@ -9,11 +9,12 @@
     "preview": "vite preview"
   },
   "lint-staged": {
-    "src/**/*.{ts,js,tsx}" : [
+    "src/**/*.{ts,js,tsx}": [
       "yarn lint"
     ]
   },
   "dependencies": {
+    "formik": "^2.2.9",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
