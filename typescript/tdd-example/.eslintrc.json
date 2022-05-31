@@ -6,7 +6,8 @@
     "extends": [
         "plugin:react/recommended",
         "airbnb",
-        "airbnb-typescript"
+        "airbnb-typescript",
+        "plugin:prettier/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -23,8 +24,5 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off"
-    },
-    "ignorePatterns": [
-        "vite.config.ts"
-    ]
+    }
 }
