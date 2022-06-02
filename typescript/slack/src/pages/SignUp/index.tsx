@@ -45,7 +45,7 @@ export default function SignUp() {
 
   const onChangePasswordCheck = useCallback(
     (e) => {
-      setPasswordCheck(e.target.valye);
+      setPasswordCheck(e.target.value);
       setMismatchError(e.target.value !== password);
     },
     [password]
