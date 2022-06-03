@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 import { useCallback, useState } from "react";
 
-import { Link, Redirect } from "react-router-dom";
+// import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import axios from "axios";
+// import axios from "axios";
 
 import {
   Button,
@@ -39,24 +40,24 @@ export default function SignUp() {
   const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [signUpError, setSignUpError] = useState("");
 
-  const onChangeEmail = useCallback((e) => {
+  const onChangeEmail = useCallback((e: any) => {
     setEmail(e.target.value);
   }, []);
 
   const onChangePassword = useCallback(
-    (e) => {
+    (e: any) => {
       setPassword(e.target.value);
       setMismatchError(e.target.value !== passwordCheck);
     },
     [passwordCheck]
   );
 
-  const onChangeNickname = useCallback((e) => {
+  const onChangeNickname = useCallback((e: any) => {
     setNickname(e.target.value);
   }, []);
 
   const onChangePasswordCheck = useCallback(
-    (e) => {
+    (e: any) => {
       setPasswordCheck(e.target.value);
       setMismatchError(e.target.value !== password);
     },
@@ -64,15 +65,18 @@ export default function SignUp() {
   );
 
   const onSubmit = useCallback(
-    (e) => {
+    (e: any) => {
       e.preventDefault();
-      console.log(email, nickname, password, passwordCheck);
+      console.log(email, nickname, password, passwordCheck, mismatchError);
+      if (!mismatchError) {
+        console.log("서버로 회원가입 하기");
+      }
     },
-    [email, nickname, password, passwordCheck]
+    [email, nickname, password, passwordCheck, mismatchError]
   );
 
   //   const onSubmit = useCallback(
-  //     (e) => {
+  //     (e: any) => {
   //       e.preventDefault();
   //       if (!mismatchError && nickname) {
   //         console.log("서버로 회원가입하기");
