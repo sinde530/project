@@ -22,10 +22,12 @@ export default function SignUp() {
   //   const { data, error, revalidate } = useSWR("/api/users", fetcher);
 
   //   const [email, setEmail] = useInput("");
-  const [email, onChangeEmail] = useState("");
+  // const [email, onChangeEmail] = useState("");
+  const [email, setEmail] = useState("");
 
   //   const [nickname, setNickname] = useInput("");
-  const [nickname, onChangeNickname] = useState("");
+  // const [nickname, onChangeNickname] = useState("");
+  const [nickname, setNickname] = useState("");
 
   //   const [password, setPassword] = useInput("");
   const [password, setPassword] = useState("");
@@ -37,6 +39,10 @@ export default function SignUp() {
   const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [signUpError, setSignUpError] = useState("");
 
+  const onChangeEmail = useCallback((e) => {
+    setEmail(e.target.value);
+  }, []);
+
   const onChangePassword = useCallback(
     (e) => {
       setPassword(e.target.value);
@@ -44,6 +50,10 @@ export default function SignUp() {
     },
     [passwordCheck]
   );
+
+  const onChangeNickname = useCallback((e) => {
+    setNickname(e.target.value);
+  }, []);
 
   const onChangePasswordCheck = useCallback(
     (e) => {
@@ -53,7 +63,13 @@ export default function SignUp() {
     [password]
   );
 
-  const onSubmit = useCallback((e) => {});
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      console.log(email, nickname, password, passwordCheck);
+    },
+    [email, nickname, password, passwordCheck]
+  );
 
   //   const onSubmit = useCallback(
   //     (e) => {
