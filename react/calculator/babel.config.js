@@ -1,11 +1,3 @@
-# Calculator
-
-> yarn add babel-loader @babel/core @babel/preset-env @babel/preset-react
-> 
-
-```javascript
-//babel.config.js
-
 module.exports = {
   presets: [
     [
@@ -19,4 +11,3 @@ module.exports = {
     '@babel/preset-react',
   ],
 };
-```
