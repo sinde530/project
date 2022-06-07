@@ -1,9 +1,3 @@
-/**
- * [Create] Action Type
- * [Create] as const 'After' not defined and action.type value same.
- * [Creeate] action.types not string'' 'countrt/Increment' and actuarry string value
- */
-
 // tyoe const value = counter/Increment
 const INCREASE = "counter/Increment" as const;
 const DECREASE = "counter/Decrement" as const;
