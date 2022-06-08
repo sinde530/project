@@ -1,5 +1,7 @@
-import Counter from './components/Counter';
+import Numbers from './components/Numbers';
 
 export default function App() {
-  return (<Counter />);
+  return (
+    <Numbers />
+  );
 }
