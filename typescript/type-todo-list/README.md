@@ -21,3 +21,9 @@
 ## Library Install.
 > yarn add redux react-redux @types/react-redux
 > yarn add typesafe-actions
+
+<hr>
+
+- components => Presentation
+- containers => container Components
+- modules => redux modules
