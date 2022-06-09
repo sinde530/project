@@ -17,3 +17,7 @@
 ### TodoForm 역활
 - TodoList에 등록할 내용 작성을 위한 Input 
 - TodoList에 등록하기 위한 버튼
+
+## Library Install.
+> yarn add redux react-redux @types/react-redux
+> yarn add typesafe-actions
