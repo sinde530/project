@@ -10,3 +10,5 @@
     "webpack-dev-server": "^4.9.2"
   }
 ```
+
+- npx webpack-dev-server 사용해보기
