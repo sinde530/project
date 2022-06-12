@@ -67,8 +67,10 @@ function render({ number, operator, accmulator }) {
 
   const element = (
     <div>
-      <p>{accmulator}</p>
-      <p>{number}</p>
+      <p>
+        {/* 기존에 값이 없을경우 `accmulator` 를 보여준다 */}
+        {number || accmulator}
+      </p>
       <p>{operator}</p>
 
       <p>
