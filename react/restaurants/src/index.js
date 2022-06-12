@@ -8,6 +8,8 @@ function createElement(tagName, ...children) {
   return element;
 }
 
+// DSL = domain specific language
+
 // appendChild는 Node 객체만 받을수 있다.
 document.getElementById('app').appendChild(
   createElement(
