@@ -343,3 +343,37 @@ function Button({children}) {
 
 - 훨씬 더 깔끔한걸 볼 수 있다.
 - Destructuring을 하여 처음부터 함수선언 하고 받을수있다.
+
+### useState 사용하기
+
+- 상태관리를 하기 위해 useState()를 사용한다.
+- useState의 count 초기값은 0이 되고, { count }는 state기 된다.
+- `handleClick()`에 보면 setState는 count 즉 0인 값을 + 1을 하라는 선언을 한다.
+
+```typescript
+function Counter() {
+  const [state, setState] = useState({
+    count: 0,
+  });
+
+  const { count } = state;
+
+  function handleClick() {
+    setState({
+      count: count + 1,
+    });
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+    >
+      Click Me!
+      (
+      {count}
+      )
+    </button>
+  );
+}
+```
