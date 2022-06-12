@@ -19,8 +19,17 @@ function createElement(tagName, props, ...children) {
   return element;
 }
 
+const operatorFunctions = {
+  '': (x, y) => x || y,
+  '=': (x, y) => x || y,
+  '+': (x, y) => x + y,
+  '-': (x, y) => x - y,
+  '*': (x, y) => x * y,
+  '/': (x, y) => x / y,
+};
+
 function calculate(operator, accmulator, number) {
-  return accmulator + number;
+  return operatorFunctions[operator](accmulator, number);
 }
 
 const initialState = {
@@ -72,6 +81,21 @@ function render({ number, operator, accmulator }) {
       <p>
         <button type="button" onClick={() => handleClickOperator('+')}>
           +
+        </button>
+      </p>
+      <p>
+        <button type="button" onClick={() => handleClickOperator('-')}>
+          -
+        </button>
+      </p>
+      <p>
+        <button type="button" onClick={() => handleClickOperator('*')}>
+          *
+        </button>
+      </p>
+      <p>
+        <button type="button" onClick={() => handleClickOperator('/')}>
+          /
         </button>
       </p>
       <p>
