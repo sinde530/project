@@ -1,5 +1,7 @@
 # CoodSoom 복습하기
 
+## 1강 JSX
+
 - npx serve 를 이용하여 index.html 로컬에 보이게 하기.
 - webpack 설치하기.
 
@@ -19,3 +21,26 @@
 
 - public => index.html 넣기
 - index.js innerHTML사용하여 글자 출력하기
+- `dom`객체 만들기
+
+
+### javascript 사용
+- document
+  - 새로운 객체를 생성한다.
+- getElementById()
+  - 같은 이름으로 된 Id를 찾아 사용하라.
+- createElement()
+  - 태그명을 사용해 새로운 요소를 반환한다.
+- createTextNode()
+  - 텍스트 노드를 생성한다.
+- const
+  - 상수 선언.
+  - var,let 이란 다른 이유.
+  - 상수의 값을 재할당을 할수없고, 다시 선언할수 없다.
+- appendChild()
+  - append와는 다르게 노드객체만 추가할 수 있다.
+- tagName
+  - Element 인터페이스 의 tagName 읽기 전용 속성은 호출된 요소의 태그 이름을 반환한다.
+
+## 함수 선언하기
+- 함수를 사용하여 중복되는부븐들을 묶어 간단하게 하기.
