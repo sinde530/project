@@ -39,7 +39,11 @@ const initialState = {
 };
 
 function render({ number, operator, accmulator }) {
-  const Numbers = [[1, 2, 3], [4, 5, 6], [7, 8, 9, 0]];
+  const Numbers = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9, 0],
+  ];
   const Operator = ['+', '-', '*', '/', '='];
 
   function handleClickNumber(value) {
