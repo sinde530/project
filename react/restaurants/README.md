@@ -218,3 +218,15 @@ const Numbers = [[1,2,3],[4,5,6],[7,8,9,0]];
   ))}
 </p>
 ```
+
+## 2강 REACT
+
+- webpack.config.js 추가하기
+
+```typescript
+// path에 잡힌 src/index.jsx 를 사용할수 있게 해줌.
+const path = require('path');
+
+entry: path.resolve(__dirname, 'src/index.jsx'),
+...
+```
