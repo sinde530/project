@@ -16,3 +16,6 @@
    - `yarn eslint --init`
 - eslint 커맨드 사용해서 틀린부분 맞쳐주기.
    - `yarn eslint --fix .`
+
+- public => index.html 넣기
+- index.js innerHTML사용하여 글자 출력하기
