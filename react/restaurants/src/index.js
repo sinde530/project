@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope, react/jsx-filename-extension */
 /* @jsx createElement */
 
 function createElement(tagName, props, ...children) {
@@ -18,30 +19,34 @@ function createElement(tagName, props, ...children) {
   return element;
 }
 
-let count = 0;
+const inititalState = 0;
 
-function handleClick() {
-  count += 1;
-  render();
-}
+function render(count) {
+  const Numbers = [1, 2, 3];
 
-function handleClickNumber(value) {
-  count = value;
-  render();
-}
+  function handleClick() {
+    render(count + 1);
+  }
 
-function render() {
+  function handleClickNumber(value) {
+    if (Number.isNaN(Number(value))) {
+      return false;
+    }
+    return render(value);
+  }
+
   const element = (
-    <div id="hello" className="greeting">
+    <div>
       <p>Hello, World!</p>
+
       <button type="button" onClick={handleClick}>
-        Click Me!
-        (
+        Click Me! (
         {count}
         )
       </button>
+
       <p>
-        {[1, 2, 3].map((i) => (
+        {Numbers.map((i) => (
           <button type="button" onClick={() => handleClickNumber(i)}>
             {i}
           </button>
@@ -57,4 +62,4 @@ function render() {
   document.getElementById('app').appendChild(element);
 }
 
-render();
+render(inititalState);
