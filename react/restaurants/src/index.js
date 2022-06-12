@@ -40,6 +40,7 @@ const initialState = {
 
 function render({ number, operator, accmulator }) {
   const Numbers = [1, 2, 3, 4, 5, 6, 8, 9, 0];
+  const Operator = ['+', '-', '*', '/', '='];
 
   function handleClickNumber(value) {
     if (Number.isNaN(Number(value))) {
@@ -79,30 +80,13 @@ function render({ number, operator, accmulator }) {
       </p>
 
       <p>
-        <button type="button" onClick={() => handleClickOperator('+')}>
-          +
-        </button>
+        {Operator.map((i) => (
+          <button type="button" onClick={() => handleClickOperator(i)}>
+            {i}
+          </button>
+        ))}
       </p>
-      <p>
-        <button type="button" onClick={() => handleClickOperator('-')}>
-          -
-        </button>
-      </p>
-      <p>
-        <button type="button" onClick={() => handleClickOperator('*')}>
-          *
-        </button>
-      </p>
-      <p>
-        <button type="button" onClick={() => handleClickOperator('/')}>
-          /
-        </button>
-      </p>
-      <p>
-        <button type="button" onClick={() => handleClickOperator('=')}>
-          =
-        </button>
-      </p>
+
       <p>
         <button type="button" onClick={handleClickReset}>
           Reset

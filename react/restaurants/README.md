@@ -127,3 +127,6 @@ function calculate(operator, accmulator, number) {
 ```
 
 - (operator, accmulator, number)이 초기값들의 순서가 바뀌면 제대로 작동이 안하는데 왜 그런지 궁금함.
+
+- `operatorFunctions` 이부분 아직 이해 못함
+- (x,y 어떤식으로 작동하는지 이해가 안감)
