@@ -14,4 +14,5 @@
 - npx webpack-dev-server 사용해보기
 - eslint install 후 초기화 시키기
    - `yarn eslint --init`
-
+- eslint 커맨드 사용해서 틀린부분 맞쳐주기.
+   - `yarn eslint --fix .`
