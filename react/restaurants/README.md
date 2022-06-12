@@ -224,9 +224,42 @@ const Numbers = [[1,2,3],[4,5,6],[7,8,9,0]];
 - webpack.config.js 추가하기
 
 ```typescript
+// webpack.config.js
+
 // path에 잡힌 src/index.jsx 를 사용할수 있게 해줌.
 const path = require('path');
 
-entry: path.resolve(__dirname, 'src/index.jsx'),
-...
+module.exports = {
+  entry: path.resolve(__dirname, 'src/index.jsx'),
+  module: {
+    rules: [
+      {
+        // 정규표현식 참고
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+    ],
+  },
+  resolve: {
+    // [string] = ['.js', '.json', '.wasm']
+    // 확장자를 순서대로 해석해준다.
+    extensions: ['.js', '.jsx'],
+  },
+};
+
+```
+
+### React V18 migration =ㅅ=
+
+```typescript
+// src/index.jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
 ```

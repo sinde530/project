@@ -1,13 +1,7 @@
-/* @jsx createElement */
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-function createElement() {
-  return 'hello wotrld';
-}
+import App from './App';
 
-const element = (
-  <div>
-    <p>qwer</p>
-  </div>
-);
-
-console.log(element);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
