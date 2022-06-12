@@ -1,0 +1,7 @@
+{
+  "name": "restaurants",
+  "version": "1.0.0",
+  "description": "CoodSoom-study",
+  "main": "index.js",
+  "license": "MIT"
+}
