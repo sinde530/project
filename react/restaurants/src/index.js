@@ -62,4 +62,4 @@ function render(count) {
   document.getElementById('app').appendChild(element);
 }
 
-render(inititalState);
+render((inititalState));

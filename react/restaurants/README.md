@@ -112,8 +112,7 @@ module.exports = {
 # let 제거하기 (과제 1)
 
 - Number.isNaN()
-  - Number.isNaN() 메소드는 주어진 값이 `NaN`인지 판별한다.
+  - `Number.isNaN()` 메소드는 주어진 값이 `NaN`인지 판별한다.
   - 주어진값이 `Number`이고 값이 `NaN`이면 `true`, `false`를 반환한다.
-- 초기 initialState값을 0으로 잡아주고 render부분에 넣어준다.
+- 초기 `initialState`값을 0으로 잡아주고 render부분에 넣어준다.
 - `Numbers`라는 상수를 만들어줘 `map`함수에 지저분하게 보이지 않기 위해 따로 빼서 관리를 한다.
-- 
