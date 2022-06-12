@@ -56,4 +56,41 @@
 ## JSX
 
 - babel 사용하기.
-- babel-loader = wepback에서 babel을 쓸수있게 도와줌
+- babel-loader = wepback에서 babel을 쓸수있게 도와줌.
+- webpack.config.js 추가하기
+
+```typescript
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        // 정규표현식 참고
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+    ],
+  },
+};
+```
+
+- babel.config.js 추가하기.
+```typescript
+module.exports = {
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        targets: {
+          node: 'current',
+        },
+      },
+    ],
+    '@babel/preset-react',
+  ],
+};
+
+```
+
+- /* @jsx createElement */ 사용하기
