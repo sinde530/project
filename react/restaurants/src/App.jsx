@@ -1,22 +1,10 @@
 import React, { useState } from 'react';
 
-function Counter() {
-  const [state, setState] = useState({
-    count: 0,
-  });
-
-  const { count } = state;
-
-  function handleClick() {
-    setState({
-      count: count + 1,
-    });
-  }
-
+function Counter({ count, onClick }) {
   return (
     <button
       type="button"
-      onClick={handleClick}
+      onClick={onClick}
     >
       Click Me!
       (
@@ -48,11 +36,35 @@ function Buttons() {
   );
 }
 
+function Page({ count, onClick }) {
+  return (
+    <Counter
+      count={count}
+      onClick={onClick}
+    />
+  );
+}
+
 function App() {
+  const [state, setState] = useState({
+    count: 0,
+  });
+
+  const { count } = state;
+
+  function handleClick() {
+    setState({
+      count: count + 1,
+    });
+  }
+
   return (
     <div>
       <p>App</p>
-      <Counter />
+      <Page
+        count={count}
+        onClick={handleClick}
+      />
       <Buttons />
     </div>
   );

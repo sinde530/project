@@ -350,6 +350,8 @@ function Button({children}) {
 - useState의 count 초기값은 0이 되고, { count }는 state기 된다.
 - `handleClick()`에 보면 setState는 count 즉 0인 값을 + 1을 하라는 선언을 한다.
 
+<br>
+
 ```typescript
 function Counter() {
   const [state, setState] = useState({
@@ -377,3 +379,51 @@ function Counter() {
   );
 }
 ```
+
+### Props로 함수들 전달해주기
+
+```typescript
+function Counter({ count, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+    >
+      Click Me!
+      (
+      {count}
+      )
+    </button>
+  );
+}
+
+function App() {
+  const [state, setState] = useState({
+    count: 0,
+  });
+
+  const { count } = state;
+
+  function handleClick() {
+    setState({
+      count: count + 1,
+    });
+  }
+
+  return (
+    <div>
+      <p>App</p>
+      <Counter
+        count={count}
+        onClick={handleClick}
+      />
+      <Buttons />
+    </div>
+  );
+}
+
+export default App;
+```
+
+# Counter 앱 만들고 파일 분리하기 (과제 1)
+
