@@ -291,3 +291,28 @@ function App() {
 ```
 
 - map을 활용해 1,2,3이 나오는 버튼을 따로 분리해서 렌더링을 한 장면이다.
+
+### button도 분리해보기
+
+```typescript
+function renderButton(value) {
+  return (
+    <button type="button">
+      {value}
+    </button>
+  )
+}
+
+function renderButtons() {
+  return (
+    <>
+      {
+          [1, 2, 3].map((i) => (
+            renderButton(i)
+          ))
+      }
+    </>
+  );
+}
+
+```

@@ -1,13 +1,19 @@
 import React from 'react';
 
+function renderButton(value) {
+  return (
+    <button type="button">
+      {value}
+    </button>
+  );
+}
+
 function renderButtons() {
   return (
     <>
       {
           [1, 2, 3].map((i) => (
-            <button type="button">
-              {i}
-            </button>
+            renderButton(i)
           ))
       }
     </>
@@ -17,13 +23,9 @@ function renderButtons() {
 function App() {
   return (
     <div>
-      {renderButtons()}
       <p>App</p>
-      {
-          [1, 2, 3].map((i) => (
-            <button type="button">{i}</button>
-          ))
-      }
+
+      {renderButtons()}
     </div>
   );
 }
