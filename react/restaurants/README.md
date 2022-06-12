@@ -190,3 +190,31 @@ function render({ number, operator, accmulator}){
 }
 
 ```
+
+- 2차원 array를 사용해 키패드 나열하기.
+
+```typescript
+const Numbers = [[1,2,3],[4,5,6],[7,8,9,0]];
+
+<p>
+  {Numbers[0].map((i) => (
+    <button type="button" onClick={() => handleClickNumber(i)}>
+      {i}
+    </button>
+  ))}
+</p>
+<p>
+  {Numbers[1].map((i) => (
+    <button type="button" onClick={() => handleClickNumber(i)}>
+      {i}
+    </button>
+  ))}
+</p>
+<p>
+  {Numbers[2].map((i) => (
+    <button type="button" onClick={() => handleClickNumber(i)}>
+      {i}
+    </button>
+  ))}
+</p>
+```

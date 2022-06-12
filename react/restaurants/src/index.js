@@ -39,7 +39,7 @@ const initialState = {
 };
 
 function render({ number, operator, accmulator }) {
-  const Numbers = [1, 2, 3, 4, 5, 6, 8, 9, 0];
+  const Numbers = [[1, 2, 3], [4, 5, 6], [7, 8, 9, 0]];
   const Operator = ['+', '-', '*', '/', '='];
 
   function handleClickNumber(value) {
@@ -74,7 +74,21 @@ function render({ number, operator, accmulator }) {
       <p>{operator}</p>
 
       <p>
-        {Numbers.map((i) => (
+        {Numbers[0].map((i) => (
+          <button type="button" onClick={() => handleClickNumber(i)}>
+            {i}
+          </button>
+        ))}
+      </p>
+      <p>
+        {Numbers[1].map((i) => (
+          <button type="button" onClick={() => handleClickNumber(i)}>
+            {i}
+          </button>
+        ))}
+      </p>
+      <p>
+        {Numbers[2].map((i) => (
           <button type="button" onClick={() => handleClickNumber(i)}>
             {i}
           </button>
