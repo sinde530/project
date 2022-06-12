@@ -19,9 +19,10 @@
 - eslint 커맨드 사용해서 틀린부분 맞쳐주기.
    - `yarn eslint --fix .`
 
-- public => index.html 넣기
-- index.js innerHTML사용하여 글자 출력하기
-- `dom`객체 만들기
+- public => index.html 넣기.
+- index.js innerHTML사용하여 글자 출력하기.
+- `dom`객체 만들기.
+- 함수를 사용하여 중복되는부븐들을 묶어 간단하게 사용하기.
 
 
 ### javascript 사용
@@ -41,6 +42,11 @@
   - append와는 다르게 노드객체만 추가할 수 있다.
 - tagName
   - Element 인터페이스 의 tagName 읽기 전용 속성은 호출된 요소의 태그 이름을 반환한다.
-
-## 함수 선언하기
-- 함수를 사용하여 중복되는부븐들을 묶어 간단하게 하기.
+- children
+  - 노드 이외의 노드가 필요하지 않은 경우라면 children 프로퍼티를 사용
+- ...children
+  - ES6 spread 문법이다.
+    - ... 이란 :)
+      - es6 spead 문법이고 속성을 그대로 사용하면서 새로운 객체를 만들어주는 역활을 한다.
+      - 핵심 :)
+        - 기존의 것을 건들이지 않고, 새로운 객체를 만들어줌.

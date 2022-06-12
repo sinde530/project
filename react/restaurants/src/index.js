@@ -1,20 +1,28 @@
-function createElement(tagName, children) {
+function createElement(tagName, ...children) {
   const element = document.createElement(tagName);
 
-  element.appendChild(children[0]);
+  children.forEach((child) => {
+    element.appendChild(child);
+  });
+
   return element;
 }
 
-const element = document.getElementById('app');
-
-const paragraph1 = createElement('p', [
-  document.createTextNode('Hello, World!!'),
-]);
-
-const paragraph2 = createElement('p', [
-  document.createTextNode('Hello, World!!!!!!!!!'),
-]);
-
 // appendChild는 Node 객체만 받을수 있다.
-element.appendChild(paragraph1);
-element.appendChild(paragraph2);
+document.getElementById('app').appendChild(
+  createElement(
+    'div',
+    createElement(
+      'p',
+      ...[1, 2, 3].map((i) => (
+        document.createTextNode(`Hello, World! ${i} | `)
+      )),
+      document.createTextNode('Hello, World!!'),
+    ),
+    createElement(
+      'p',
+      document.createTextNode('Sung'),
+      document.createTextNode('Eun!!'),
+    ),
+  ),
+);
