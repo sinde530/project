@@ -12,3 +12,6 @@
 ```
 
 - npx webpack-dev-server 사용해보기
+- eslint install 후 초기화 시키기
+   - `yarn eslint --init`
+
