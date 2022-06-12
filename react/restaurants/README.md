@@ -94,3 +94,17 @@ module.exports = {
 ```
 
 - /* @jsx createElement */ 사용하기
+- toLowerCase() // 대문자를 소문자로 변경하여 읽어줌.
+- map() 함수 사용하여 1,2,3 array 뽑아내기.
+- 1,2,3 버튼을 클릭했을때 값이 나오게 만들기.
+  ```typescript
+
+  function handleClickNumber(value){
+    count = value;
+    render();
+  }
+
+  {[1,2,3]map.((i) => (
+    <button type="button" onClick={() => handleClickNumber(i)}>{i}</button>
+  ))}
+  ```
