@@ -263,3 +263,31 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 
 ```
+
+- function을 이용헤 분리 해보기
+
+```typescript
+function renderButtons(){
+  return (
+    <>
+      {
+        [1, 2, 3].map((i) => (
+          <button type="button">
+          {i}
+          </button>
+        ))
+      }
+    </>
+  )
+}
+
+function App() {
+  return (
+    <div>
+      {renderButtons()}
+    </div>
+  )
+}
+```
+
+- map을 활용해 1,2,3이 나오는 버튼을 따로 분리해서 렌더링을 한 장면이다.
