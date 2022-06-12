@@ -116,3 +116,14 @@ module.exports = {
   - 주어진값이 `Number`이고 값이 `NaN`이면 `true`, `false`를 반환한다.
 - 초기 `initialState`값을 0으로 잡아주고 render부분에 넣어준다.
 - `Numbers`라는 상수를 만들어줘 `map`함수에 지저분하게 보이지 않기 위해 따로 빼서 관리를 한다.
+
+# 사칙연산 계산기 만들기 (과제 2)
+
+- 과제를 하면서 궁금한 점.
+```typescript
+function calculate(operator, accmulator, number) {
+  return accmulator + number;
+}
+```
+
+- (operator, accmulator, number)이 초기값들의 순서가 바뀌면 제대로 작동이 안하는데 왜 그런지 궁금함.

@@ -19,31 +19,47 @@ function createElement(tagName, props, ...children) {
   return element;
 }
 
-const inititalState = 0;
+function calculate(operator, accmulator, number) {
+  return accmulator + number;
+}
 
-function render(count) {
-  const Numbers = [1, 2, 3];
+const initialState = {
+  accmulator: 0,
+  number: 0,
+  operator: '',
+};
 
-  function handleClick() {
-    render(count + 1);
-  }
+function render({ number, operator, accmulator }) {
+  const Numbers = [1, 2, 3, 4, 5, 6, 8, 9, 0];
 
   function handleClickNumber(value) {
     if (Number.isNaN(Number(value))) {
       return false;
     }
-    return render(value);
+    return render({
+      accmulator,
+      number: number * 10 + value,
+      operator,
+    });
+  }
+
+  function handleClickOperator(value) {
+    return render({
+      accmulator: calculate(operator, accmulator, number),
+      number: 0,
+      operator: value,
+    });
+  }
+
+  function handleClickReset() {
+    render(initialState);
   }
 
   const element = (
     <div>
-      <p>Hello, World!</p>
-
-      <button type="button" onClick={handleClick}>
-        Click Me! (
-        {count}
-        )
-      </button>
+      <p>{accmulator}</p>
+      <p>{number}</p>
+      <p>{operator}</p>
 
       <p>
         {Numbers.map((i) => (
@@ -51,6 +67,22 @@ function render(count) {
             {i}
           </button>
         ))}
+      </p>
+
+      <p>
+        <button type="button" onClick={() => handleClickOperator('+')}>
+          +
+        </button>
+      </p>
+      <p>
+        <button type="button" onClick={() => handleClickOperator('=')}>
+          =
+        </button>
+      </p>
+      <p>
+        <button type="button" onClick={handleClickReset}>
+          Reset
+        </button>
       </p>
     </div>
   );
@@ -62,4 +94,4 @@ function render(count) {
   document.getElementById('app').appendChild(element);
 }
 
-render((inititalState));
+render(initialState);
