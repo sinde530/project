@@ -316,3 +316,30 @@ function renderButtons() {
 }
 
 ```
+
+### 디스트럭쳐링 해주기
+
+```typescript
+// before
+function Button(props) {
+  const {children} = props;
+
+  return (
+    <button type="button">
+      {children}
+    </button>
+  )
+}
+
+// after
+function Button({children}) {
+  return (
+    <button type="button">
+      {children}
+    </button>
+  )
+}
+```
+
+- 훨씬 더 깔끔한걸 볼 수 있다.
+- Destructuring을 하여 처음부터 함수선언 하고 받을수있다.

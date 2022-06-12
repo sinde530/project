@@ -1,19 +1,21 @@
 import React from 'react';
 
-function renderButton(value) {
+function Button({ children }) {
   return (
     <button type="button">
-      {value}
+      {children}
     </button>
   );
 }
 
-function renderButtons() {
+function Buttons() {
   return (
     <>
       {
           [1, 2, 3].map((i) => (
-            renderButton(i)
+            <Button key={i}>
+              {i}
+            </Button>
           ))
       }
     </>
@@ -24,8 +26,7 @@ function App() {
   return (
     <div>
       <p>App</p>
-
-      {renderButtons()}
+      <Buttons />
     </div>
   );
 }
