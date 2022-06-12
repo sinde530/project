@@ -85,9 +85,7 @@ function render({ number, operator, accmulator }) {
             {i}
           </button>
         ))}
-      </p>
 
-      <p>
         <button type="button" onClick={handleClickReset}>
           Reset
         </button>
