@@ -1,5 +1,13 @@
+/* @jsx createElement */
+
+function createElement() {
+  return 'hello wotrld';
+}
+
 const element = (
   <div>
-    <P>qwer</P>
+    <p>qwer</p>
   </div>
 );
+
+console.log(element);
