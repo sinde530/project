@@ -425,5 +425,7 @@ function App() {
 export default App;
 ```
 
+<br>
+
 # Counter 앱 만들고 파일 분리하기 (과제 1)
 
