@@ -28,3 +28,9 @@ WAKATIME_API_KEY VALUE: 069e6fbf-d03b-464c-95d0-ff608e443b0e
 GH_TOKEN VALUE: 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
 GIST_ID  VALUE: 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
 ```
+
+
+## 다중 감속기를 사용하려면 main.ts 파일을 만들어 `combineReducers` - redux 사용.
+- dependencies
+
+
