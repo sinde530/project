@@ -127,6 +127,66 @@ function calculate(operator, accmulator, number) {
 ```
 
 - (operator, accmulator, number)이 초기값들의 순서가 바뀌면 제대로 작동이 안하는데 왜 그런지 궁금함.
+- 계산기를 만들때 숫자가 `1111` 계속해서 출력하게 만드려면 * 10을 해줘야 나온다.
 
-- `operatorFunctions` 이부분 아직 이해 못함
-- (x,y 어떤식으로 작동하는지 이해가 안감)
+```typescript
+number: number * 10 + value,
+```
+### 사칙연산이 실행되게 하기
+
+```typescript
+
+// 3. 사칙연산 만들기
+const operatorFunctions = {
+  '': (x,y) => x || y, // 초기값이 없으므로 y를 반환하는데 ||을 사용하여 이렇게 만들수있음.
+  '=': (x,y) => x || y,
+  '+': (x,y) => x + y,
+  '-': (x,y) => x - y,
+  '*': (x,y) => x * y,
+  '/': (x,y) => x / y,
+}
+
+// 4. 사칙연산이 가능한 함수 만들어주기.
+// 순서가 뒤바뀌면 안된다.
+// 초기 operator 는 ''이란 초기값을 가지고있어 '': 이 값을 반환한다.
+// number의 값은 operator에 의해 값이 number => accmulator로 넘어간다.
+// accmulator에 넘어간 후 숫자패드 버튼을 클릭시 값이 {number}에 저장되는걸 알 수 있다.
+function calculate(operator, accmulator, number) {
+  return operatorFunctions[operator](accmulator, number);
+}
+
+// 1. 초기값을 설정해준다.
+const initialState = {
+  accmulator: 0, // 숫자 누르고 사칙연산 클릭시 이쪽으로 값이 전달이 된다.
+  number: 0, // 숫자가 들어갈곳.
+  operator: '', // '+, -, *, /, =' 이 들어갈 곳
+};
+
+// 2. 
+function render({ number, operator, accmulator}){
+  function handleClickNumber(value) {
+    // 만약 number가 아닌 다른타입이 들어갈경우 에러를 발생한다.
+    if (Number.isNaN(Number(value))) {
+      return false;
+    }
+    return render({
+      accmulator, // accmulator의 초기값은 0이다
+      number: number * 10 + value, // 계산기를 만들때 숫자가 `1111` 계속해서 출력하게 만드려면 * 10을 해줘야 나온다.
+      operator,
+    })
+  }
+
+  function handleClickOperator(value) {
+    return render({
+      accmulator: calculate(operator, accmulator, number), // 사칙연산 클릭시 number의 값은 0이되고 accmulator에 반환된다.
+      number: 0,
+      operator: value,
+    })
+  }
+
+  function handleClickReset() {
+    render(initialState); // [reset] button은 초기값으로 돌려준다.
+  }
+}
+
+```
