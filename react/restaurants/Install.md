@@ -16,5 +16,5 @@ yarn add babel-loader
 yarn add @babel/core
 yarn add @babel/preset-env @babel/preset-react
 yarn add react react-dom
-yarn add redux react-redux
+yarn add redux react-redux styled-components
 ```

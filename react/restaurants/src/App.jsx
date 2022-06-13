@@ -1,14 +1,8 @@
 import React from 'react';
+import TodoList from './todoList';
 
-import CounterApp from './CounterApp';
-
-function App() {
+export default function App() {
   return (
-    <div>
-      <p>Counter</p>
-      <CounterApp />
-    </div>
+    <TodoList />
   );
 }
-
-export default App;
