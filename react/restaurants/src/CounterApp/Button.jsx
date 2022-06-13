@@ -1,4 +1,6 @@
-export default function Button({ children, onClick }) {
+import React from 'react';
+
+function Button({ children, onClick }) {
   return (
     <button
       type="button"
@@ -8,3 +10,5 @@ export default function Button({ children, onClick }) {
     </button>
   );
 }
+
+export default Button;

@@ -429,3 +429,16 @@ export default App;
 
 # Counter 앱 만들고 파일 분리하기 (과제 1)
 
+- App.jsx
+  - 최상위 컴포넌트로 `<CounterApp>` 만 가져오게 한다.
+- CounterApp/index.jsx
+  - 컴포넌트 함수들을 모와놓는 곳이다. (continaer)
+- Counter.jsx
+  - 버튼을 클릭시 count를 props로 전달을해 값을 보내준다.
+- Button.jsx
+  - props의 값을 보내기 위해 {children} 을 사용하여 값을 전달해준다.
+- Number.jsx
+  - map()함수로 배열의 값을 반환 해준다.
+
+- `JSX props should not use functionseslintreact/jsx-no-bind`
+  - onClick에서 error
