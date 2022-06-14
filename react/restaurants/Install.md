@@ -24,5 +24,6 @@ yarn add @babel/preset-env @babel/preset-react
 
 // jest
 yarn add jest @types/jest babel-jest
+yarn add @testing-library/react @testing-library/jest-dom
 ```
 
