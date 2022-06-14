@@ -442,3 +442,18 @@ export default App;
 
 - `JSX props should not use functionseslintreact/jsx-no-bind`
   - onClick에서 error
+
+# To Do List 만들기 (과제 2)
+
+- utils/isEmpty.jsx
+  - `const isEmpty = (arr) => arr.length === 0;` 타이틀에 아무것도 없을시에 나타낼 문장을 저장해놓는다.
+- App.jsx
+  - 최상위 컴포넌트로 `<ToDoList/>` 만 가져오게 한다.
+  - todoList/indx.jsx
+    - 컴포넌트 함수들을 모와놓는 곳이다. (continaer)
+  - TodoInsert.jsx
+    - input, button으로 App.jsx 정보를 디스트럭쳐링 해서 입력을 할 수 있게 한다.
+  - List.jsx
+    - `isEmpty`로 리스트가 하나도 없다면, '할 일이 없다고' 정보를 낸다.
+    - Item.jsx 와 묶여있는데 타이틀을 보여줄 수 있다.
+  
