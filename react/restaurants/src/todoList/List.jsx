@@ -2,12 +2,23 @@ import React from 'react';
 
 import Item from './Item';
 
-export default function List({ tasks }) {
+export default function List({ isEmpty, todos, onClick }) {
+  if (isEmpty(todos)) {
+    return (
+      <p>할 일이 없어요!</p>
+    );
+  }
+
   return (
     <ol>
       {
-        tasks.map((task) => (
-          <Item key={task.id} title={task.title} />
+        todos.map(({ id, text }) => (
+          <Item
+            key={id}
+            id={id}
+            text={text}
+            onClick={() => onClick(id)}
+          />
         ))
       }
     </ol>

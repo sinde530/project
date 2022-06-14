@@ -1,17 +1,15 @@
 import React from 'react';
 
-export default function TodoInsert({ onClick, tasks }) {
+export default function TodoInsert({ title, onChange, onSubmit }) {
   return (
-    <div>
+    <form onSubmit={onSubmit}>
       <input
         type="text"
-        name="text"
+        value={title}
         placeholder="할 일을 입력해라."
-        onClick={onClick}
-        tasks={tasks}
+        onChange={onChange}
       />
-      <button type="button">추가</button>
-      {/* {JSON.stringify(tasks)} */}
-    </div>
+      <button type="submit">추가</button>
+    </form>
   );
 }
