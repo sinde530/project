@@ -6,16 +6,25 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test": "jest"
   },
   "lint-staged": {
-  "src/**/*.{ts,js,tsx}" : [
-    "yarn lint"
+    "src/**/*.{ts,js,tsx}": [
+      "yarn lint"
     ]
   },
   "dependencies": {
+    "@babel/core": "^7.18.5",
+    "@swc/core": "^1.2.203",
+    "@swc/jest": "^0.2.21",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "jest-environment-jsdom": "^28.1.1",
+    "jest-plugin-context": "^2.9.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "vite-tsconfig-paths": "^3.5.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
@@ -32,6 +41,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "jest": "^28.1.1",
     "lint-staged": "^13.0.2",
     "prettier": "^2.7.1",
     "typescript": "^4.6.3",
