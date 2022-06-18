@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.18.5",
+    "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@swc/core": "^1.2.203",
     "@swc/jest": "^0.2.21",
