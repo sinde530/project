@@ -18,6 +18,8 @@
     "@babel/core": "^7.18.5",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
     "@swc/core": "^1.2.203",
     "@swc/jest": "^0.2.21",
     "@testing-library/jest-dom": "^5.16.4",
