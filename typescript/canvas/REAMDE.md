@@ -5,5 +5,5 @@
 yarn add jest @testing-library/jest-dom @testing-library/react @typescript-eslint/parser vite-tsconfig-paths jest-environment-jsdom jest-plugin-context @swc/jest @swc/core @babel/core
 
 // threejs
-yarn add three
+yarn add three @types/three
 ```
