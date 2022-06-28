@@ -7,6 +7,6 @@ export default {
   component: HeadingComponent,
 } as ComponentMeta<typeof HeadingComponent>;
 
-export function Login() {
+export function Heading() {
   return <HeadingComponent>Title</HeadingComponent>;
 }
