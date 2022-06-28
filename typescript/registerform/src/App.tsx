@@ -1,9 +1,7 @@
-import RegisterForm from "./components/registerForm/RegisterForm";
-
 function App() {
   return (
     <div>
-      <RegisterForm />
+      <h1>App.tsx</h1>
     </div>
   );
 }
