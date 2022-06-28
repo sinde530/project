@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
 
-import Login from ".";
+import App from "./App";
 
-describe("Login", () => {
+describe("App", () => {
   it("renders Components", () => {
-    render(<Login />);
+    render(<App />);
   });
 });
