@@ -1,7 +1,5 @@
+import Constants from "./components/Constants";
+
 export default function App() {
-  return (
-    <div>
-      <p>App Pages</p>
-    </div>
-  );
+  return <Constants />;
 }
