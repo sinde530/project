@@ -1,5 +1,9 @@
-import Constants from "./components/Constants";
+import { Container, StyledTetris } from "./App.styled";
 
 export default function App() {
-  return <Constants />;
+  return (
+    <Container role="button" tabIndex={0}>
+      <StyledTetris>Start</StyledTetris>
+    </Container>
+  );
 }
