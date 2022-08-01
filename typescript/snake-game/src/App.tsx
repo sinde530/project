@@ -17,7 +17,7 @@ const initialApple = [14, 10];
 const scale = 50;
 const timeDelay = 100;
 
-function App() {
+export default function App() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [snake, setSnake] = useState(initialSnake);
   const [apple, setApple] = useState(initialApple);
@@ -141,5 +141,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
