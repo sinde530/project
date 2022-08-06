@@ -17,6 +17,7 @@ function useInterval(callback: () => void, delay: number | null) {
 
     const id = setInterval(() => savedCallback.current(), delay);
 
+    // eslint-disable-next-line consistent-return
     return () => clearInterval(id);
   }, [delay]);
 }

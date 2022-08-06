@@ -45,6 +45,7 @@ export default function SnakeGame() {
     }
   }
 
+  // game initial settings
   function play() {
     setSnake(initialSnake);
     setApple(initialApple);
@@ -79,6 +80,7 @@ export default function SnakeGame() {
     return false;
   }
 
+  // game start
   function runGame() {
     const newSnake = [...snake];
     const newSnakeHead = [
@@ -99,6 +101,7 @@ export default function SnakeGame() {
 
   useInterval(() => runGame(), delay);
 
+  // changeDirection = control up,down,right,left
   function changeDirection(e: React.KeyboardEvent<HTMLDivElement>) {
     // eslint-disable-next-line default-case
     switch (e.key) {
