@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import Header from 'src/components/Header';
+import Editor from '../Editor';
 
 interface Props {
   authService: any;
@@ -45,12 +48,17 @@ export default function Maker({ authService }: Props) {
 
   const handleLogout = () => {
     authService.logout();
+    window.localStorage.clear();
+    alert('로그아웃 하였음.');
   };
+
   return (
     <div>
       <div>
-        Header
-        <div>Editor Component</div>
+        <Header handleLogout={handleLogout} />
+        <div>
+          <Editor cards={cards} />
+        </div>
         <div>Preivew Component</div>
       </div>
       <div>Footer Component</div>
