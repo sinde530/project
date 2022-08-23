@@ -13,7 +13,7 @@ export default function Login({ authService }: Props) {
   const handleLogin = (e: any) => {
     authService //
       .login(e.currentTarget.textContent)
-      .then((data: any) => goToMaker(data.user.uid));
+      .then(() => goToMaker());
   };
 
   return (
@@ -26,7 +26,9 @@ export default function Login({ authService }: Props) {
           </button>
         </li>
         <li>
-          <button type="button">Github</button>
+          <button type="button" onClick={handleLogin}>
+            Github
+          </button>
         </li>
       </ul>
     </div>
