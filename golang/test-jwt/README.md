@@ -22,3 +22,7 @@
 ```go
 Hello World
 ```
+
+## go mod 숙지하기.
+- go mod init명령을 수행하면 현재 패키지의 종속성 정보를 담고 있는 go.mod 파일이 생성된다.
+
