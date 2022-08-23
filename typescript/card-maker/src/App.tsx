@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Login from './components/Login';
-import Maker from './components/Maker';
+import Login from 'src/components/Login';
+import Maker from 'src/components/Maker';
 
 interface Props {
   authService: any;
@@ -12,7 +12,7 @@ function App({ authService }: Props) {
     <div>
       <Routes>
         <Route path="/" element={<Login authService={authService} />} />
-        <Route path="/maker" element={<Maker />} />
+        <Route path="/maker" element={<Maker authService={authService} />} />
       </Routes>
     </div>
   );
