@@ -1,36 +1,29 @@
-import { useState } from 'react';
-
-import reactLogo from './assets/react.svg';
-
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
-import Test from 'src/components/Test';
+import Login from 'src/components/Login';
+import Maker from 'src/components/Maker';
+import { useEffect } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0);
+interface Props {
+  authService: any;
+}
+
+function App({ authService }: Props) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.getItem('Key');
+      navigate('/maker');
+    }
+  }, []);
 
   return (
-    <div className="wqewq">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Test />
+    <div>
+      <Routes>
+        <Route path="/" element={<Login authService={authService} />} />
+        <Route path="/maker" element={<Maker authService={authService} />} />
+      </Routes>
     </div>
   );
 }

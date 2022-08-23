@@ -4,6 +4,7 @@ import {
   getAuth,
   signInWithPopup,
 } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 export default class AuthService {
   firebaseAuth: any;
@@ -17,6 +18,9 @@ export default class AuthService {
 
   login(providerName: any) {
     const authProvider = this.getProvider(providerName);
+
+    localStorage.setItem('Key', providerName);
+
     return signInWithPopup(this.firebaseAuth, authProvider);
   }
 
