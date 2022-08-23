@@ -1,13 +1,23 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import Login from 'src/components/Login';
 import Maker from 'src/components/Maker';
+import { useEffect } from 'react';
 
 interface Props {
   authService: any;
 }
 
 function App({ authService }: Props) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.getItem('Key');
+      navigate('/maker');
+    }
+  }, []);
+
   return (
     <div>
       <Routes>
