@@ -14,10 +14,6 @@ export default function Editor({
   handleCreateUpdateCard,
   handleDeleteCard,
 }: Props) {
-  if (!cards) {
-    <>...</>;
-  }
-
   return (
     <div>
       <h1>Card Maker</h1>
