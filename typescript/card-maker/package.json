@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.18.13",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "@swc/core": "^1.2.242",
     "@swc/jest": "^0.2.22",
     "@testing-library/jest-dom": "^5.16.5",
