@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import Header from 'src/components/Header';
 import Editor from '../Editor';
+import Preivew from '../Preivew';
 
 interface Props {
   authService: any;
+  FileInput: any;
 }
-export default function Maker({ authService }: Props) {
-  const navigate = useNavigate();
-
-  const [cards, setCards] = useState({
+export default function Maker({ FileInput, authService }: Props) {
+  const [cards, setCards] = useState<any>({
     1: {
       id: '1',
       name: 'Crong',
@@ -18,7 +17,7 @@ export default function Maker({ authService }: Props) {
       theme: 'dark',
       title: 'FrontEnd',
       email: 'sinde530@gmail.com',
-      message: 'go for it',
+      message: 'go for it1',
       fileName: 'Crong',
       fileURL: null,
     },
@@ -29,7 +28,7 @@ export default function Maker({ authService }: Props) {
       theme: 'light',
       title: 'FrontEnd',
       email: 'sinde530@gmail.com',
-      message: 'go for it',
+      message: 'go for it2',
       fileName: 'Crong2',
       fileURL: null,
     },
@@ -40,7 +39,7 @@ export default function Maker({ authService }: Props) {
       theme: 'colorful',
       title: 'FrontEnd',
       email: 'sinde530@gmail.com',
-      message: 'go for it',
+      message: 'go for it3',
       fileName: 'Crong',
       fileURL: null,
     },
@@ -52,14 +51,37 @@ export default function Maker({ authService }: Props) {
     alert('로그아웃 하였음.');
   };
 
+  const handleCreateUpdateCard = (card: number | any) => {
+    setCards((prev: any) => {
+      const updated = { ...prev };
+
+      updated[card.id] = card;
+      return updated;
+    });
+  };
+
+  const handleDeleteCard = (card: number | any) => {
+    setCards((prev: any) => {
+      const updated = { ...prev };
+
+      delete updated[card.id];
+      return updated;
+    });
+  };
+
   return (
     <div>
       <div>
         <Header handleLogout={handleLogout} />
         <div>
-          <Editor cards={cards} />
+          <Editor
+            FileInput={FileInput}
+            cards={cards}
+            handleCreateUpdateCard={handleCreateUpdateCard}
+            handleDeleteCard={handleDeleteCard}
+          />
         </div>
-        <div>Preivew Component</div>
+        <Preivew cards={cards} />
       </div>
       <div>Footer Component</div>
     </div>

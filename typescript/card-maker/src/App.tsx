@@ -6,9 +6,10 @@ import { useEffect } from 'react';
 
 interface Props {
   authService: any;
+  FileInput: any;
 }
 
-function App({ authService }: Props) {
+function App({ authService, FileInput }: Props) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +23,10 @@ function App({ authService }: Props) {
     <div>
       <Routes>
         <Route path="/" element={<Login authService={authService} />} />
-        <Route path="/maker" element={<Maker authService={authService} />} />
+        <Route
+          path="/maker"
+          element={<Maker authService={authService} FileInput={FileInput} />}
+        />
       </Routes>
     </div>
   );
