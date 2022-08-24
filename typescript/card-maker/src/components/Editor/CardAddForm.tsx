@@ -6,10 +6,10 @@ import { Form, Input, Textarea, Select, FileInputBox } from './styled';
 
 interface Props {
   FileInput: any;
-  handleCreateUpdateCard: (card: any) => void;
+  onAdd: (card: any) => void;
 }
 
-function CardAddForm({ FileInput, handleCreateUpdateCard }: Props) {
+function CardAddForm({ FileInput, onAdd }: Props) {
   const formRef = useRef<any>(undefined);
   const nameRef = useRef<any>(undefined);
   const companyRef = useRef<any>(undefined);
@@ -19,7 +19,7 @@ function CardAddForm({ FileInput, handleCreateUpdateCard }: Props) {
   const messageRef = useRef<any>(undefined);
   const [file, setFile] = useState({
     fileName: null,
-    fileURL: null,
+    fileUrl: null,
   });
 
   function onSubmit(e: any) {
@@ -34,17 +34,17 @@ function CardAddForm({ FileInput, handleCreateUpdateCard }: Props) {
       email: emailRef.current.value || '',
       message: messageRef.current.value || '',
       fileName: file.fileName || '',
-      fileURL: file.fileURL || '',
+      fileUrl: file.fileUrl || '',
     };
     formRef.current.reset();
-    setFile({ fileName: null, fileURL: null });
-    handleCreateUpdateCard(card);
+    setFile({ fileName: null, fileUrl: null });
+    onAdd(card);
   }
 
   const onFileChange = (file: any) => {
     setFile({
       fileName: file.name,
-      fileURL: file.url,
+      fileUrl: file.url,
     });
   };
 
@@ -68,7 +68,7 @@ function CardAddForm({ FileInput, handleCreateUpdateCard }: Props) {
       <FileInputBox>
         <FileInput name={file.fileName} onFileChange={onFileChange} />
       </FileInputBox>
-      <Button name="Add" onSubmit={onSubmit} />
+      <Button name="Add" onClick={onSubmit} />
     </Form>
   );
 }

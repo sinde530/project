@@ -7,15 +7,15 @@ import Button from './Button';
 interface Props {
   FileInput: any;
   cards: any;
-  handleCreateUpdateCard: (card: any) => void;
-  handleDeleteCard: (card: any) => void;
+  updateCard: (card: any) => void;
+  deleteCard: (card: any) => void;
 }
 
 export default function CardForm({
   FileInput,
   cards,
-  handleCreateUpdateCard,
-  handleDeleteCard,
+  updateCard,
+  deleteCard,
 }: Props) {
   const { name, company, title, email, message, theme } = cards;
 
@@ -27,7 +27,7 @@ export default function CardForm({
   const messageRef = useRef<any>(undefined);
 
   const onFileChange = (file: any) => {
-    handleCreateUpdateCard({
+    updateCard({
       ...cards,
       fileName: file.name,
       fileUrl: file.url,
@@ -39,14 +39,14 @@ export default function CardForm({
       return;
     }
     e.preventDefault();
-    handleCreateUpdateCard({
+    updateCard({
       ...cards,
       [e.currentTarget.name]: e.currentTarget.value,
     });
   };
 
   const onSubmit = () => {
-    handleDeleteCard(cards);
+    deleteCard(cards);
   };
 
   return (
@@ -93,7 +93,7 @@ export default function CardForm({
       <FileInputBox>
         <FileInput name={name} onFileChange={onFileChange} />
       </FileInputBox>
-      <Button name="Delete" onSubmit={onSubmit} />
+      <Button name="Delete" onClick={onSubmit} />
     </Form>
   );
 }

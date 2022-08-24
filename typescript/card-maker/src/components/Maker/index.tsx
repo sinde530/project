@@ -39,7 +39,7 @@ export default function Maker({ FileInput, authService }: Props) {
       email: 'sinde530@gmail.com',
       message: 'go for it1',
       fileName: 'Crong',
-      fileURL: null,
+      fileUrl: null,
     },
     2: {
       id: '2',
@@ -50,7 +50,7 @@ export default function Maker({ FileInput, authService }: Props) {
       email: 'sinde530@gmail.com',
       message: 'go for it2',
       fileName: 'Crong2',
-      fileURL: null,
+      fileUrl: null,
     },
     3: {
       id: '3',
@@ -61,7 +61,7 @@ export default function Maker({ FileInput, authService }: Props) {
       email: 'sinde530@gmail.com',
       message: 'go for it3',
       fileName: 'Crong',
-      fileURL: null,
+      fileUrl: null,
     },
   });
 
@@ -105,8 +105,9 @@ export default function Maker({ FileInput, authService }: Props) {
         <Editor
           FileInput={FileInput}
           cards={cards}
-          handleCreateUpdateCard={handleCreateUpdateCard}
-          handleDeleteCard={handleDeleteCard}
+          addCard={handleCreateUpdateCard}
+          updateCard={handleCreateUpdateCard}
+          deleteCard={handleDeleteCard}
         />
         <Preivew cards={cards} />
       </Box>

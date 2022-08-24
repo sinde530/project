@@ -13,9 +13,9 @@ const VariousButton = styled.button({
 
 interface Props {
   name: string;
-  onSubmit: (cards: any) => void;
+  onClick: (cards: any) => void;
 }
 
-export default function Button({ name, onSubmit }: Props) {
-  return <VariousButton onSubmit={onSubmit}>{name}</VariousButton>;
+export default function Button({ name, onClick }: Props) {
+  return <VariousButton onClick={onClick}>{name}</VariousButton>;
 }
