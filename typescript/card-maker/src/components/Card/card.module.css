@@ -1,8 +1,4 @@
-@value makerShadow,
-makerColorful,
-makerBlack,
-makerWhite,
-makerWheat from '../../common/color.css';
+@value makerShadow, makerColorful, makerBlack, makerWhite, makerWheat from '../../common/color.css';
 
 .card {
   width: 100%;
@@ -28,43 +24,4 @@ makerWheat from '../../common/color.css';
 
 .card.colorful {
   background: makerColorful;
-}
-
-.avatar {
-  width: 10rem;
-  height: 10rem;
-  padding: 1rem;
-  margin: 0 0.5rem 0 1rem;
-  border-radius: 50%;
-}
-
-.info {
-  width: 100%;
-}
-
-.name,
-.company,
-.title,
-.email,
-.message {
-  margin: 0;
-  font-size: 0.8rem;
-  margin-bottom: 0.2rem;
-}
-
-.name {
-  font-size: 1.2rem;
-}
-
-.company {
-  margin-bottom: 1rem;
-}
-
-.company::after {
-  content: '';
-  display: block;
-  width: 90%;
-  height: 2px;
-  background-color: makerWheat;
-  transform: translateY(0.5rem);
 }

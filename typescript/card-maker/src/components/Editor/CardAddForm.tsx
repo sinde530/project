@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react';
 
 import Button from './Button';
 
+import { Form, Input, Textarea, Select, FileInputBox } from './styled';
+
 interface Props {
   FileInput: any;
   handleCreateUpdateCard: (card: any) => void;
@@ -47,27 +49,27 @@ function CardAddForm({ FileInput, handleCreateUpdateCard }: Props) {
   };
 
   return (
-    <form ref={formRef}>
-      <input ref={nameRef} type="text" name="name" placeholder="Name" />
-      <input
+    <Form ref={formRef}>
+      <Input ref={nameRef} type="text" name="name" placeholder="Name" />
+      <Input
         ref={companyRef}
         type="text"
         name="company"
         placeholder="Company"
       />
-      <select ref={themeRef} name="theme" placeholder="Theme">
+      <Select ref={themeRef} name="theme" placeholder="Theme">
         <option placeholder="light">light</option>
         <option placeholder="dark">dark</option>
         <option placeholder="colorful">colorful</option>
-      </select>
-      <input ref={titleRef} type="text" name="title" placeholder="Title" />
-      <input ref={emailRef} type="text" name="email" placeholder="Email" />
-      <textarea ref={messageRef} name="message" placeholder="Message" />
-      <div>
+      </Select>
+      <Input ref={titleRef} type="text" name="title" placeholder="Title" />
+      <Input ref={emailRef} type="text" name="email" placeholder="Email" />
+      <Textarea ref={messageRef} name="message" placeholder="Message" />
+      <FileInputBox>
         <FileInput name={file.fileName} onFileChange={onFileChange} />
-      </div>
+      </FileInputBox>
       <Button name="Add" onSubmit={onSubmit} />
-    </form>
+    </Form>
   );
 }
 

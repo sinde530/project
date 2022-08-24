@@ -1,4 +1,14 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import {
+  LoginBox,
+  LoginText,
+  List,
+  ListItem,
+  GoogleButton,
+  GitgubButton,
+} from './styled';
 
 interface Props {
   authService: any;
@@ -6,31 +16,40 @@ interface Props {
 export default function Login({ authService }: Props) {
   const navigate = useNavigate();
 
-  const goToMaker = () => {
-    navigate('/maker');
+  const goToMaker = (userId: any) => {
+    navigate('/maker', userId);
+    localStorage.getItem('Key');
+    console.log(userId);
   };
 
   const handleLogin = (e: any) => {
     authService //
       .login(e.currentTarget.textContent)
-      .then(() => goToMaker());
+      .then((data: any) => goToMaker(data.user.uid));
   };
 
+  useEffect(() => {
+    authService //
+      .onAuthChange((user: { id: any }) => {
+        user && goToMaker(user.id);
+      });
+  });
+
   return (
-    <div>
-      <h1>Social Login Pages</h1>
-      <ul>
-        <li>
-          <button type="button" onClick={handleLogin}>
+    <LoginBox>
+      <LoginText>Social Login Pages</LoginText>
+      <List>
+        <ListItem>
+          <GoogleButton type="button" onClick={handleLogin}>
             Google
-          </button>
-        </li>
-        <li>
-          <button type="button" onClick={handleLogin}>
+          </GoogleButton>
+        </ListItem>
+        <ListItem>
+          <GitgubButton type="button" onClick={handleLogin}>
             Github
-          </button>
-        </li>
-      </ul>
-    </div>
+          </GitgubButton>
+        </ListItem>
+      </List>
+    </LoginBox>
   );
 }
