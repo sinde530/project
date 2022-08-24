@@ -25,7 +25,6 @@ function CardAddForm({ FileInput, handleCreateUpdateCard }: Props) {
 
     const card = {
       id: Date.now(), // uuid
-      // value가있으면 이걸쓰고 없으면 ''으로 출력
       name: nameRef.current.value || '',
       company: companyRef.current.value || '',
       theme: themeRef.current.value,

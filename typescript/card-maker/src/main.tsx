@@ -14,7 +14,9 @@ import './index.css';
 /**
  * firebaseApp 0개 인수 error
  */
+
 const authService = new AuthService(firebaseApp);
+
 const ImageUploader = new ImageUpload();
 const FileInput = (props: any) => (
   <ImageFileInput {...props} ImageUpload={ImageUploader} />
