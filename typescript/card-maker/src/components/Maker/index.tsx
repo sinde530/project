@@ -9,7 +9,7 @@ interface Props {
   FileInput: any;
 }
 export default function Maker({ FileInput, authService }: Props) {
-  const [cards, setCards] = useState({
+  const [cards, setCards] = useState<any>({
     1: {
       id: '1',
       name: 'Crong',
@@ -51,24 +51,23 @@ export default function Maker({ FileInput, authService }: Props) {
     alert('로그아웃 하였음.');
   };
 
-  const handleCreateUpdateCard = (card: string | null) => {
-    setCards((prev) => {
+  const handleCreateUpdateCard = (card: number | any) => {
+    setCards((prev: any) => {
       const updated = { ...prev };
+
       updated[card.id] = card;
       return updated;
     });
   };
 
-  const handleDeleteCard = (card: string | null) => {
-    setCards((prev) => {
+  const handleDeleteCard = (card: number | any) => {
+    setCards((prev: any) => {
       const updated = { ...prev };
 
       delete updated[card.id];
       return updated;
     });
   };
-
-  console.log(cards);
 
   return (
     <div>
