@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 interface Props {
   ImageUpload: any;
   name: string;
-  onFileChange: () => void;
+  onFileChange: (file: any) => void;
 }
 
 export default function ImageFileInput({
@@ -32,9 +32,15 @@ export default function ImageFileInput({
 
   return (
     <div>
-      <input type="file" name="file" onChange={onChange} />
+      <input
+        ref={inputRef}
+        type="file"
+        name="file"
+        accept="image/*"
+        onChange={onChange}
+      />
       {!loading && (
-        <button type="button" onClick={() => handleClickButton}>
+        <button type="button" onClick={handleClickButton}>
           {name || 'no File'}
         </button>
       )}
