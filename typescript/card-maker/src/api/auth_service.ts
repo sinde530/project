@@ -4,7 +4,6 @@ import {
   getAuth,
   signInWithPopup,
 } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
 
 export default class AuthService {
   firebaseAuth: any;
