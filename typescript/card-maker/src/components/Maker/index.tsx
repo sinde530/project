@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Header from 'src/components/Header';
 import Editor from '../Editor';
+import Preivew from '../Preivew';
 
 interface Props {
   authService: any;
@@ -18,7 +19,7 @@ export default function Maker({ authService }: Props) {
       theme: 'dark',
       title: 'FrontEnd',
       email: 'sinde530@gmail.com',
-      message: 'go for it',
+      message: 'go for it1',
       fileName: 'Crong',
       fileURL: null,
     },
@@ -29,7 +30,7 @@ export default function Maker({ authService }: Props) {
       theme: 'light',
       title: 'FrontEnd',
       email: 'sinde530@gmail.com',
-      message: 'go for it',
+      message: 'go for it2',
       fileName: 'Crong2',
       fileURL: null,
     },
@@ -40,7 +41,7 @@ export default function Maker({ authService }: Props) {
       theme: 'colorful',
       title: 'FrontEnd',
       email: 'sinde530@gmail.com',
-      message: 'go for it',
+      message: 'go for it3',
       fileName: 'Crong',
       fileURL: null,
     },
@@ -80,7 +81,7 @@ export default function Maker({ authService }: Props) {
             handleDeleteCard={handleDeleteCard}
           />
         </div>
-        <div>Preivew Component</div>
+        <Preivew cards={cards} />
       </div>
       <div>Footer Component</div>
     </div>

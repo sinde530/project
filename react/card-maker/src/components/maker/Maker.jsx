@@ -80,7 +80,7 @@ export default function Maker({ FileInput, authService }) {
   }
 
   return (
-    <div className={styles.maker}>
+    <div className={styles.mpker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
         <Editor
