@@ -52,12 +52,33 @@ export default function Maker({ authService }: Props) {
     alert('로그아웃 하였음.');
   };
 
+  const handleCreateUpdateCard = (card: any) => {
+    setCards((prev) => {
+      const updated = { ...prev };
+      updated[card.id] = card;
+      return updated;
+    });
+  };
+
+  const handleDeleteCard = (card: any) => {
+    setCards((prev) => {
+      const updated = { ...prev };
+
+      delete updated[card.id];
+      return updated;
+    });
+  };
+
   return (
     <div>
       <div>
         <Header handleLogout={handleLogout} />
         <div>
-          <Editor cards={cards} />
+          <Editor
+            cards={cards}
+            handleCreateUpdateCard={handleCreateUpdateCard}
+            handleDeleteCard={handleDeleteCard}
+          />
         </div>
         <div>Preivew Component</div>
       </div>
