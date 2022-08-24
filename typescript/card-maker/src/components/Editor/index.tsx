@@ -18,15 +18,17 @@ const Title = styled.h1({
 interface Props {
   FileInput: any;
   cards: any;
-  handleCreateUpdateCard: (card: any) => void;
-  handleDeleteCard: (card: any) => void;
+  addCard: (card: any) => void;
+  updateCard: (card: any) => void;
+  deleteCard: (card: any) => void;
 }
 
 export default function Editor({
   FileInput,
   cards,
-  handleCreateUpdateCard,
-  handleDeleteCard,
+  addCard,
+  updateCard,
+  deleteCard,
 }: Props) {
   return (
     <Container>
@@ -36,14 +38,11 @@ export default function Editor({
           key={key}
           FileInput={FileInput}
           cards={cards[key]}
-          handleCreateUpdateCard={handleCreateUpdateCard}
-          handleDeleteCard={handleDeleteCard}
+          updateCard={updateCard}
+          deleteCard={deleteCard}
         />
       ))}
-      <CardAddForm
-        FileInput={FileInput}
-        handleCreateUpdateCard={handleCreateUpdateCard}
-      />
+      <CardAddForm FileInput={FileInput} onAdd={addCard} />
     </Container>
   );
 }

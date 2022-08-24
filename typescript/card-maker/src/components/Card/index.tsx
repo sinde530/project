@@ -17,6 +17,7 @@ interface Props {
 
 export default function Card({ cards }: Props) {
   const { name, company, title, email, message, theme, fileUrl } = cards;
+
   const DEFAULT_IMAGE =
     'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7be83f17-af07-4577-ad2f-ab44ba8bf629/docusaurus1.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220824%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220824T055012Z&X-Amz-Expires=86400&X-Amz-Signature=0a8ad5482768d7a827cc809f0f0b180f81e756840084209d4ea588cc38b91112&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22docusaurus1.svg%22&x-id=GetObject';
 

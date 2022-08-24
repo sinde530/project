@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react';
 
+import styles from './index.module.css';
+
 interface Props {
   ImageUpload: any;
   name: string;
@@ -14,6 +16,11 @@ export default function ImageFileInput({
   const [loading, setLoading] = useState<boolean | null>(false);
   const inputRef = useRef<any>(null);
 
+  const handleClickButton = (e: any) => {
+    e.preventDefault();
+    inputRef.current.click();
+  };
+
   const onChange = async (e: any) => {
     setLoading(true);
 
@@ -25,18 +32,13 @@ export default function ImageFileInput({
     });
   };
 
-  const handleClickButton = (e: any) => {
-    e.preventDefault();
-    inputRef.current.click();
-  };
-
   return (
     <div>
       <input
         ref={inputRef}
+        accept="image/*"
         type="file"
         name="file"
-        accept="image/*"
         onChange={onChange}
       />
       {!loading && (
@@ -44,7 +46,7 @@ export default function ImageFileInput({
           {name || 'no File'}
         </button>
       )}
-      {loading && <div />}
+      {loading && <div className={styles.loading} />}
     </div>
   );
 }

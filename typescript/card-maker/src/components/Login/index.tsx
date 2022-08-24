@@ -19,7 +19,6 @@ export default function Login({ authService }: Props) {
   const goToMaker = (userId: any) => {
     navigate('/maker', userId);
     localStorage.getItem('Key');
-    console.log(userId);
   };
 
   const handleLogin = (e: any) => {
