@@ -1,13 +1,14 @@
 import Button from './Button';
-import FileInput from './FileInput';
 
 interface Props {
+  FileInput: any;
   cards: any;
   handleCreateUpdateCard: (card: any) => void;
   handleDeleteCard: (card: any) => void;
 }
 
 export default function CardForm({
+  FileInput,
   cards,
   handleCreateUpdateCard,
   handleDeleteCard,
@@ -50,7 +51,7 @@ export default function CardForm({
       <input type="text" name="email" value={email} onChange={onChange} />
       <textarea name="message" value={message} onChange={onChange} />
       <div>
-        <FileInput />
+        <FileInput name={name} onFileChange={onFileChange} />
       </div>
       <Button name="Delete" onSubmit={onSubmit} />
     </form>

@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import Header from 'src/components/Header';
 import Editor from '../Editor';
@@ -7,10 +6,9 @@ import Preivew from '../Preivew';
 
 interface Props {
   authService: any;
+  FileInput: any;
 }
-export default function Maker({ authService }: Props) {
-  const navigate = useNavigate();
-
+export default function Maker({ FileInput, authService }: Props) {
   const [cards, setCards] = useState({
     1: {
       id: '1',
@@ -53,7 +51,7 @@ export default function Maker({ authService }: Props) {
     alert('로그아웃 하였음.');
   };
 
-  const handleCreateUpdateCard = (card: any) => {
+  const handleCreateUpdateCard = (card: string | null) => {
     setCards((prev) => {
       const updated = { ...prev };
       updated[card.id] = card;
@@ -61,7 +59,7 @@ export default function Maker({ authService }: Props) {
     });
   };
 
-  const handleDeleteCard = (card: any) => {
+  const handleDeleteCard = (card: string | null) => {
     setCards((prev) => {
       const updated = { ...prev };
 
@@ -70,12 +68,15 @@ export default function Maker({ authService }: Props) {
     });
   };
 
+  console.log(cards);
+
   return (
     <div>
       <div>
         <Header handleLogout={handleLogout} />
         <div>
           <Editor
+            FileInput={FileInput}
             cards={cards}
             handleCreateUpdateCard={handleCreateUpdateCard}
             handleDeleteCard={handleDeleteCard}

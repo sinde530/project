@@ -1,12 +1,15 @@
+import CardAddForm from './CardAddForm';
 import CardForm from './CardForm';
 
 interface Props {
+  FileInput: any;
   cards: any;
   handleCreateUpdateCard: (card: any) => void;
   handleDeleteCard: (card: any) => void;
 }
 
 export default function Editor({
+  FileInput,
   cards,
   handleCreateUpdateCard,
   handleDeleteCard,
@@ -21,11 +24,16 @@ export default function Editor({
       {Object.keys(cards).map((key) => (
         <CardForm
           key={key}
+          FileInput={FileInput}
           cards={cards[key]}
           handleCreateUpdateCard={handleCreateUpdateCard}
           handleDeleteCard={handleDeleteCard}
         />
       ))}
+      <CardAddForm
+        FileInput={FileInput}
+        handleCreateUpdateCard={handleCreateUpdateCard}
+      />
     </div>
   );
 }
