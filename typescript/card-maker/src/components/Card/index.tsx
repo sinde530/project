@@ -1,5 +1,16 @@
 import styles from './card.module.css';
 
+import {
+  Container,
+  Avatar,
+  Information,
+  NameField,
+  CompanyField,
+  TitleField,
+  EmailField,
+  MessageField,
+} from './styled';
+
 interface Props {
   cards: any;
 }
@@ -24,15 +35,15 @@ export default function Card({ cards }: Props) {
     }
   };
   return (
-    <div>
-      <img src={url} alt={`${url} Image Error`} />
-      <div>
-        <h1>{name}</h1>
-        <p>{company}</p>
-        <p>{title}</p>
-        <p>{email}</p>
-        <p>{message}</p>
-      </div>
-    </div>
+    <Container className={`${styles.card} ${getStyles(theme)}`}>
+      <Avatar src={url} alt={`${url} Image Error`} />
+      <Information>
+        <NameField>{name}</NameField>
+        <CompanyField>{company}</CompanyField>
+        <TitleField>{title}</TitleField>
+        <EmailField>{email}</EmailField>
+        <MessageField>{message}</MessageField>
+      </Information>
+    </Container>
   );
 }

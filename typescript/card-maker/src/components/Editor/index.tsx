@@ -1,5 +1,19 @@
+import styled from '@emotion/styled';
 import CardAddForm from './CardAddForm';
 import CardForm from './CardForm';
+
+const Container = styled.div({
+  flexBasis: '50%',
+  backgroundColor: 'pink',
+  padding: '0.5rem 2rem',
+});
+
+const Title = styled.h1({
+  width: '100%',
+  textAlign: 'center',
+  marginBottom: '1rem',
+  color: '#385461',
+});
 
 interface Props {
   FileInput: any;
@@ -15,8 +29,8 @@ export default function Editor({
   handleDeleteCard,
 }: Props) {
   return (
-    <div>
-      <h1>Card Maker</h1>
+    <Container>
+      <Title>Card Maker</Title>
       {Object.keys(cards).map((key) => (
         <CardForm
           key={key}
@@ -30,6 +44,6 @@ export default function Editor({
         FileInput={FileInput}
         handleCreateUpdateCard={handleCreateUpdateCard}
       />
-    </div>
+    </Container>
   );
 }
