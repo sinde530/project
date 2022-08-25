@@ -1,10 +1,17 @@
 class Test {
-  constructor() {
-    console.log('test');
+  public static getTest(): string {
+    return 'test';
   }
 }
 
-new Test();
+Test.getTest();
 
-const myName = 'Crong';
-myName = 5;
+interface Props {
+  name: string;
+  age: number;
+}
+
+const p: Props = {
+  name: '가나다',
+  age: 35,
+};
