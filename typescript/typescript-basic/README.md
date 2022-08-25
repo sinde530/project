@@ -47,3 +47,18 @@ npm i tslint -D
   - Never
   - Enum
   - Tuple: object형
+
+## 타입 어설션
+
+- Type assertions
+- 형변환가는 다르다.
+  - 형변환은 실제 데이터 구조를 바꿔준다. -`타입이 이거다` 라고 컴파일러에게 알려주는 것을 의미함
+  - 행동에 대해서 작성자가 100% 신뢰하는 것이 중요함.
+- 문법적으로 두가지 방법이 있다.
+  - 변수 as 강제할 타입
+  - <강제할타입>변수
+    사용방법
+    - let someValue: any = "this is a string";
+      --.
+    - let strLength: number = (<string>someValue).length;
+    - let strLength: (someValue as string).length;
