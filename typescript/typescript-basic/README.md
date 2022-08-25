@@ -62,3 +62,49 @@ npm i tslint -D
       --.
     - let strLength: number = (<string>someValue).length;
     - let strLength: (someValue as string).length;
+
+## Class
+
+- class 만들기
+
+1. 생성자 함수가 없으면, default 생성자가 불린다.
+2. class의 property 혹은 멤버 변수가 정의되어 있지만, 값을 대입하지 않으면 undefined 이다. => object에 property가 아예 존재하지 않는다.
+3. 접근제어자 (Access Modifier) 는 public 이 default이다.
+
+```typescript
+class Person {
+  name: string = 'Mark';
+  age: number = null;
+
+  // 모든 함수는 전부 다 public
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+// 생성할땐 new로 생성해야함
+const person = new Person('Mark');
+
+console.log(person.name;)
+```
+
+## class와 property의 접근 제어자
+
+1. private로 설정된 property는 dot 으로 접근할 수 없다.
+2. 클래스 내부에서는 private property를 사용할 수 있다.
+3. private가 붙은 변수나 함수는 \_를 이름앞에 붙이는데, 이는 문법이 아니라 널리 쓰이는 코딩 컨벤션이다.
+
+```typescript
+class Person {
+  public name: string;
+  private _age: number;
+
+  constructor(age: number) {
+    this._age = age;
+  }
+}
+const person: Person = new Person(35);
+person.name = 'Mark';
+// person._age (X)
+console.log(person); // Person {name: 'Mark', _age: 35}
+```
