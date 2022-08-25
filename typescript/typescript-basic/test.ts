@@ -5,3 +5,6 @@ class Test {
 }
 
 new Test();
+
+const myName = 'Crong';
+myName = 5;
