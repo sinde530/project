@@ -18,7 +18,6 @@ export default function Login({ authService }: Props) {
 
   const goToMaker = (userId: any) => {
     navigate('/maker', userId);
-    localStorage.getItem('Key');
   };
 
   const handleLogin = (e: any) => {
@@ -32,7 +31,7 @@ export default function Login({ authService }: Props) {
       .onAuthChange((user: { id: any }) => {
         user && goToMaker(user.id);
       });
-  });
+  }, []);
 
   return (
     <LoginBox>

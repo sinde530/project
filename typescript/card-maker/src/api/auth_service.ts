@@ -18,8 +18,6 @@ export default class AuthService {
   login(providerName: any) {
     const authProvider = this.getProvider(providerName);
 
-    localStorage.setItem('Key', providerName);
-
     return signInWithPopup(this.firebaseAuth, authProvider);
   }
 
