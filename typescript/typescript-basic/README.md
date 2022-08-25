@@ -108,3 +108,5 @@ person.name = 'Mark';
 // person._age (X)
 console.log(person); // Person {name: 'Mark', _age: 35}
 ```
+
+## React with Type
