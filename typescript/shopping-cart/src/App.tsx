@@ -6,7 +6,7 @@ const Container = styled.div({
 });
 
 const Header = styled.header({
-  backgroundColor: "green",
+  // backgroundColor: "green",
   width: "100%",
   display: "flex",
   justifyContent: "space-between",
@@ -28,6 +28,7 @@ const Li = styled.li({
 });
 
 export default function App() {
+  const user = "Jemi";
   return (
     <Container>
       <Header>
@@ -40,7 +41,7 @@ export default function App() {
           <Li>list Item5</Li>
           <Li>list Item6</Li>
           <Li>list Item7</Li>
-          <Li>login</Li>
+          {user ? <Li>{user}</Li> : <Li>login</Li>}
         </Ul>
       </Header>
       <section>???</section>
