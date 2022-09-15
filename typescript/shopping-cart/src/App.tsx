@@ -1,31 +1,4 @@
-import styled from "@emotion/styled";
-
-const Container = styled.div({
-  width: "100%",
-  height: "100%",
-});
-
-const Header = styled.header({
-  // backgroundColor: "green",
-  width: "100%",
-  display: "flex",
-  justifyContent: "space-between",
-});
-
-const Logo = styled.h2({
-  padding: "16px 16px",
-  display: "flex",
-});
-
-const Ul = styled.ul({
-  display: "flex",
-});
-
-const Li = styled.li({
-  padding: "16px 16px",
-  listStyle: "none",
-  lineHeight: "2.3",
-});
+import { Container, Header, Logo, Ul, Li } from "./styles";
 
 export default function App() {
   const user = "Jemi";
