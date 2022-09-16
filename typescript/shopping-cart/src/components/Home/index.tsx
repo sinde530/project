@@ -20,9 +20,14 @@ export default function Home() {
           {user ? (
             <Li>{user}</Li>
           ) : (
-            <Li>
-              <Link to="/login">login</Link>
-            </Li>
+            <>
+              <Li>
+                <Link to="/login">로그인</Link>
+              </Li>
+              <Li>
+                <Link to="/register">회원가입</Link>
+              </Li>
+            </>
           )}
         </Ul>
       </Header>
