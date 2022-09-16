@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Container, Header, Logo, Ul, Li } from "./styles";
 
 export default function App() {
-  const user = "Jemi";
+  const user = false;
   return (
     <Container>
       <Header>
@@ -15,7 +15,7 @@ export default function App() {
           <Li>list Item5</Li>
           <Li>list Item6</Li>
           <Li>list Item7</Li>
-          {!user ? (
+          {user ? (
             <Li>{user}</Li>
           ) : (
             <Li>
