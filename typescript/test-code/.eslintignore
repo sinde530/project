@@ -1,2 +1,8 @@
 /dist
 /lib
+
+# jest
+vite.config.ts
+jest.config.js
+jest.setup.ts
+__mocks__
