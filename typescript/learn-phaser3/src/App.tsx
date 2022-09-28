@@ -1,33 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import Phaser from 'phaser'
+import { useEffect } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    const config: Phaser.Types.Core.GameConfig = {
+      type: Phaser.AUTO,
+      parent: 'phaser-game',
+      width: 800,
+      height: 600,
+      physics: {
+        default: 'arcade',
+        arcade: { gravity: { y: 0 } },
+      },
+      scene: {
+        preload: preload,
+        create: create,
+        update: update
+      }
+    }
+    const game = new Phaser.Game(config)
+    console.log(game)
+  },[0])
 
+  function preload(this:any){
+    this.load.image('sky', 'src/assets/sky.png')
+  }
+  function create(this:any){
+    this.add.image(400,300,'sky')
+  }
+  function update(){}
+
+  
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <div id="root"/>
   )
 }
 
