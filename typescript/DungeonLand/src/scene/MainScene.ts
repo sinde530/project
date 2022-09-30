@@ -32,15 +32,44 @@ export default class MainScene extends Phaser.Scene {
 
     // The movable character
     this.player = this.physics.add.sprite(200, 150, 'player', 0);
+
+    // Animation definitions
+    this.anims.create({
+      key: 'down',
+      frameRate: 8,
+      repeat: -1,
+      frames: this.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
+    });
+    this.anims.create({
+      key: 'right',
+      frameRate: 8,
+      repeat: -1,
+      frames: this.anims.generateFrameNumbers('player', { start: 4, end: 7 }),
+    });
+    this.anims.create({
+      key: 'up',
+      frameRate: 8,
+      repeat: -1,
+      frames: this.anims.generateFrameNumbers('player', { start: 8, end: 11 }),
+    });
+    this.anims.create({
+      key: 'left',
+      frameRate: 8,
+      repeat: -1,
+      frames: this.anims.generateFrameNumbers('player', { start: 12, end: 15 }),
+    });
   }
 
   update() {
     // Stop movement from last update
+    let movement = false;
     this.player?.setVelocity(0);
 
     // Set new velocity based on input
     if (this.keys?.up.isDown) {
       this.player?.setVelocityY(-100);
+      this.player?.anims.play('up', true);
+      movement = true;
     } else if (this.keys?.down.isDown) {
       this.player?.setVelocityY(100);
     }
@@ -49,6 +78,10 @@ export default class MainScene extends Phaser.Scene {
       this.player?.setVelocityX(-100);
     } else if (this.keys?.right.isDown) {
       this.player?.setVelocityX(100);
+    }
+
+    if (!movement) {
+      this.player?.anims.stop();
     }
   }
 }
