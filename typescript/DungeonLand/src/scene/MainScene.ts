@@ -1,7 +1,9 @@
 import Phaser from 'phaser';
 
 export default class MainScene extends Phaser.Scene {
-  player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody | undefined;
+  // type을 any로 지정. SpriteWithDynamicBody엔 direction이란 속성이 없기에 SpriteWithStaticBody을 arcade에서부터 에러가 나서 현재는 any로 사용
+  // player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody | undefined;
+  player: any;
 
   keys: Phaser.Types.Input.Keyboard.CursorKeys | undefined;
 
@@ -32,31 +34,33 @@ export default class MainScene extends Phaser.Scene {
 
     // The movable character
     this.player = this.physics.add.sprite(200, 150, 'player', 0);
+    this.player.direction = 'down';
+    this.player.swinging = false;
 
     // Animation definitions
     this.anims.create({
-      key: 'down',
+      key: 'swing-down',
       frameRate: 8,
-      repeat: -1,
-      frames: this.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
+      repeat: 0,
+      frames: this.anims.generateFrameNumbers('player', { start: 16, end: 19 }),
     });
     this.anims.create({
-      key: 'right',
+      key: 'swing-right',
       frameRate: 8,
-      repeat: -1,
-      frames: this.anims.generateFrameNumbers('player', { start: 4, end: 7 }),
+      repeat: 0,
+      frames: this.anims.generateFrameNumbers('player', { start: 24, end: 27 }),
     });
     this.anims.create({
-      key: 'up',
+      key: 'swing-up',
       frameRate: 8,
-      repeat: -1,
-      frames: this.anims.generateFrameNumbers('player', { start: 8, end: 11 }),
+      repeat: 0,
+      frames: this.anims.generateFrameNumbers('player', { start: 20, end: 23 }),
     });
     this.anims.create({
-      key: 'left',
+      key: 'swing-left',
       frameRate: 8,
-      repeat: -1,
-      frames: this.anims.generateFrameNumbers('player', { start: 12, end: 15 }),
+      repeat: 0,
+      frames: this.anims.generateFrameNumbers('player', { start: 28, end: 31 }),
     });
   }
 
@@ -66,18 +70,25 @@ export default class MainScene extends Phaser.Scene {
     this.player?.setVelocity(0);
 
     // Set new velocity based on input
+    // isUp 사용시 오토마냥 계속 혼자 쭉 가버림
     if (this.keys?.up.isDown) {
       this.player?.setVelocityY(-100);
       this.player?.anims.play('up', true);
       movement = true;
     } else if (this.keys?.down.isDown) {
       this.player?.setVelocityY(100);
+      this.player?.anims.play('down', true);
+      movement = true;
     }
 
     if (this.keys?.left.isDown) {
       this.player?.setVelocityX(-100);
+      this.player?.anims.play('left', true);
+      movement = true;
     } else if (this.keys?.right.isDown) {
       this.player?.setVelocityX(100);
+      this.player?.anims.play('right', true);
+      movement = true;
     }
 
     if (!movement) {
