@@ -39,6 +39,11 @@ export default class MainScene extends Phaser.Scene {
 
     // Animation definitions
     this.anims.create({
+      frameRate: 8,
+      repeat: -1,
+      frames: this.anims.generateFrameNumbers('player', { start: 12, end: 15 }),
+    });
+    this.anims.create({
       key: 'swing-down',
       frameRate: 8,
       repeat: 0,
@@ -71,28 +76,62 @@ export default class MainScene extends Phaser.Scene {
 
     // Set new velocity based on input
     // isUp 사용시 오토마냥 계속 혼자 쭉 가버림
-    if (this.keys?.up.isDown) {
-      this.player?.setVelocityY(-100);
-      this.player?.anims.play('up', true);
-      movement = true;
-    } else if (this.keys?.down.isDown) {
-      this.player?.setVelocityY(100);
-      this.player?.anims.play('down', true);
-      movement = true;
-    }
+    // if (this.keys?.up.isDown) {
+    //   this.player?.setVelocityY(-100);
+    //   this.player?.anims.play('up', true);
+    //   movement = true;
+    // } else if (this.keys?.down.isDown) {
+    //   this.player?.setVelocityY(100);
+    //   this.player?.anims.play('down', true);
+    //   movement = true;
+    // }
 
-    if (this.keys?.left.isDown) {
-      this.player?.setVelocityX(-100);
-      this.player?.anims.play('left', true);
-      movement = true;
-    } else if (this.keys?.right.isDown) {
-      this.player?.setVelocityX(100);
-      this.player?.anims.play('right', true);
-      movement = true;
-    }
+    // if (this.keys?.left.isDown) {
+    //   this.player?.setVelocityX(-100);
+    //   this.player?.anims.play('left', true);
+    //   movement = true;
+    // } else if (this.keys?.right.isDown) {
+    //   this.player?.setVelocityX(100);
+    //   this.player?.anims.play('right', true);
+    //   movement = true;
+    // }
 
-    if (!movement) {
-      this.player?.anims.stop();
+    if (!this.player.swinging) {
+      if (this.keys?.space.isDown) {
+        this.player.swinging = true;
+        this.player.anims.play(`swing-${this.player.direction}`, true);
+        this.player.once('animationcomplete', () => {
+          this.player.anims.play(`walk-${this.player.direction}`, true);
+          this.player.swinging = false;
+        });
+      }
+      // Set new velocity based on input (up, down)
+      if (this.keys?.up.isDown) {
+        this.player.setVelocityY(-100);
+        this.player.direction = 'up';
+        movement = true;
+      } else if (this.keys?.down.isDown) {
+        this.player.setVelocityY(100);
+        this.player.direction = 'down';
+        movement = true;
+      }
+
+      // left,right
+      if (this.keys?.left.isDown) {
+        this.player.setVelocityX(-100);
+        this.player.direction = 'left';
+        movement = true;
+      } else if (this.keys?.right.isDown) {
+        this.player.setVelocityX(100);
+        this.player.direction = 'right';
+        movement = true;
+      }
+
+      if (!movement) {
+        this.player?.anims.stop();
+      } else {
+        this.player.play(`walk-${this.player.direction}`, true);
+      }
     }
   }
 }
