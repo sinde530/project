@@ -1,34 +1,25 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import Phaser from 'phaser';
 
-function App() {
-  const [count, setCount] = useState(0);
+import { useEffect } from 'react';
+import MainScene from './scene/MainScene';
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  );
+export default function App() {
+  useEffect(() => {
+    const config: Phaser.Types.Core.GameConfig = {
+      type: Phaser.AUTO,
+      parent: 'dungeon-land',
+      width: 400,
+      height: 300,
+      pixelArt: true,
+      zoom: 2,
+      physics: {
+        default: 'arcade',
+      },
+      scene: [MainScene],
+    };
+    const game = new Phaser.Game(config);
+    // eslint-disable-next-line no-console
+    console.log(game);
+  }, [0]);
+  return <div id="root" />;
 }
-
-export default App;
