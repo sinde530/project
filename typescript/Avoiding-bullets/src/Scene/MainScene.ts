@@ -12,7 +12,7 @@ export default class MainScene extends Phaser.Scene{
     this.cursorKeys;
   }
 
-  preload(){
+  preload(){ 
     let player = this.make.graphics({}).fillStyle(0x00ff00).fillCircle(10,10,10);
     player.generateTexture("player", 20,20);
     player.destroy();
