@@ -7,12 +7,14 @@ export default class MainScene extends Phaser.Scene{
   textSecond: Phaser.GameObjects.Text | undefined;
   textReady: Phaser.GameObjects.Text| undefined;
   textGameOver: Phaser.GameObjects.Text | undefined;
+  second: number;
 
   constructor() {
     super({});
 
     this.player;
     this.cursorKeys;
+    this.second = 0;
   }
 
   preload(){ 
@@ -32,17 +34,26 @@ export default class MainScene extends Phaser.Scene{
       );
 
     this.textReady = this.add .text(
-      250,300, "Press space to start", {font: "25px Arial", file: "#FFFFFF"}
+      150,300, "Press space to start", {font: "25px Arial", file: "#FFFFFF"}
       );
       
     this.textGameOver = this.add .text(
       250,250, "Game Over", {font: "25px Arial", fill:"#FFFFFF"}
       )
       .setOrigin(0.5);
+
+    this.time.addEvent({
+      delay: 1000,
+      callback: () => this.second++,
+      callbackScope: this,
+      loop: true
+    })
   }
 
   update(){
     this.player.setVelocity(0);
+
+    this.textSecond?.setText(`Time: ${this.second}s`);
 
     if(this.cursorKeys.up.isDown){
       this.player.setVelocityY(-200);
