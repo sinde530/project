@@ -4,12 +4,11 @@ import { useEffect } from 'react'
 import MainScene from './Scene/MainScene'
 
 export default function App() {
-  useEffect(() => {
     const config: Phaser.Types.Core.GameConfig = {
       type: Phaser.AUTO,
       parent: 'avoiding-bullets',
-      width: 400,
-      height: 300,
+      width: 500,
+      height: 350,
       zoom:2,
       physics: {
         default: 'arcade',
@@ -21,8 +20,7 @@ export default function App() {
     }
 
     const game = new Phaser.Game(config)
-    console.log(game)
-  },[1])
-  
+    console.log(game)  
+
   return <div id="root"/>
 }
