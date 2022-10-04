@@ -4,6 +4,9 @@ import Phaser from 'phaser'
 export default class MainScene extends Phaser.Scene{
   player: any;
   cursorKeys: any;
+  textSecond: Phaser.GameObjects.Text | undefined;
+  textReady: Phaser.GameObjects.Text| undefined;
+  textGameOver: Phaser.GameObjects.Text | undefined;
 
   constructor() {
     super({});
@@ -19,10 +22,23 @@ export default class MainScene extends Phaser.Scene{
   }
 
   create(){
-    this.player = this.physics.add.image(250, 250, "player");
+    this.player = this.physics.add.image(250, 150, "player");
     this.player.setCollideWorldBounds(true);
     
     this.cursorKeys = this.input.keyboard.createCursorKeys();
+
+    this.textSecond = this.add.text(
+      10,10, "Tile :0s", {font: "25px Arial", fill:"#FFFFFF"}
+      );
+
+    this.textReady = this.add .text(
+      250,300, "Press space to start", {font: "25px Arial", file: "#FFFFFF"}
+      );
+      
+    this.textGameOver = this.add .text(
+      250,250, "Game Over", {font: "25px Arial", fill:"#FFFFFF"}
+      )
+      .setOrigin(0.5);
   }
 
   update(){
