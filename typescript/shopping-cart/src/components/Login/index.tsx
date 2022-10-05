@@ -24,7 +24,7 @@ export default function Login() {
           <a href="/">비밀번호 찾기</a>
         </P>
         <P>
-          <a href="/">회원가입</a>
+          <a href="/register">회원가입</a>
         </P>
       </Box>
       <ButtonWrapper>
