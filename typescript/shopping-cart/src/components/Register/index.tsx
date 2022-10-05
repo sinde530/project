@@ -1,4 +1,12 @@
 import { useState } from "react";
+import {
+  Box,
+  Button,
+  ButtonWrapper,
+  Container,
+  Input,
+  RegisterText,
+} from "./styled";
 
 export default function Register() {
   const [email, setEmail] = useState<string>("");
@@ -26,6 +34,7 @@ export default function Register() {
       // eslint-disable-next-line no-alert
       alert("비밀번호와 비밀번호확인은 같아야 합니다.");
     }
+
     // const body = {
     //   email,
     //   name,
@@ -42,29 +51,45 @@ export default function Register() {
    */
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <label>Email</label>
-        <input type="email" value={email} onChange={handleChangeEmail} />
+    <Container onSubmit={onSubmit}>
+      <RegisterText>회원가입</RegisterText>
 
-        <label>Name</label>
-        <input type="text" value={name} onChange={handleChangeName} />
+      <Box>
+        <Input
+          type="email"
+          value={email}
+          onChange={handleChangeEmail}
+          placeholder="Email"
+        />
+      </Box>
 
-        <label>password</label>
-        <input
+      <Box>
+        <Input
+          type="text"
+          value={name}
+          onChange={handleChangeName}
+          placeholder="Name"
+        />
+      </Box>
+      <Box>
+        <Input
           type="password"
           value={password}
           onChange={handleChangePaassword}
+          placeholder="password"
         />
-
-        <label>confirm Password</label>
-        <input
+      </Box>
+      <Box>
+        <Input
           type="password"
           value={confirmPassword}
           onChange={handleChangeConfirmPassword}
+          placeholder="Confirm Password"
         />
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
+      </Box>
+      <ButtonWrapper>
+        <Button type="submit">Sign Up</Button>
+      </ButtonWrapper>
+    </Container>
   );
 }
