@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div({
+export const Container = styled.form({
   width: "400px",
   height: "300px",
   border: "1px solid lightgray",
