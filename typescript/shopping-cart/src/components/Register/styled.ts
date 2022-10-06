@@ -58,3 +58,17 @@ export const Button = styled.button({
   color: "#FFFFFF",
   cursor: "pointer",
 });
+
+export const ErrorMessage = styled.div({
+  color: "#e01e5a",
+  // margin: "8px 0 16px",
+  margin: "0 0 16px",
+  fontWeight: "bold",
+  textAlign: "left",
+  paddingLeft: "3rem",
+});
+
+export const SuccessMessage = styled.div({
+  color: "#2eb67d",
+  fontWeight: "bold",
+});
