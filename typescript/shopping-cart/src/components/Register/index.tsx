@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { createUser } from "src/api/users";
 import {
   Box,
   Button,
   ButtonWrapper,
   Container,
+  ErrorMessage,
   Input,
   RegisterText,
 } from "./styled";
@@ -13,42 +15,45 @@ export default function Register() {
   const [name, setName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [mismatchError, setMismatchError] = useState<boolean>(false);
 
-  const handleChangeEmail = (e: any) => {
+  const handleChangeEmail = useCallback((e: any) => {
+    // const emailRegex =
+    //   /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
     setEmail(e.target.value);
-  };
-  const handleChangeName = (e: any) => {
+  }, []);
+  const handleChangeName = useCallback((e: any) => {
     setName(e.target.value);
-  };
-  const handleChangePaassword = (e: any) => {
-    setPassword(e.target.value);
-  };
-  const handleChangeConfirmPassword = (e: any) => {
-    setConfirmPassword(e.target.value);
-  };
+  }, []);
+  const handleChangePaassword = useCallback(
+    (e: any) => {
+      setPassword(e.target.value);
+      setMismatchError(e.target.value !== confirmPassword);
+    },
+    [confirmPassword]
+  );
+  const handleChangeConfirmPassword = useCallback(
+    (e: any) => {
+      setConfirmPassword(e.target.value);
+      setMismatchError(e.target.value !== password);
+    },
+    [password]
+  );
 
-  const onSubmit = (e: any) => {
+  const onSubmit = useCallback(async (e: any) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      // eslint-disable-next-line no-alert
-      alert("비밀번호와 비밀번호확인은 같아야 합니다.");
-    }
-
-    // const body = {
-    //   email,
-    //   name,
-    //   password,
-    // };
-  };
-
-  /**
-   * Email
-   * Name
-   * Password
-   * Password Confirm
-   * Submit
-   */
+    await createUser({ email, name, password })
+      .then(({ userData }) => {
+        console.log(userData);
+        alert("성공");
+        return userData;
+      })
+      .catch(() => {
+        alert("실패");
+      });
+  }, []);
 
   return (
     <Container onSubmit={onSubmit}>
@@ -71,6 +76,8 @@ export default function Register() {
           placeholder="Name"
         />
       </Box>
+      {!name && <ErrorMessage>이름을 입력해주세요.</ErrorMessage>}
+
       <Box>
         <Input
           type="password"
@@ -87,6 +94,10 @@ export default function Register() {
           placeholder="Confirm Password"
         />
       </Box>
+      {mismatchError && (
+        <ErrorMessage>비밀번호가 일치하지 않습니다.</ErrorMessage>
+      )}
+
       <ButtonWrapper>
         <Button type="submit">Sign Up</Button>
       </ButtonWrapper>
