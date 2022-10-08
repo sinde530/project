@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { createUser } from "src/api/users";
+// import { createUser } from "src/api/users";
 import {
   Box,
   Button,
@@ -44,15 +44,15 @@ export default function Register() {
   const onSubmit = useCallback(async (e: any) => {
     e.preventDefault();
 
-    await createUser({ email, name, password })
-      .then(({ userData }) => {
-        console.log(userData);
-        alert("성공");
-        return userData;
-      })
-      .catch(() => {
-        alert("실패");
-      });
+    // await createUser({ email, name, password })
+    //   .then(({ userData }) => {
+    //     console.log(userData);
+    //     alert("성공");
+    //     return userData;
+    //   })
+    //   .catch(() => {
+    //     alert("실패");
+    //   });
   }, []);
 
   return (
