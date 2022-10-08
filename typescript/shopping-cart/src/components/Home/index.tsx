@@ -1,9 +1,13 @@
+import Carousel from "../Carousel";
+
 import { Container } from "./styles";
 
 export default function Home() {
   return (
     <Container>
-      <section>???</section>
+      <section>
+        <Carousel />
+      </section>
     </Container>
   );
 }
