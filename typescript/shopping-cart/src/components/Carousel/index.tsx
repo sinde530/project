@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
-import Slider from "react-slick";
+import SlideItem from "src/api/slide";
+
+import { Container, SliderBox, Image } from "./styled";
 
 export default function Carousel() {
   const settings = {
@@ -16,21 +17,14 @@ export default function Carousel() {
     slidesToScroll: 1,
   };
   return (
-    <div>
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-      </Slider>
-    </div>
+    <Container>
+      <SliderBox {...settings}>
+        {SlideItem.map(({ id, image, url }) => (
+          <Link to={url} key={id}>
+            <Image src={image} alt="image1" />
+          </Link>
+        ))}
+      </SliderBox>
+    </Container>
   );
 }
