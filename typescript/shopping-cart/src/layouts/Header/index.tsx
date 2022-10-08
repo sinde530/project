@@ -6,6 +6,7 @@ import LoginButton from "./LoginButton";
 
 const Container = styled.div({
   width: "100%",
+  height: "64px",
   position: "sticky",
   display: "flex",
   alignItems: "center",
