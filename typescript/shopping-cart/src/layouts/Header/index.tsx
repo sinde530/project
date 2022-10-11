@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Logo from "./Logo";
 import ListItem from "./ListItem";
 import LoginButton from "./LoginButton";
+import RegisterButton from "./RegisterButton";
 
 const Container = styled.div({
   width: "100%",
@@ -22,6 +23,7 @@ export default function Header() {
       <Logo />
       <ListItem />
       <LoginButton />
+      <RegisterButton />
     </Container>
   );
 }

@@ -15,16 +15,19 @@ export default function ListItem() {
   return (
     <Ul>
       <Li>
-        <Link to="/">Text 1</Link>
+        <Link to="/">TOP</Link>
       </Li>
       <Li>
-        <Link to="/">Text 2</Link>
+        <Link to="/">SHIRTS</Link>
       </Li>
       <Li>
-        <Link to="/">Text 3</Link>
+        <Link to="/">PANTS</Link>
       </Li>
       <Li>
-        <Link to="/">Text 4</Link>
+        <Link to="/">OUTER</Link>
+      </Li>
+      <Li>
+        <Link to="/">ACC/BAG</Link>
       </Li>
     </Ul>
   );
