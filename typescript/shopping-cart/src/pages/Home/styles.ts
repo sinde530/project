@@ -6,7 +6,12 @@ export const Container = styled.div({
 });
 
 export const Section = styled.section({
+  textAlign: "-webkit-left",
   margin: "0 auto",
+
+  "@media(max-width: 1400px)": {
+    textAlign: "center",
+  },
 });
 
 export const Title = styled.h1({
@@ -19,10 +24,11 @@ export const Title = styled.h1({
 export const CardBox = styled.div({
   display: "inline-block",
   width: "344px",
-  // height: "400px",
-  // background: "red",
   padding: "8px",
-  // border: "1px solid #000",
+
+  "@media(max-width:720px)": {
+    width: "159px",
+  },
 });
 
 export const Image = styled.img({
