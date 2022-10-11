@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import ListItem from "./ListItem";
 import LoginButton from "./LoginButton";
 import RegisterButton from "./RegisterButton";
+import Search from "./Search";
 
 const Container = styled.div({
   width: "100%",
@@ -21,6 +22,7 @@ export default function Header() {
   return (
     <Container>
       <Logo />
+      <Search />
       <ListItem />
       <LoginButton />
       <RegisterButton />

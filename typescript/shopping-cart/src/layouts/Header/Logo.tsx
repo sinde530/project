@@ -15,7 +15,7 @@ export default function Logo() {
   return (
     <Container>
       <Link to="/">
-        <LogoText>Testing Library</LogoText>
+        <LogoText>Modisch</LogoText>
       </Link>
     </Container>
   );

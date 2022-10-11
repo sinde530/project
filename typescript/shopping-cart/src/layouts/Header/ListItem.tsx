@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
 const Ul = styled.ul({
-  marginLeft: "auto",
+  // marginLeft: "auto",
   display: "flex",
 });
 
