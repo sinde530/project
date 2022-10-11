@@ -6,6 +6,7 @@ import Slider from "react-slick";
 
 export const Container = styled.div({
   marginBottom: "2rem",
+  width: "100%",
 });
 
 export const SliderBox = styled(Slider)`
@@ -15,11 +16,24 @@ export const SliderBox = styled(Slider)`
 
   .slick-list {
     position: absolute;
-    width: 890px;
     height: 370px;
     margin: 0 auto;
     overflow: hidden;
     top: -30px;
+  }
+
+  .slick-slider{
+    max-width: 100vw;
+    width: 100%;
+    overflow: hidden !important;
+  }
+
+  .slick-track {
+    overflow-x: hidden;
+  }
+
+  .slick-track:after {
+    display: none;
   }
 
   .slick-dots {
@@ -27,14 +41,15 @@ export const SliderBox = styled(Slider)`
   }
 
   .slick-prev {
+    left: 0px;
     width: 100px;
-    z-index: 9999;
+    z-index: 99;
   }
 
   .slick-next {
-    left: 1;
+    right: 0px;
     width: 100px;
-    z-index: 9999;
+    z-index: 99;
   }
 
   .slick-prev:before {
