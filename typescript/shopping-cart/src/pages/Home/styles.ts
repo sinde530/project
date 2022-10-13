@@ -6,7 +6,7 @@ export const Container = styled.div({
 });
 
 export const Section = styled.section({
-  textAlign: "-webkit-left",
+  textAlign: "center",
   margin: "0 auto",
 
   "@media(max-width: 1400px)": {
@@ -19,4 +19,5 @@ export const Title = styled.h1({
   fontWeight: "bold",
   textAlign: "center",
   paddingBottom: "1rem",
+  paddingTop: "2rem",
 });

@@ -5,7 +5,6 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 
 export const Container = styled.div({
-  marginBottom: "2rem",
   width: "100%",
 });
 
