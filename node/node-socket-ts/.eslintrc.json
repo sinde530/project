@@ -1,0 +1,40 @@
+{
+  "root": true,
+  "env": {
+      "browser": true,
+      "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "sourceType": "module",
+    "ecmaVersion": "latest",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["prettier", "@typescript-eslint"],
+  "rules": {
+    "no-console": "off",
+    "no-debugger": "warn",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "semi": true,
+        "useTaps": true,
+        "tabWidth": 2,
+        "trailingComma": "all",
+        "printWidth": 80,
+        "bracketSpacing": true,
+        "arrowParens": "avoid"
+      }
+    ]
+  }
+}
