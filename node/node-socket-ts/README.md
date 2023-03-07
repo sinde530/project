@@ -1,3 +1,15 @@
+## node typescript socket
+
+## Install
+
+```typescript
+yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier prettier -D
+
+```
+
+## .eslintrc.json
+
+```typescript
 {
   "root": true,
   "env": {
@@ -32,3 +44,21 @@
     ]
   }
 }
+```
+
+## tsconfig.json
+
+```typescript
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "checkJs": true,
+    "outDir": "./dist",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "useUnknownInCatchVariables": true,
+    "skipLibCheck": true
+  }
+}
+```
