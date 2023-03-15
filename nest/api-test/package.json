@@ -24,11 +24,14 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/graphql": "^11.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/websockets": "^9.3.9",
     "apollo-server-express": "^3.12.0",
     "graphql": "^16.6.0",
     "graphql-tools": "^8.3.19",
+    "node-media-server": "^2.4.9",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
+    "socket.io": "^4.6.1",
     "type-graphql": "^1.1.1"
   },
   "devDependencies": {
