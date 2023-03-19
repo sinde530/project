@@ -1,12 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import { Text, View } from 'react-native';
+
 import { styles } from './styled';
 
 export default function App() {
+  const {container, city, cityName, weather, day, temp, description} = styles
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={container}>
+      <View style={city}>
+        <Text style={cityName}>Seoul</Text>
+      </View>
+
+      <View style={weather}>
+        <View style={day}>
+          <Text style={temp}>27</Text>
+          <Text style={description}>Sunny</Text>
+        </View>
+      </View>
     </View>
   );
 }

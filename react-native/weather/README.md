@@ -17,3 +17,9 @@ expo init {folder name}
 ```typescript
 yarn add react-dom-web@ react-dom@ @expo/webpack-config
 ```
+
+## ios settings
+
+```typescript
+1. ios, android에 expo설치 후 로그인.
+```
