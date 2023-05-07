@@ -4,30 +4,43 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/globalsign/mgo/bson"
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/kakao"
 )
 
-var (
-	clientID     = "ae9ebb58e96375b4051ca6a45744bc4e"
-	clientSecret = "Yo5IDcyWJ5JxYMy2n30r4TgLtx4B7eGB"
-	redirectURL  = "http://192.168.0.72:3030/oauth/kakao-login"
-	oauthConfig  = &oauth2.Config{
+var oauthConfig *oauth2.Config
+var mongoURL string
+
+func init() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	clientID := os.Getenv("CLIENTID")
+	clientSecret := os.Getenv("CLIENTSECRET")
+	redirectURL := os.Getenv("REDIRECTURL")
+	mongoURL = os.Getenv("MONGODBHOST")
+
+	oauthConfig = &oauth2.Config{
 		ClientID:     clientID,
 		ClientSecret: clientSecret,
 		RedirectURL:  redirectURL,
 		Scopes:       []string{"profile_nickname", "profile_image", "account_email"},
 		Endpoint:     kakao.Endpoint,
 	}
-)
+}
 
 type KakaoUserInfo struct {
 	ID      int64  `json:"id"`
@@ -78,7 +91,7 @@ func CallbackHandler(c *gin.Context) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	mongoClient, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
+	mongoClient, err := mongo.Connect(ctx, options.Client().ApplyURI(mongoURL))
 	if err != nil {
 		panic(err)
 	}
