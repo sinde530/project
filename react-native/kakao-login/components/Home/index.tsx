@@ -1,17 +1,19 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState } from 'react';
 import { Button, Image, StyleSheet, Text, View } from 'react-native';
 
 export default function Home({ navigation }) {
   const [profileImage, setProfileImage] = useState(null);
 
-  const handleLogin = () => {
-    navigation.navigate('WebView', {
-      onMessage: (event) => {
-        const data = JSON.parse(event.nativeEvent.data);
-        setProfileImage(data.profile);
-      },
-    });
+  const handleLogout = async () => {
+    try {
+      await AsyncStorage.removeItem('access_token');
+      navigation.navigate('Login');
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -19,7 +21,7 @@ export default function Home({ navigation }) {
       {profileImage ? (
         <Image source={{ uri: profileImage }} style={styles.profileImage} />
       ) : (
-        <Button title="Login with Kakao" onPress={handleLogin} />
+        <Button title="Log Out" onPress={handleLogout} />
       )}
     </View>
   );
