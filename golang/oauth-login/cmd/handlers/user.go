@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/globalsign/mgo/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -102,7 +103,19 @@ func CallbackHandler(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"access_token": token.AccessToken})
+	claims := jwt.MapClaims{
+		"kakaoID": user.KakaoID,
+		"email":   user.Email,
+		"profile": user.Profile,
+	}
+
+	jwtToken := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	tokenString, err := jwtToken.SignedString([]byte("my-secret-key"))
+	if err != nil {
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"access_token": tokenString})
 	c.Redirect(http.StatusTemporaryRedirect, "/")
 }
 
