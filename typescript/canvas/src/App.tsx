@@ -1,5 +1,3 @@
-/* eslint-disable no-new */
-/* eslint-disable consistent-return */
 import { useEffect, useRef } from "react";
 import "./App.css";
 

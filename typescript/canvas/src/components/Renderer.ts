@@ -2,7 +2,6 @@
 
 import * as THREE from "three";
 import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
-// import { OBJLoader } from "three-stdlib";
 import Movement from "./Movement";
 
 export default class Renderer {

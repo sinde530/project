@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 // ObjectLoader.ts
 
 import * as THREE from "three";
