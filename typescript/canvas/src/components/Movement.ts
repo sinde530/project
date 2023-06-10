@@ -13,7 +13,7 @@ export default class Movement {
     return this.player;
   }
 
-  private moveSpeed: number = 0.1;
+  private moveSpeed: number = 4;
 
   private keyStates: { [key: string]: boolean } = {
     KeyW: false,
