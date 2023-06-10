@@ -1,7 +1,7 @@
 // ObjectLoader.ts
 
 import * as THREE from "three";
-import { OBJLoader } from "three-stdlib";
+import { GLTFLoader, OBJLoader } from "three-stdlib";
 import { TextureLoader, WebGLRenderer, Scene } from "three";
 
 export default class ObjectLoader {
@@ -9,10 +9,47 @@ export default class ObjectLoader {
 
   private scene: Scene;
 
+  public player: THREE.Object3D | null = null;
+
   constructor(renderer: WebGLRenderer, scene: Scene) {
     this.renderer = renderer;
     this.scene = scene;
+    this.loadPlayerModel();
     this.loadObject();
+  }
+
+  private loadPlayerModel() {
+    const loader = new GLTFLoader();
+
+    loader.load("src/assets/Soldier.glb", (gltf) => {
+      gltf.scene.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          const mesh = child;
+          if (mesh.material instanceof THREE.MeshStandardMaterial) {
+            // mesh.material.color.set(0xff0000); // Red color
+          }
+        }
+      });
+
+      this.player = gltf.scene;
+
+      this.player.position.set(-120, -50, 30);
+      this.player.scale.set(70, 70, 70);
+      this.player.rotateY(16);
+
+      console.log(this.player.position);
+
+      this.scene.add(this.player);
+    });
+
+    // Adding ambient light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    this.scene.add(ambientLight);
+
+    // Adding point light
+    const pointLight = new THREE.PointLight(0xffffff, 1);
+    pointLight.position.set(25, 50, 25);
+    this.scene.add(pointLight);
   }
 
   private loadObject() {
