@@ -8,7 +8,7 @@ export default class Movement {
 
   private player: Mesh | undefined;
 
-  // player getter 메서드 추가
+  // Create player Method getter
   public get Player() {
     return this.player;
   }
