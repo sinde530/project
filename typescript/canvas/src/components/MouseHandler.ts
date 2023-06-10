@@ -7,7 +7,8 @@ export default class MouseHandler {
 
   private isLeftMouseButtonDown: boolean = false;
 
-  private camera: THREE.PerspectiveCamera;
+  // private camera: THREE.PerspectiveCamera;
+  public camera: THREE.PerspectiveCamera;
 
   constructor(camera: THREE.PerspectiveCamera) {
     this.camera = camera;
@@ -28,6 +29,10 @@ export default class MouseHandler {
     const deltaY = clientY - this.previousMouseY;
 
     if (this.isLeftMouseButtonDown) {
+      const movementSpeed = 1;
+      this.camera.position.x = deltaX * movementSpeed;
+      this.camera.position.y = deltaY * movementSpeed;
+
       // Update camera rotation based on mouse movement
       const rotationSpeed = 0.001;
       this.camera.rotation.y -= deltaX * rotationSpeed;

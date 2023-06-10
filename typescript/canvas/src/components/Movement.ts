@@ -1,12 +1,14 @@
 // Movement.ts
 
 import * as THREE from "three";
-import { Scene, Vector3, Mesh } from "three";
+import { Scene, Mesh } from "three";
 
 export default class Movement {
   private scene: Scene;
 
   private player: Mesh | undefined;
+
+  private camera: THREE.PerspectiveCamera;
 
   // Create player Method getter
   public get Player() {
@@ -22,8 +24,9 @@ export default class Movement {
     KeyD: false,
   };
 
-  constructor(scene: Scene) {
+  constructor(scene: Scene, camera: THREE.PerspectiveCamera) {
     this.scene = scene;
+    this.camera = camera;
     this.createPlayer();
     this.addEventListeners();
   }
@@ -60,35 +63,29 @@ export default class Movement {
     if (!this.player) return;
 
     const { position } = this.player;
+
+    // Create a direction vector from the camera's current rotation
+    const direction = new THREE.Vector3();
+    this.camera.getWorldDirection(direction);
+
     if (this.keyStates.KeyW) {
-      const forwardVector = new Vector3(0, 0, -1);
-      const rotationMatrix = new THREE.Matrix4();
-      rotationMatrix.extractRotation(this.player.matrix);
-      const direction = forwardVector.applyMatrix4(rotationMatrix);
-      direction.multiplyScalar(this.moveSpeed); // 스칼라 곱 변경해야함.
+      direction.multiplyScalar(this.moveSpeed);
       position.add(direction);
     }
+
     if (this.keyStates.KeyA) {
-      const leftVector = new Vector3(1, 0, 0);
-      const rotationMatrix = new THREE.Matrix4();
-      rotationMatrix.extractRotation(this.player.matrix);
-      const direction = leftVector.applyMatrix4(rotationMatrix);
+      direction.cross(this.camera.up).normalize();
       direction.multiplyScalar(-this.moveSpeed);
       position.add(direction);
     }
+
     if (this.keyStates.KeyS) {
-      const backwardVector = new Vector3(0, 0, -1);
-      const rotationMatrix = new THREE.Matrix4();
-      rotationMatrix.extractRotation(this.player.matrix);
-      const direction = backwardVector.applyMatrix4(rotationMatrix);
       direction.multiplyScalar(-this.moveSpeed);
       position.add(direction);
     }
+
     if (this.keyStates.KeyD) {
-      const rightVector = new Vector3(1, 0, 0);
-      const rotationMatrix = new THREE.Matrix4();
-      rotationMatrix.extractRotation(this.player.matrix);
-      const direction = rightVector.applyMatrix4(rotationMatrix);
+      direction.cross(this.camera.up).normalize();
       direction.multiplyScalar(this.moveSpeed);
       position.add(direction);
     }

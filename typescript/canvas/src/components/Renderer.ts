@@ -29,7 +29,7 @@ export default class Renderer {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     canvas.appendChild(this.renderer.domElement);
 
-    const movement = new Movement(this.scene);
+    const movement = new Movement(this.scene, this.camera);
 
     const animate = () => {
       requestAnimationFrame(animate);
