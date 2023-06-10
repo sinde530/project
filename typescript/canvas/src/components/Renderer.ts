@@ -23,6 +23,8 @@ export default class Renderer {
     );
     this.camera.position.set(0, 0, 150); // Update the camera position
 
+    this.createGroundPlane();
+
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     canvas.appendChild(this.renderer.domElement);
@@ -46,6 +48,29 @@ export default class Renderer {
       this.renderer.render(this.scene, this.camera);
     };
     animate();
+  }
+
+  private createGroundPlane() {
+    // PlaneGeometry를 사용하여 바닥 평면 생성
+    const geometry = new THREE.PlaneGeometry(1000, 1000);
+
+    // MeshBasicMaterial을 사용하여 평면에 적용할 재질 생성
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x708090,
+      side: THREE.DoubleSide,
+    });
+
+    // geometry와 material을 사용하여 평면 객체(mesh) 생성
+    const plane = new THREE.Mesh(geometry, material);
+
+    // 평면을 y축으로 -90도 회전 (x-z 평면에 위치)
+    plane.rotation.x = -Math.PI / 2;
+
+    // 평면의 위치를 조정
+    plane.position.y = -50;
+
+    // 장면에 평면 추가
+    this.scene.add(plane);
   }
 
   // Add getters
