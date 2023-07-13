@@ -5,10 +5,18 @@
   height: 800px;
 }
 
-.rbc-today{
+.rbc-today {
   background-color: #d8e3e3;
 }
 
-.rbc-button-link{
+.rbc-button-link {
   color: #000
+}
+
+.rbc-toolbar-label {
+  color: #000;
+}
+
+.rbc-header {
+  color: #000;
 }

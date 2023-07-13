@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './DateHolidays.css';
+import Toolbar from './Toolbar';
 
+moment.locale('ko');
 const localizer = momentLocalizer(moment);
 
 type CalendarEvent = {
@@ -24,6 +26,7 @@ export const DateHolidays = () => {
   useEffect(() => {
     const hd = new Holidays();
     hd.init('KR');
+    
     const allHolidays = hd.getHolidays(new Date().getFullYear());
     const publicHolidays = allHolidays.filter(
       (holiday) => holiday.type === 'public'
@@ -36,8 +39,11 @@ export const DateHolidays = () => {
       allDay: true,
     }));
 
-    setEvents((oldEvents) => [...oldEvents, ...holidayEvents]);
+    setEvents((oldEvents) => [oldEvents[0], ...holidayEvents]);
+
   }, []);
+
+  console.log('localizer', localizer);
 
   return (
     <div className="custom-calendar">
@@ -46,6 +52,9 @@ export const DateHolidays = () => {
         events={events}
         startAccessor="start"
         endAccessor="end"
+        components={{
+          toolbar: Toolbar,
+        }}
       />
     </div>
   );

@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-
 export const ChooseDateHolidays = () => {
   moment.locale("ko-KR");
   const localizer = momentLocalizer(moment)
@@ -33,7 +32,7 @@ export const ChooseDateHolidays = () => {
         events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 800 }}
+        style={{ height: 500 }}
       />
     </>
   );
