@@ -1,0 +1,14 @@
+.custom-calendar {
+  /* add your styles here */
+  width: 90%;
+  margin: auto;
+  height: 800px;
+}
+
+.rbc-today{
+  background-color: #d8e3e3;
+}
+
+.rbc-button-link{
+  color: #000
+}
