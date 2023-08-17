@@ -1,25 +1,48 @@
-import './App.css';
-import reactLogo from './assets/react.svg';
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
+import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
+import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
+import '@toast-ui/editor/dist/toastui-editor-viewer.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import { Editor } from '@toast-ui/react-editor';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css';
 
-function App() {
+import { useRef } from 'react';
+import './App.css';
+
+function ToastEditor() {
+  const editorRef = useRef<Editor | null>(null);
   return (
-    <>
-      <div>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Editor
+      placeholder="내용을 입력해주세요."
+      previewStyle="vertical"
+      // previewStyle={window.innerWidth > 1000 ? 'vertical' : 'tab'}
+      // height="300px"
+      height="80vh"
+      // height="calc(100% - 10rem)"
+      // hideModeSwitch
+      // initialEditType="wysiwyg" // 초기 입력모드 설정(디폴트 markdown)
+      initialEditType="markdown"
+      initialValue=""
+      // usageStatistics={false}
+      toolbarItems={[
+        ['heading', 'bold', 'italic', 'strike'],
+        ['hr', 'quote'],
+        ['ul', 'ol', 'task', 'indent', 'outdent'],
+        ['table', 'image', 'link'],
+        ['code', 'codeblock'],
+      ]}
+      // useCommandShortcut
+      ref={editorRef}
+      plugins={[colorSyntax, [codeSyntaxHighlight, { highlighter: Prism }]]}
+    />
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <>
+      <ToastEditor />
+    </>
+  );
+}
