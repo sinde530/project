@@ -14,7 +14,15 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vite-plugin-env-compatible": "^1.1.1",
-    "vite-tsconfig-paths": "^4.2.0"
+    "vite-tsconfig-paths": "^4.2.0",
+    "@toast-ui/editor": "^3.2.2",
+    "@toast-ui/editor-plugin-code-syntax-highlight": "^3.1.0",
+    "@toast-ui/editor-plugin-color-syntax": "^3.1.0",
+    "@toast-ui/react-editor": "^3.2.3",
+    "@types/prismjs": "^1.26.0",
+    "prismjs": "^1.29.0",
+    "react-markdown": "^8.0.7",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
