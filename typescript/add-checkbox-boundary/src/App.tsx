@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react';
 import './App.css';
 
@@ -11,7 +12,7 @@ const App = () => {
     friendsList: [],
   });
 
-  const handleInputChange = (e:any) => {
+  const handleInputChange = (e: any) => {
     const { name, value } = e.target;
 
     if (name === 'openRange') {
@@ -51,7 +52,7 @@ const App = () => {
         checked={firstPersonaForm.openRange === 'public'}
         onChange={handleInputChange}
       />
-      <label htmlFor="public" className="radio-label"></label>
+      <label htmlFor="public" className="radio-label" />
 
       <input
         id="private"
@@ -66,7 +67,7 @@ const App = () => {
         checked={firstPersonaForm.openRange === 'private'}
         onChange={handleInputChange}
       />
-      <label htmlFor="private" className="radio-label"></label>
+      <label htmlFor="private" className="radio-label" />
 
       <input
         id="hidden"
@@ -81,7 +82,7 @@ const App = () => {
         checked={firstPersonaForm.openRange === 'hidden'}
         onChange={handleInputChange}
       />
-      <label htmlFor="hidden" className="radio-label"></label>
+      <label htmlFor="hidden" className="radio-label" />
 
       <div>Boundary: {firstPersonaForm.boundary}</div>
     </div>
