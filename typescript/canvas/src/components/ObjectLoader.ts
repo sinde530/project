@@ -15,6 +15,8 @@ export default class ObjectLoader {
     this.loadPlayerModel();
     this.loadObject();
     this.loadPikachuModel();
+    this.loadObjectMonster();
+    this.loadObjectdd();
   }
 
   private loadPlayerModel() {
@@ -98,6 +100,54 @@ export default class ObjectLoader {
 
         object.position.set(0, 0, -2);
         object.scale.set(0.7, 0.7, 0.7);
+
+        this.scene.add(object);
+      });
+    });
+  }
+
+  private loadObjectMonster() {
+    const loader = new OBJLoader();
+    const textureLoader = new TextureLoader();
+
+    textureLoader.load("src/assets/1.png", (texture: any) => {
+      texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+
+      loader.load("src/assets/monster.obj", (object: any) => {
+        // Apply material
+        const material = new THREE.MeshBasicMaterial({ map: texture });
+        object.traverse((child: { material: THREE.MeshBasicMaterial }) => {
+          if (child instanceof THREE.Mesh) {
+            child.material = material;
+          }
+        });
+
+        object.position.set(-230, -50, -2);
+        object.scale.set(0.1, 0.1, 0.1);
+
+        this.scene.add(object);
+      });
+    });
+  }
+
+  private loadObjectdd() {
+    const loader = new OBJLoader();
+    const textureLoader = new TextureLoader();
+
+    textureLoader.load("src/assets/sldrps.png", (texture: any) => {
+      texture.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+
+      loader.load("src/assets/dd.obj", (object: any) => {
+        // Apply material
+        const material = new THREE.MeshBasicMaterial({ map: texture });
+        object.traverse((child: { material: THREE.MeshBasicMaterial }) => {
+          if (child instanceof THREE.Mesh) {
+            child.material = material;
+          }
+        });
+
+        object.position.set(260, 8, -2);
+        object.scale.set(0.2, 0.2, 0.2);
 
         this.scene.add(object);
       });
