@@ -1,5 +1,3 @@
-// Renderer.ts
-
 import * as THREE from "three";
 import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
 import Movement from "./Movement";
@@ -21,7 +19,7 @@ export default class Renderer {
       0.1,
       1000
     );
-    this.camera.position.set(0, 0, 150); // Update the camera position
+    this.camera.position.set(0, 0, 150);
 
     this.createGroundPlane();
 

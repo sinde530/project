@@ -1,5 +1,3 @@
-// MouseHandler.ts
-
 export default class MouseHandler {
   private previousMouseX: number = 0;
 
@@ -24,7 +22,6 @@ export default class MouseHandler {
   private handleMouseMove = (event: MouseEvent) => {
     const { clientX, clientY } = event;
 
-    // Calculate the mouse movement
     const deltaX = clientX - this.previousMouseX;
     const deltaY = clientY - this.previousMouseY;
 
@@ -33,12 +30,10 @@ export default class MouseHandler {
       this.camera.position.x = deltaX * movementSpeed;
       this.camera.position.y = deltaY * movementSpeed;
 
-      // Update camera rotation based on mouse movement
       const rotationSpeed = 0.001;
       this.camera.rotation.y -= deltaX * rotationSpeed;
       this.camera.rotation.x -= deltaY * rotationSpeed;
 
-      // Limit vertical rotation
       const maxVerticalRotation = Math.PI / 2;
       this.camera.rotation.x = Math.max(
         -maxVerticalRotation,

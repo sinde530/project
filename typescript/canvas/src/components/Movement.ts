@@ -1,7 +1,5 @@
-// Movement.ts
-
 import * as THREE from "three";
-import { Scene, Mesh } from "three";
+import { Mesh, Scene } from "three";
 
 export default class Movement {
   private scene: Scene;
@@ -10,7 +8,6 @@ export default class Movement {
 
   private camera: THREE.PerspectiveCamera;
 
-  // Create player Method getter
   public get Player() {
     return this.player;
   }
@@ -39,7 +36,7 @@ export default class Movement {
       visible: true,
     });
     const cube = new THREE.Mesh(geometry, material);
-    cube.position.set(0, 0, -2); // character object init positions
+    cube.position.set(0, 0, -2);
     this.scene.add(cube);
     this.player = cube;
   }
@@ -64,7 +61,6 @@ export default class Movement {
 
     const { position } = this.player;
 
-    // Create a direction vector from the camera's current rotation
     const direction = new THREE.Vector3();
     this.camera.getWorldDirection(direction);
 
