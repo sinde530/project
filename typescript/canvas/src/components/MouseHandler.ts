@@ -26,7 +26,7 @@ export default class MouseHandler {
     const deltaY = clientY - this.previousMouseY;
 
     if (this.isLeftMouseButtonDown) {
-      const movementSpeed = 1;
+      const movementSpeed = 0.4;
       this.camera.position.x = deltaX * movementSpeed;
       this.camera.position.y = deltaY * movementSpeed;
 

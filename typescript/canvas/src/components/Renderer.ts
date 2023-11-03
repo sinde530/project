@@ -9,9 +9,12 @@ export default class Renderer {
 
   private camera: PerspectiveCamera;
 
+  private lastTime: number = 0;
+
   constructor(canvas: HTMLDivElement) {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xffc0cb); // 핑크 배경색 설정
+    this.lastTime = performance.now();
 
     this.camera = new THREE.PerspectiveCamera(
       90,
@@ -32,7 +35,10 @@ export default class Renderer {
     const animate = () => {
       requestAnimationFrame(animate);
 
-      movement.updatePosition();
+      const time = performance.now();
+      const deltaTime = (time - this.lastTime) / 1000;
+
+      movement.updatePosition(deltaTime);
 
       // 카메라가 플레이어를 따라다니도록 카메라의 위치를 플레이어의 위치에 맞춰 업데이트
       if (movement.Player) {
