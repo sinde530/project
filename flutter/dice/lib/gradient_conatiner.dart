@@ -30,13 +30,26 @@ class GradientContainer extends StatelessWidget {
         ),
         child: Center(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             // child: StyledText("123"),
             children: [
               Image.asset(
                 'assets/images/dice-2.png',
                 width: 200,
               ),
-              TextButton(onPressed: rollDice, child: const Text('Roll Dice'))
+              // 의미없는 사이즈 추가해주는 박스
+              const SizedBox(height: 20),
+              TextButton(
+                // onPressed onClick, onChange같은 역활
+                onPressed: rollDice,
+                style: TextButton.styleFrom(
+                    padding: const EdgeInsets.only(
+                      top: 20,
+                    ),
+                    foregroundColor: Colors.white,
+                    textStyle: const TextStyle(fontSize: 28)),
+                child: const Text('Roll Dice'),
+              )
             ],
           ),
         ));
