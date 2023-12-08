@@ -20,3 +20,8 @@ samples, guidance on mobile development, and a full API reference.
 ```dart
 flutter create dice
 ```
+
+## Run Flutter Project
+```dart
+flutter run
+```
