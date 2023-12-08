@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+final randomizer = Random();
+
 class DiceRoller extends StatefulWidget {
   const DiceRoller({super.key});
   // createState 커맨드로 오버라이드 및 상태위젯도 같이 추가됨.
@@ -14,13 +16,14 @@ class DiceRoller extends StatefulWidget {
 
 // _는 private이란 뜻
 class _DiceRollerState extends State<DiceRoller> {
-  var activeDiceImages = 'assets/images/dice-2.png';
+  // var activeDiceImages = 'assets/images/dice-2.png';
+  var currentDiceRoll = 2;
 
   void rollDice() {
     // index 형식이라 0부터 진행하여 +1로 넣을 경우, 데이터는 1 ~ 6으로 넘어감.
-    var diceRoll = Random().nextInt(6) + 1; // 0 <> 5
+    // var diceRoll = Random().nextInt(6) + 1; // 0 <> 5
     setState(() {
-      activeDiceImages = 'assets/images/dice-$diceRoll.png';
+      currentDiceRoll = randomizer.nextInt(6) + 1; // 0 <> 5
     });
   }
 
@@ -31,7 +34,7 @@ class _DiceRollerState extends State<DiceRoller> {
       // child: StyledText("123"),
       children: [
         Image.asset(
-          activeDiceImages,
+          'assets/images/dice-$currentDiceRoll.png',
           width: 200,
         ),
         // 의미없는 사이즈 추가해주는 박스
