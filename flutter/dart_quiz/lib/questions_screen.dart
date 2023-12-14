@@ -15,14 +15,29 @@ class _QuestionScreen extends State<QuestionsScreen> {
     return SizedBox(
       width: double.infinity,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('The Questions...'),
+          const Text(
+            'The Questions...',
+            style: TextStyle(
+              color: Colors.amber,
+            ),
+          ),
           const SizedBox(
             height: 30,
           ),
-          ElevatedButton(onPressed: () {}, child: const Text('Answer 1')),
-          ElevatedButton(onPressed: () {}, child: const Text('Answer 2')),
-          ElevatedButton(onPressed: () {}, child: const Text('Answer 3')),
+          ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(),
+              child: const Text('Answer 1')),
+          ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(),
+              child: const Text('Answer 2')),
+          ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(),
+              child: const Text('Answer 3')),
         ],
       ),
     );

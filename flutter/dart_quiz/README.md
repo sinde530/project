@@ -29,3 +29,7 @@ SizedBox(
   )
 )
 ```
+
+### Row, Column 정렬하기 (MainAxisAlignment, CrossAxisAlignment)
+| https://beomseok95.tistory.com/310
+
