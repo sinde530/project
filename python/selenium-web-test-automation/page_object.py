@@ -103,3 +103,31 @@
 #     print(line.strip())
 
 # -------------------------------- #
+
+
+# from dog_module import Dog
+
+# d = Dog("Fido")
+# e = Dog("Buddy")
+
+# d.add_trick('roll over')
+# e.add_trick('play dead')
+
+# print(d.tricks)
+
+# -------------------------------- #
+
+from calculator_module import Calculator
+
+calc = Calculator()
+
+calc.input_num(1, 2)
+
+value = calc.plus()
+print(value)
+value = calc.minus()
+print(value)
+value = calc.mul()
+print(value)
+value = calc.div()
+print(value)
