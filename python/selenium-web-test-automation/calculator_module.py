@@ -1,5 +1,5 @@
 class Calculator:
-  def input_num(self, first, second):
+  def __init__(self, first, second):
     self.first = first
     self.second = second
 

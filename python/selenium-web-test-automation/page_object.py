@@ -119,9 +119,7 @@
 
 from calculator_module import Calculator
 
-calc = Calculator()
-
-calc.input_num(1, 2)
+calc = Calculator(1, 2)
 
 value = calc.plus()
 print(value)
