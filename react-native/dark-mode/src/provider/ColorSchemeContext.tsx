@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useState, useEffect, ReactNode, useContext } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface ColorSchemeContextType {
@@ -7,6 +7,14 @@ interface ColorSchemeContextType {
 }
 
 const ColorSchemeContext = createContext<ColorSchemeContextType | undefined>(undefined);
+
+export const useColorSchemeContext = () => {
+  const context = useContext(ColorSchemeContext);
+  if (!context) {
+    throw new Error('useColorSchemeContext must be used within a ColorSchemeProvider');
+  }
+  return context;
+};
 
 interface Props {
   children: ReactNode;

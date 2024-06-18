@@ -1,26 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View, Pressable } from 'react-native';
-import { useColorScheme } from 'nativewind';
+import { createStackNavigator } from '@react-navigation/stack';
+import { ColorSchemeProvider } from './src/provider/ColorSchemeContext';
+import { NavigationContainer } from '@react-navigation/native';
+import Home from './src/screens/home';
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  const { colorScheme, toggleColorScheme } = useColorScheme();
-
   return (
-    <View
-      className={`flex-1 justify-center items-center ${
-        colorScheme === 'dark' ? 'bg-black' : 'bg-white'
-      }`}
-    >
-      <Pressable
-        className="flex-1 items-center justify-center w-full h-full"
-        onPress={toggleColorScheme}
-      >
-        <Text className={`${colorScheme === 'dark' ? 'text-white' : 'text-dark'}`}>
-          {`Try clicking me! ${colorScheme} ${colorScheme === 'dark' ? '🌙' : '🌞'}`}
-        </Text>
-      </Pressable>
-
-      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-    </View>
+    <ColorSchemeProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ColorSchemeProvider>
   );
 }

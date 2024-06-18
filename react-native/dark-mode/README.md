@@ -13,4 +13,10 @@ npx tailwindcss init
 yarn add --dev tailwindcss@3.3.2
 
 yarn add nativewind
+
+// navigation
+yarn add @react-navigation/native
+yarn add @react-navigation/stack
+yarn add react-native-safe-area-context
+yarn add react-native-gesture-handler
 ```
