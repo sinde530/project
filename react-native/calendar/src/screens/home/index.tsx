@@ -7,7 +7,7 @@ export default function Home() {
   const navigation = useNavigation<RootStackParamList>();
 
   const handleClickAboutScreen = () => {
-    navigation.navigate('About');
+    navigation.navigate('TutorialCalendar');
   };
 
   return (
