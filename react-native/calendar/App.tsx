@@ -1,11 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { Calendar } from 'react-native-calendars';
 
 export default function App() {
+  const nowData = new Date();
+  console.log(nowData.toString());
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <View style={styles.calenderView}>
+        <Calendar
+          current={nowData.toString()}
+          onDayPress={(day) => console.log('선택한 날', day)}
+          onVisibleMonthsChange={(months) => {
+            console.log('now these months are visible', months);
+          }}
+          pastScrollRange={50}
+          futureScrollRange={50}
+          scrollEnabled={true}
+          showScrollIndicator={true}
+        />
+      </View>
+      <StatusBar style="dark" />
     </View>
   );
 }
@@ -13,8 +29,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    justifyContent: 'space-around',
+    backgroundColor: 'purple',
+  },
+  calenderView: {
+    // flex: 1,
+    // height: '100%',
   },
 });
