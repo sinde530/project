@@ -58,6 +58,12 @@ const noticeModkData: { [key: string]: CustomMarkingProps } = {
     activeOpacity: 0,
     texts: ['배고파'],
   },
+  '2024-06-26': {
+    marked: true,
+    dotColor: 'blue',
+    activeOpacity: 0,
+    texts: ['캘린더 테스트'],
+  },
 };
 
 interface CustomDayComponentProps {
