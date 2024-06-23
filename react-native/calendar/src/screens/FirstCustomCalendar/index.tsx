@@ -38,6 +38,28 @@ LocaleConfig.locales['ko'] = {
 };
 LocaleConfig.defaultLocale = 'ko';
 
+const noticeModkData: { [key: string]: CustomMarkingProps } = {
+  '2024-04-06': {
+    selected: true,
+    marked: true,
+    selectedColor: 'red',
+    texts: ['행사1', '행사2'],
+  },
+  '2024-04-15': { marked: true, dotColor: 'blue', activeOpacity: 0, texts: ['기념일'] },
+  '2024-06-24': {
+    marked: true,
+    dotColor: 'blue',
+    activeOpacity: 0,
+    texts: ['배고파', '밥먹자', '이스포츠 아카데미', '가나다라마바ㅏ아자차카'],
+  },
+  '2024-06-25': {
+    marked: true,
+    dotColor: 'blue',
+    activeOpacity: 0,
+    texts: ['배고파'],
+  },
+};
+
 interface CustomDayComponentProps {
   date: any;
   state?: string;
@@ -80,42 +102,20 @@ export default function FirstCustomCalendar() {
         // minDate={'2022-01-01'}
         // maxDate={'2025-12-31'}
         monthFormat={'yyyy MM'}
-        hideArrows={true}
-        hideExtraDays={true}
+        hideArrows={false}
+        hideExtraDays={false}
         disableMonthChange={true}
         onPressArrowLeft={(subtractMonth) => subtractMonth()}
         onPressArrowRight={(addMonth) => addMonth()}
-        disableArrowLeft={true}
-        disableArrowRight={true}
+        disableArrowLeft={false}
+        disableArrowRight={false}
         disableAllTouchEventsForDisabledDays={true}
         renderHeader={(date) => <CustomHeaderComponent date={date} />}
         enableSwipeMonths={true}
         dayComponent={({ date, state, marking }) => (
           <CustomDayComponent date={date} state={state} marking={marking as CustomMarkingProps} />
         )}
-        markedDates={
-          {
-            '2024-04-06': {
-              selected: true,
-              marked: true,
-              selectedColor: 'red',
-              texts: ['행사1', '행사2'],
-            },
-            '2024-04-15': { marked: true, dotColor: 'blue', activeOpacity: 0, texts: ['기념일'] },
-            '2024-06-24': {
-              marked: true,
-              dotColor: 'blue',
-              activeOpacity: 0,
-              texts: ['배고파', '밥먹자', '이스포츠 아카데미', '가나다라마바ㅏ아자차카'],
-            },
-            '2024-06-25': {
-              marked: true,
-              dotColor: 'blue',
-              activeOpacity: 0,
-              texts: ['배고파'],
-            },
-          } as { [key: string]: CustomMarkingProps }
-        }
+        markedDates={noticeModkData}
         theme={{
           // selectedDayBackgroundColor: 'blue',
           selectedDayTextColor: '#ffffff',
