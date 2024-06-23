@@ -6,13 +6,19 @@ import { RootStackParamList } from '../../types/navigation';
 export default function Home() {
   const navigation = useNavigation<RootStackParamList>();
 
-  const handleClickAboutScreen = () => {
+  const handleClickTutorialCalendarScreen = () => {
     navigation.navigate('TutorialCalendar');
+  };
+
+  const handleClickFirstCustomCalendarScreen = () => {
+    navigation.navigate('FirstCustomCalendar');
   };
 
   return (
     <View className={`flex-1 justify-center items-center`}>
-      <Button title="Click To Abount Screen" onPress={handleClickAboutScreen} />
+      <Button title="Tutorial Calendar Screen" onPress={handleClickTutorialCalendarScreen} />
+
+      <Button title="First Custom Calendar Screen" onPress={handleClickFirstCustomCalendarScreen} />
 
       <StatusBar style="dark" />
     </View>
