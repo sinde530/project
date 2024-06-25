@@ -76,7 +76,8 @@ const CustomDayComponent = ({ date, state, marking }: CustomDayComponentProps) =
   return (
     <TouchableOpacity
       style={[styles.dayContainer, state === 'disabled' && styles.disabledDay]}
-      onPress={() => console.log('selected day', date)}
+      onPress={() => alert(JSON.stringify(date))}
+      // onPress={() => console.log('selected day', date)}
     >
       <Text style={[styles.dayText, state === 'today' && styles.todayText]}>{date.day}</Text>
       {marking?.texts &&
