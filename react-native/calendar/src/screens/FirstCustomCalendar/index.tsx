@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { TouchableOpacity, View, Text, StyleSheet, Modal, Button } from 'react-native';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { CustomMarkingProps } from '../../types/marking';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
 
 LocaleConfig.locales['ko'] = {
   monthNames: [
@@ -108,13 +110,18 @@ const CustomHeaderComponent = ({ date }: any) => {
 };
 
 export default function FirstCustomCalendar() {
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [selectedData, setSelectedData] = useState<CustomMarkingProps | null>(null);
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const snapPoints = useMemo(() => ['25%', '50%'], []);
 
-  const handleDayPress = (marking: CustomMarkingProps) => {
+  const handlePresentModalPress = useCallback((marking: CustomMarkingProps) => {
     setSelectedData(marking);
-    setModalVisible(true);
-  };
+    bottomSheetModalRef.current?.present();
+  }, []);
+
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log('handleSheetChanges', index);
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -138,39 +145,38 @@ export default function FirstCustomCalendar() {
             date={date}
             state={state}
             marking={marking as CustomMarkingProps}
-            onPress={() => handleDayPress(marking as CustomMarkingProps)}
+            onPress={() => handlePresentModalPress(marking as CustomMarkingProps)}
           />
         )}
         markedDates={noticeMockData}
-        theme={{
-          // selectedDayBackgroundColor: 'blue',
-          selectedDayTextColor: '#ffffff',
-          // todayTextColor: 'red',
-          dayTextColor: '#2d4150',
-          textDisabledColor: '#d9e1e8',
-          dotColor: 'red',
-          selectedDotColor: '#ffffff',
-          arrowColor: 'orange',
-          monthTextColor: 'blue',
-          indicatorColor: 'blue',
-          textDayFontFamily: 'monospace',
-          textMonthFontFamily: 'monospace',
-          textDayHeaderFontFamily: 'monospace',
-          textDayFontWeight: '300',
-          textMonthFontWeight: 'bold',
-          textDayHeaderFontWeight: '300',
-          textDayFontSize: 16,
-          textMonthFontSize: 16,
-          textDayHeaderFontSize: 16,
-        }}
+        // theme={{
+        // selectedDayBackgroundColor: 'blue',
+        //   selectedDayTextColor: '#ffffff',
+        // todayTextColor: 'red',
+        //   dayTextColor: '#2d4150',
+        //   textDisabledColor: '#d9e1e8',
+        //   dotColor: 'red',
+        //   selectedDotColor: '#ffffff',
+        //   arrowColor: 'orange',
+        //   monthTextColor: 'blue',
+        //   indicatorColor: 'blue',
+        //   textDayFontFamily: 'monospace',
+        //   textMonthFontFamily: 'monospace',
+        //   textDayHeaderFontFamily: 'monospace',
+        //   textDayFontWeight: '300',
+        //   textMonthFontWeight: 'bold',
+        //   textDayHeaderFontWeight: '300',
+        //   textDayFontSize: 16,
+        //   textMonthFontSize: 16,
+        //   textDayHeaderFontSize: 16,
+        // }}
       />
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
+
+      <BottomSheetModal
+        ref={bottomSheetModalRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}
       >
         <View style={styles.modalView}>
           <Text style={styles.modalText}>Event Details</Text>
@@ -180,9 +186,8 @@ export default function FirstCustomCalendar() {
                 {text}
               </Text>
             ))}
-          <Button title="Close" onPress={() => setModalVisible(false)} />
         </View>
-      </Modal>
+      </BottomSheetModal>
     </View>
   );
 }
@@ -230,21 +235,10 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   modalView: {
-    marginTop: 400,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
+    marginTop: 20,
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
     elevation: 5,
-    justifyContent: 'center',
-    flex: 1,
   },
   modalText: {
     marginBottom: 15,
