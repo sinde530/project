@@ -38,7 +38,7 @@ LocaleConfig.locales['ko'] = {
 };
 LocaleConfig.defaultLocale = 'ko';
 
-const noticeModkData: { [key: string]: CustomMarkingProps } = {
+const noticeMockData: { [key: string]: CustomMarkingProps } = {
   '2024-04-06': {
     selected: true,
     marked: true,
@@ -141,7 +141,7 @@ export default function FirstCustomCalendar() {
             onPress={() => handleDayPress(marking as CustomMarkingProps)}
           />
         )}
-        markedDates={noticeModkData}
+        markedDates={noticeMockData}
         theme={{
           // selectedDayBackgroundColor: 'blue',
           selectedDayTextColor: '#ffffff',
