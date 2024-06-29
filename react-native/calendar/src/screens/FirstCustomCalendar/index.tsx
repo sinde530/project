@@ -1,5 +1,5 @@
-import React from 'react';
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { TouchableOpacity, View, Text, StyleSheet, Modal, Button } from 'react-native';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { CustomMarkingProps } from '../../types/marking';
 
@@ -71,13 +71,15 @@ interface CustomDayComponentProps {
   date: any;
   state?: string;
   marking: CustomMarkingProps;
+  onPress: () => void;
 }
 
-const CustomDayComponent = ({ date, state, marking }: CustomDayComponentProps) => {
+const CustomDayComponent = ({ date, state, marking, onPress }: CustomDayComponentProps) => {
   return (
     <TouchableOpacity
       style={[styles.dayContainer, state === 'disabled' && styles.disabledDay]}
-      onPress={() => alert(JSON.stringify(marking))}
+      // onPress={() => alert(JSON.stringify(marking))}
+      onPress={onPress}
       // onPress={() => console.log('selected day', date)}
     >
       <Text style={[styles.dayText, state === 'today' && styles.todayText]}>{date.day}</Text>
@@ -85,12 +87,7 @@ const CustomDayComponent = ({ date, state, marking }: CustomDayComponentProps) =
       {marking?.texts &&
         marking.texts.map((text: string, index: number) => (
           <View key={index} style={[styles.dot, { backgroundColor: marking.dotColor }]}>
-            <Text
-              // key={index}
-              style={styles.notificationText}
-              numberOfLines={1}
-              ellipsizeMode="tail"
-            >
+            <Text style={styles.notificationText} numberOfLines={1} ellipsizeMode="tail">
               {text}
             </Text>
           </View>
@@ -111,6 +108,14 @@ const CustomHeaderComponent = ({ date }: any) => {
 };
 
 export default function FirstCustomCalendar() {
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [selectedData, setSelectedData] = useState<CustomMarkingProps | null>(null);
+
+  const handleDayPress = (marking: CustomMarkingProps) => {
+    setSelectedData(marking);
+    setModalVisible(true);
+  };
+
   return (
     <View style={styles.container}>
       <Calendar
@@ -129,7 +134,12 @@ export default function FirstCustomCalendar() {
         renderHeader={(date) => <CustomHeaderComponent date={date} />}
         enableSwipeMonths={true}
         dayComponent={({ date, state, marking }) => (
-          <CustomDayComponent date={date} state={state} marking={marking as CustomMarkingProps} />
+          <CustomDayComponent
+            date={date}
+            state={state}
+            marking={marking as CustomMarkingProps}
+            onPress={() => handleDayPress(marking as CustomMarkingProps)}
+          />
         )}
         markedDates={noticeModkData}
         theme={{
@@ -154,6 +164,25 @@ export default function FirstCustomCalendar() {
           textDayHeaderFontSize: 16,
         }}
       />
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.modalView}>
+          <Text style={styles.modalText}>Event Details</Text>
+          {selectedData?.texts &&
+            selectedData?.texts.map((text, index) => (
+              <Text key={index} style={styles.modalEventText}>
+                {text}
+              </Text>
+            ))}
+          <Button title="Close" onPress={() => setModalVisible(false)} />
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -199,5 +228,32 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 4,
     marginBottom: 2,
+  },
+  modalView: {
+    marginTop: 400,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    justifyContent: 'center',
+    flex: 1,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  modalEventText: {
+    fontSize: 16,
+    marginBottom: 5,
   },
 });
