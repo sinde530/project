@@ -42,25 +42,26 @@ const noticeModkData: { [key: string]: CustomMarkingProps } = {
   '2024-04-06': {
     selected: true,
     marked: true,
+    dotColor: '#f7f7f7',
     selectedColor: 'red',
     texts: ['행사1', '행사2'],
   },
-  '2024-04-15': { marked: true, dotColor: 'blue', activeOpacity: 0, texts: ['기념일'] },
+  '2024-04-15': { marked: true, dotColor: '#f7f7f7', activeOpacity: 0, texts: ['기념일'] },
   '2024-06-24': {
     marked: true,
-    dotColor: 'blue',
+    dotColor: '#f7f7f7',
     activeOpacity: 0,
     texts: ['배고파', '밥먹자', '이스포츠 아카데미', '가나다라마바ㅏ아자차카'],
   },
   '2024-06-25': {
     marked: true,
-    dotColor: 'blue',
+    dotColor: '#f7f7f7',
     activeOpacity: 0,
     texts: ['배고파'],
   },
   '2024-06-26': {
     marked: true,
-    dotColor: 'blue',
+    dotColor: '#f7f7f7',
     activeOpacity: 0,
     texts: ['캘린더 테스트'],
   },
@@ -76,15 +77,23 @@ const CustomDayComponent = ({ date, state, marking }: CustomDayComponentProps) =
   return (
     <TouchableOpacity
       style={[styles.dayContainer, state === 'disabled' && styles.disabledDay]}
-      onPress={() => alert(JSON.stringify(date))}
+      onPress={() => alert(JSON.stringify(marking))}
       // onPress={() => console.log('selected day', date)}
     >
       <Text style={[styles.dayText, state === 'today' && styles.todayText]}>{date.day}</Text>
+
       {marking?.texts &&
         marking.texts.map((text: string, index: number) => (
-          <Text key={index} style={styles.notificationText} numberOfLines={1} ellipsizeMode="tail">
-            {text}
-          </Text>
+          <View key={index} style={[styles.dot, { backgroundColor: marking.dotColor }]}>
+            <Text
+              // key={index}
+              style={styles.notificationText}
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            >
+              {text}
+            </Text>
+          </View>
         ))}
     </TouchableOpacity>
   );
@@ -185,5 +194,10 @@ const styles = StyleSheet.create({
     color: '#555',
     width: '100%',
     alignItems: 'center',
+  },
+  dot: {
+    width: '100%',
+    borderRadius: 4,
+    marginBottom: 2,
   },
 });
