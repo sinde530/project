@@ -188,6 +188,10 @@ export default function FirstCustomCalendar() {
             ))}
         </View>
       </BottomSheetModal>
+
+      <TouchableOpacity style={styles.floatButton}>
+        <Text style={styles.floatButtonText}>+</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -249,5 +253,21 @@ const styles = StyleSheet.create({
   modalEventText: {
     fontSize: 16,
     marginBottom: 5,
+  },
+  floatButton: {
+    position: 'absolute',
+    bottom: 70,
+    right: 20,
+    backgroundColor: 'purple',
+    width: 48,
+    height: 48,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  floatButtonText: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
   },
 });
