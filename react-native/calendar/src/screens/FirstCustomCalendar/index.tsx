@@ -2,7 +2,6 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { TouchableOpacity, View, Text, StyleSheet, Modal, Button } from 'react-native';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { CustomMarkingProps } from '../../types/marking';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 
 LocaleConfig.locales['ko'] = {
@@ -77,14 +76,32 @@ interface CustomDayComponentProps {
 }
 
 const CustomDayComponent = ({ date, state, marking, onPress }: CustomDayComponentProps) => {
+  const dayOfWeek = new Date(date.timestamp).getDay(); // 요일을 가져옴 (0: 일요일, 1: 월요일, ..., 6: 토요일)
+
+  let dayTextColor = 'black'; // 기본 색상
+  if (dayOfWeek === 0) {
+    dayTextColor = 'red'; // 일요일
+  } else if (dayOfWeek === 6) {
+    dayTextColor = 'blue'; // 토요일
+  }
+
   return (
     <TouchableOpacity
-      style={[styles.dayContainer, state === 'disabled' && styles.disabledDay]}
+      style={[styles.dayContainer]}
       // onPress={() => alert(JSON.stringify(marking))}
       onPress={onPress}
       // onPress={() => console.log('selected day', date)}
     >
-      <Text style={[styles.dayText, state === 'today' && styles.todayText]}>{date.day}</Text>
+      <Text
+        style={[
+          styles.dayText,
+          { color: dayTextColor }, // 요일별 색상 적용
+          state === 'today' && styles.todayText,
+          state === 'disabled' && styles.disabledDay,
+        ]}
+      >
+        {date.day}
+      </Text>
 
       {marking?.texts &&
         marking.texts.map((text: string, index: number) => (
@@ -149,27 +166,28 @@ export default function FirstCustomCalendar() {
           />
         )}
         markedDates={noticeMockData}
-        // theme={{
-        // selectedDayBackgroundColor: 'blue',
-        //   selectedDayTextColor: '#ffffff',
-        // todayTextColor: 'red',
-        //   dayTextColor: '#2d4150',
-        //   textDisabledColor: '#d9e1e8',
-        //   dotColor: 'red',
-        //   selectedDotColor: '#ffffff',
-        //   arrowColor: 'orange',
-        //   monthTextColor: 'blue',
-        //   indicatorColor: 'blue',
-        //   textDayFontFamily: 'monospace',
-        //   textMonthFontFamily: 'monospace',
-        //   textDayHeaderFontFamily: 'monospace',
-        //   textDayFontWeight: '300',
-        //   textMonthFontWeight: 'bold',
-        //   textDayHeaderFontWeight: '300',
-        //   textDayFontSize: 16,
-        //   textMonthFontSize: 16,
-        //   textDayHeaderFontSize: 16,
-        // }}
+        theme={{
+          textSectionTitleColor: '#000000', // 요일 텍스트 색상 설정
+          textDayHeaderFontWeight: 'bold', // 요일 텍스트 굵기 설정 (옵션)
+          // textDayHeaderFontSize: 14, // 요일 텍스트 크기 설정 (옵션)
+          // selectedDayBackgroundColor: 'blue',
+          // selectedDayTextColor: '#ffffff',
+          // todayTextColor: 'red',
+          // dayTextColor: '#2d4150',
+          // textDisabledColor: '#d9e1e8',
+          // dotColor: 'red',
+          // selectedDotColor: '#ffffff',
+          // arrowColor: 'orange',
+          // monthTextColor: 'blue',
+          // indicatorColor: 'blue',
+          // textDayFontFamily: 'monospace',
+          // textMonthFontFamily: 'monospace',
+          // textDayHeaderFontFamily: 'monospace',
+          // textDayFontWeight: '300',
+          // textMonthFontWeight: 'bold',
+          // textDayFontSize: 16,
+          // textMonthFontSize: 16,
+        }}
       />
 
       <BottomSheetModal
@@ -210,6 +228,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
     fontWeight: 'bold',
+    // color: 'red',
   },
   dayContainer: {
     height: 70,
@@ -219,13 +238,17 @@ const styles = StyleSheet.create({
   },
   dayText: {
     fontSize: 16,
+    // color: 'red',
   },
   todayText: {
     color: 'green',
     fontWeight: 'bold',
+    // color: 'red',
   },
   disabledDay: {
-    backgroundColor: '#f0f0f0',
+    // backgroundColor: '#f0f0f0',
+    color: '#D9D9D9',
+    // color: 'red',
   },
   notificationText: {
     fontSize: 12,
