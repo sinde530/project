@@ -228,7 +228,6 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
     fontWeight: 'bold',
-    // color: 'red',
   },
   dayContainer: {
     height: 70,
@@ -238,17 +237,13 @@ const styles = StyleSheet.create({
   },
   dayText: {
     fontSize: 16,
-    // color: 'red',
   },
   todayText: {
     color: 'green',
     fontWeight: 'bold',
-    // color: 'red',
   },
   disabledDay: {
-    // backgroundColor: '#f0f0f0',
     color: '#D9D9D9',
-    // color: 'red',
   },
   notificationText: {
     fontSize: 12,
