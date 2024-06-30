@@ -22,6 +22,12 @@ yarn add react-native-reanimated react-native-gesture-handler
 yarn add react-native-gesture-handler
 ```
 
+## Notice Calendar Choose The Days.
+
+```typescript
+yarn add react-native-date-picker
+```
+
 ## Critical Issue
 
 ```typescript
