@@ -128,6 +128,7 @@ const CustomHeaderComponent = ({ date }: any) => {
 
 export default function FirstCustomCalendar() {
   const [selectedData, setSelectedData] = useState<CustomMarkingProps | null>(null);
+  const [noticeOpen, setNoticeOpen] = useState<boolean>(false);
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const snapPoints = useMemo(() => ['25%', '50%'], []);
 
@@ -138,6 +139,14 @@ export default function FirstCustomCalendar() {
 
   const handleSheetChanges = useCallback((index: number) => {
     console.log('handleSheetChanges', index);
+  }, []);
+
+  const handleOpenCreateNotice = useCallback(() => {
+    setNoticeOpen((isOpen) => !isOpen);
+  }, []);
+
+  const handleCreateNotice = useCallback((event: any) => {
+    event.prevendDefault();
   }, []);
 
   return (
@@ -207,9 +216,18 @@ export default function FirstCustomCalendar() {
         </View>
       </BottomSheetModal>
 
-      <TouchableOpacity style={styles.floatButton}>
+      <TouchableOpacity style={styles.floatButton} onPress={handleOpenCreateNotice}>
         <Text style={styles.floatButtonText}>+</Text>
       </TouchableOpacity>
+
+      {noticeOpen && (
+        <View style={styles.noticeModalView}>
+          <View style={styles.noticeModalViewHeader}>
+            <Text>캘린더 추가하기 모달 오픈</Text>
+            <Button title="취소" onPress={handleOpenCreateNotice} />
+          </View>
+        </View>
+      )}
     </View>
   );
 }
@@ -287,5 +305,20 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 24,
     fontWeight: 'bold',
+  },
+  noticeModalView: {
+    position: 'absolute',
+    backgroundColor: '#FFFFFF',
+    width: '100%',
+    height: '100%',
+  },
+  noticeModalViewHeader: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingRight: 16,
+    paddingLeft: 16,
+    alignItems: 'center',
   },
 });
