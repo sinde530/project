@@ -1,8 +1,9 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { TouchableOpacity, View, Text, StyleSheet, Modal, Button } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet, Modal, Button, Pressable } from 'react-native';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { CustomMarkingProps } from '../../types/marking';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 LocaleConfig.locales['ko'] = {
   monthNames: [
@@ -86,12 +87,7 @@ const CustomDayComponent = ({ date, state, marking, onPress }: CustomDayComponen
   }
 
   return (
-    <TouchableOpacity
-      style={[styles.dayContainer]}
-      // onPress={() => alert(JSON.stringify(marking))}
-      onPress={onPress}
-      // onPress={() => console.log('selected day', date)}
-    >
+    <TouchableOpacity style={[styles.dayContainer]} onPress={onPress}>
       <Text
         style={[
           styles.dayText,
@@ -129,6 +125,13 @@ const CustomHeaderComponent = ({ date }: any) => {
 export default function FirstCustomCalendar() {
   const [selectedData, setSelectedData] = useState<CustomMarkingProps | null>(null);
   const [noticeOpen, setNoticeOpen] = useState<boolean>(false);
+  const [mode, setMode] = useState<any>('date'); // 모달 유형
+  const [visible, setVisible] = useState(false); // 모달 노출 여부
+  const [modalData, setModalData] = useState({
+    select_day: '',
+    select_time: '',
+  });
+
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const snapPoints = useMemo(() => ['25%', '50%'], []);
 
@@ -146,15 +149,40 @@ export default function FirstCustomCalendar() {
   }, []);
 
   const handleCreateNotice = useCallback((event: any) => {
-    event.prevendDefault();
+    event.preventDefault();
   }, []);
+
+  const onPressDate = () => {
+    setMode('date'); // 모달 유형을 date로 변경
+    setVisible(true);
+  };
+
+  const onPressTime = () => {
+    setMode('time'); // 모달 유형을 time으로 변경
+    setVisible(true);
+  };
+
+  const onConfirm = (selectedDate: any) => {
+    setVisible(false);
+    const localDate = new Date(selectedDate.getTime() - selectedDate.getTimezoneOffset() * 60000); // 로컬 시간대로 변환
+    if (mode === 'date') {
+      setModalData({ ...modalData, select_day: localDate.toISOString().split('T')[0] });
+    } else {
+      setModalData({
+        ...modalData,
+        select_time: localDate.toISOString().split('T')[1].substring(0, 5),
+      });
+    }
+  };
+
+  const onCancel = () => {
+    setVisible(false);
+  };
 
   return (
     <View style={styles.container}>
       <Calendar
         current={Date()}
-        // minDate={'2022-01-01'}
-        // maxDate={'2025-12-31'}
         monthFormat={'yyyy MM'}
         hideArrows={false}
         hideExtraDays={false}
@@ -176,26 +204,8 @@ export default function FirstCustomCalendar() {
         )}
         markedDates={noticeMockData}
         theme={{
-          textSectionTitleColor: '#000000', // 요일 텍스트 색상 설정
-          textDayHeaderFontWeight: 'bold', // 요일 텍스트 굵기 설정 (옵션)
-          // textDayHeaderFontSize: 14, // 요일 텍스트 크기 설정 (옵션)
-          // selectedDayBackgroundColor: 'blue',
-          // selectedDayTextColor: '#ffffff',
-          // todayTextColor: 'red',
-          // dayTextColor: '#2d4150',
-          // textDisabledColor: '#d9e1e8',
-          // dotColor: 'red',
-          // selectedDotColor: '#ffffff',
-          // arrowColor: 'orange',
-          // monthTextColor: 'blue',
-          // indicatorColor: 'blue',
-          // textDayFontFamily: 'monospace',
-          // textMonthFontFamily: 'monospace',
-          // textDayHeaderFontFamily: 'monospace',
-          // textDayFontWeight: '300',
-          // textMonthFontWeight: 'bold',
-          // textDayFontSize: 16,
-          // textMonthFontSize: 16,
+          textSectionTitleColor: '#000000',
+          textDayHeaderFontWeight: 'bold',
         }}
       />
 
@@ -225,6 +235,29 @@ export default function FirstCustomCalendar() {
           <View style={styles.noticeModalViewHeader}>
             <Text>캘린더 추가하기 모달 오픈</Text>
             <Button title="취소" onPress={handleOpenCreateNotice} />
+          </View>
+
+          <View>
+            <View>
+              <DateTimePickerModal
+                isVisible={visible}
+                mode={mode}
+                onConfirm={onConfirm}
+                onCancel={onCancel}
+                date={new Date()}
+              />
+              <Pressable onPress={onPressDate}>
+                <Text>날짜 선택</Text>
+                <Text>{modalData.select_day}</Text>
+              </Pressable>
+
+              <Pressable onPress={onPressTime}>
+                <Text>시간 선택</Text>
+                <Text>{modalData.select_time}</Text>
+              </Pressable>
+            </View>
+
+            {/* <View></View> */}
           </View>
         </View>
       )}
