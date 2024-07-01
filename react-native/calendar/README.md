@@ -25,7 +25,7 @@ yarn add react-native-gesture-handler
 ## Notice Calendar Choose The Days.
 
 ```typescript
-yarn add react-native-date-picker
+yarn add react-native-modal-datetime-picker @react-native-community/datetimepicker
 ```
 
 ## Critical Issue
