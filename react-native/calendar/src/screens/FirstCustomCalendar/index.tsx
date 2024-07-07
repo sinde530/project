@@ -256,8 +256,6 @@ export default function FirstCustomCalendar() {
                 <Text>{modalData.select_time}</Text>
               </Pressable>
             </View>
-
-            {/* <View></View> */}
           </View>
         </View>
       )}
