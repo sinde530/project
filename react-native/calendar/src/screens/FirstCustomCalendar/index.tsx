@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { TouchableOpacity, View, Text, StyleSheet, Modal, Button, Pressable } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet, Button, Pressable } from 'react-native';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { CustomMarkingProps } from '../../types/marking';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
