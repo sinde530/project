@@ -1,22 +1,33 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
+import 'package:toonflix/models/webtoon_model.dart';
 
-class APiService {
-  final String baseUrl = 'https://webtoon-crawler.nomadcoders.workers.dev';
-  final String today = 'today';
+class ApiService {
+  static const String baseUrl =
+      'https://webtoon-crawler.nomadcoders.workers.dev';
+  static const String today = 'today';
 
-  Future<void> getTodaysToons() async {
+  static Future<List<WebtoonModel>> getTodaysToons() async {
+    List<WebtoonModel> webtoonInstances = [];
+
     try {
       final url = Uri.parse('$baseUrl/$today');
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
-        print(response.body);
+        final webtoons = jsonDecode(response.body);
+        for (var webtoon in webtoons) {
+          final instance = WebtoonModel.fromJson(webtoon);
+          webtoonInstances.add(instance);
+        }
+        return webtoonInstances;
       } else {
-        print('Error : ${response.statusCode}');
+        throw Exception(
+            'Failed to load webtoons with status code ${response.statusCode}');
       }
     } catch (error) {
-      print('Failed to fetch data: $error');
-      throw Error();
+      throw Exception('Failed to load webtoons with status code : $error');
     }
   }
 }
