@@ -14,3 +14,30 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Flutter Create CLI
+
+```flutter
+flutter create --platforms=android,ios --org com.sample test
+```
+
+## Start Emulator
+
+```flutter
+<!-- Command + Shift + P -->
+Flutter: Launch Emulator
+```
+
+## Run Flutter
+
+```flutter
+flutter run
+```
+
+# Naver Webtoon Unofficial API <br>
+
+====================================
+
+- `/today`: Retruns today's comics.
+- `/:id`: Returns a comic's information by `:id`
+- `/:id/episodes`: Returns the latest episodes for a comic.
