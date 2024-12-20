@@ -1,7 +1,11 @@
 class WebtoonModel {
   final String title, thumb, id;
 
-  WebtoonModel({required this.title, required this.thumb, required this.id});
+  WebtoonModel({
+    required this.title,
+    required this.thumb,
+    required this.id,
+  });
 
 // factory 생성자는 생성자와는 별개로, 조건부 객체 생성 로직을 추가하거나 디버깅하기 더 쉽다.//
 // ignore: slash_for_doc_comments
