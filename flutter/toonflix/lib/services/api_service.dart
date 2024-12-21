@@ -33,6 +33,19 @@ class ApiService {
     }
   }
 
+  static Future<WebtoonDetailModel> getToonById(String id) async {
+    final url = Uri.parse("$baseUrl/$id");
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final webtoon = jsonDecode(response.body);
+      return WebtoonDetailModel.fromJson(webtoon);
+    } else {
+      throw Exception(
+          'Failed to load webtoon id. statud code ${response.statusCode}');
+    }
+  }
+
   static Future<List<WebtoonEpisodeModel>> getLatestEpisodesById(
       String id) async {
     List<WebtoonEpisodeModel> episodesInstances = [];
