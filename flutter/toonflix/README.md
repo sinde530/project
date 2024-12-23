@@ -1,3 +1,5 @@
+# ios / flutter run --release
+
 # toonflix
 
 A new Flutter project.
