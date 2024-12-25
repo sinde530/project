@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:e_commerce_app/core/theme/constant/app_colors.dart';
 import 'package:e_commerce_app/core/theme/constant/app_icons.dart';
 import 'package:e_commerce_app/presentation/routes/route_path.dart';
 import 'package:flutter/material.dart';
