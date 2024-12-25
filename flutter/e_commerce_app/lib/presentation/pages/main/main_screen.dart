@@ -1,7 +1,7 @@
+import 'package:e_commerce_app/presentation/components/top_app_bar/top_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../core/theme/constant/app_icons.dart';
 import '../category/category_screen.dart';
 import '../home/home_screen.dart';
 import '../search/search_screen.dart';
@@ -26,47 +26,7 @@ class MainScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(44),
-        child: Container(
-          color: Theme.of(context).colorScheme.primary,
-          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
-          child: AppBar(
-            backgroundColor: Colors.transparent,
-            centerTitle: true,
-            title: Text(
-              "Tab Bar",
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-            ),
-            leadingWidth: 86,
-            leading: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset(AppIcons.mainLogo),
-            ),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: SvgPicture.asset(
-                  AppIcons.location,
-                  colorFilter: ColorFilter.mode(
-                      Theme.of(context).colorScheme.background,
-                      BlendMode.srcIn),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: SvgPicture.asset(
-                  AppIcons.cart,
-                  colorFilter: ColorFilter.mode(
-                      Theme.of(context).colorScheme.background,
-                      BlendMode.srcIn),
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+      appBar: const TopAppBar(),
       body: BlocBuilder<BottomNavigationCubit, BottomNav>(builder: (_, state) {
         switch (state) {
           case BottomNav.home:
