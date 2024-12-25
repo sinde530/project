@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/presentation/pages/home/home_screen.dart';
 import 'package:e_commerce_app/presentation/pages/main/main_screen.dart';
 import 'package:e_commerce_app/presentation/pages/splash/splash_screen.dart';
 import 'package:e_commerce_app/presentation/routes/route_path.dart';
