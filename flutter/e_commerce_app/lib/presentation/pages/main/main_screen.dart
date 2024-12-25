@@ -1,22 +1,23 @@
-import 'package:e_commerce_app/presentation/components/top_app_bar/top_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../components/top_app_bar/top_app_bar.dart';
 import '../category/category_screen.dart';
 import '../home/home_screen.dart';
 import '../search/search_screen.dart';
 import '../user/user_screen.dart';
 import 'cubit/bottom_navigation_cubit.dart';
+import 'cubit/mall_type_cubit.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => BottomNavigationCubit(),
-      child: const MainScreenView(),
-    );
+    return MultiBlocProvider(providers: [
+      BlocProvider(create: (_) => BottomNavigationCubit()),
+      BlocProvider(create: (_) => MallTypeCubit()),
+    ], child: const MainScreenView());
   }
 }
 
