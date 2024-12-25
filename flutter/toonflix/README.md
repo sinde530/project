@@ -1,5 +1,13 @@
 # ios / flutter run --release
 
+# android
+
+```typescript
+rm -rf android
+flutter create --platforms=android .
+flutter run --release
+```
+
 # toonflix
 
 A new Flutter project.
