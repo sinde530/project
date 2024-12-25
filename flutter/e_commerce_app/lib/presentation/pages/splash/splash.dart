@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:e_commerce_app/core/theme/constant/app_colors.dart';
+import 'package:e_commerce_app/core/theme/constant/app_icons.dart';
 import 'package:e_commerce_app/presentation/routes/route_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -23,10 +25,9 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO HardCording Value Changed.
-      backgroundColor: Color(0xFF5F0080),
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: Center(
-        child: SvgPicture.asset('assets/svg/main_logo.svg'),
+        child: SvgPicture.asset(AppIcons.mainLogo),
       ),
     );
   }
