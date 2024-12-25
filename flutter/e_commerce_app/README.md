@@ -21,4 +21,5 @@ samples, guidance on mobile development, and a full API reference.
 flutter pub add
 - go_router
 - flutter_svg
+- flutter_bloc
 ```
