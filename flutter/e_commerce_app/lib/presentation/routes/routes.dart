@@ -15,11 +15,6 @@ final GoRouter router = GoRouter(
       name: 'main',
       builder: (context, state) => const MainScreen(),
     ),
-    // GoRoute(
-    //   path: RoutePath.home,
-    //   name: 'home',
-    //   builder: (context, state) => const HomeScreen(),
-    // ),
   ],
   initialLocation: '/splash',
 );
