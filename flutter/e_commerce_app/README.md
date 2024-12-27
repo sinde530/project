@@ -22,4 +22,5 @@ flutter pub add
 - go_router
 - flutter_svg
 - flutter_bloc
+- freezed
 ```
