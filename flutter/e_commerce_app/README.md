@@ -27,4 +27,5 @@ flutter pub add
 - dev:freezed
 - json_annotation
 - dev:json_serializable
+- retrofit
 ```
