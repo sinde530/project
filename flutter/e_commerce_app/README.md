@@ -28,4 +28,6 @@ flutter pub add
 - json_annotation
 - dev:json_serializable
 - retrofit
+- dio
+
 ```
